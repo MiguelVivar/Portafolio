@@ -100,6 +100,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/svg+xml" href="/logo.svg" />
         <link rel="canonical" href="https://miguelvivar.github.io" />
+        <link rel="preconnect" href="https://miguelvivar-api.vercel.app/"></link>
         <JsonLd data={personSchema} />
         <JsonLd data={websiteSchema} />
       </head>

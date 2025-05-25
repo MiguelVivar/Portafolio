@@ -23,19 +23,8 @@ const formatTime = (ms: number): string => {
   return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 };
 
-// Función para obtener la URL de la API según el entorno
-const getApiUrl = () => {
-  // Detectar si estamos en producción o desarrollo
-  const isProduction = process.env.NODE_ENV === 'production';
-  
-  // En desarrollo apuntamos al proyecto Portafolio en localhost:3001
-  // En producción apuntamos a la URL de producción del proyecto Portafolio
-  const domain = isProduction 
-    ? 'https://miguelvivar-api.vercel.app' // URL de producción (API desplegada)
-    : 'http://localhost:3001'; // URL local del proyecto Portafolio
-    
-  return `${domain}/api/spotify`;
-};
+// Simplificada la URL de la API para Vercel
+const getApiUrl = () => 'https://miguel-vivar.vercel.app/api/spotify';
 
 const SpotifyNowPlaying: React.FC = () => {
   const [data, setData] = useState<SpotifyData | null>(null);

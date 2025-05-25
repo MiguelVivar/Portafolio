@@ -621,8 +621,7 @@ export default function GlobalSearch() {
                           { key: 'page', label: 'Páginas', count: results.filter(r => r.type === 'page').length },
                           { key: 'project', label: 'Proyectos', count: results.filter(r => r.type === 'project').length },
                           { key: 'skill', label: 'Habilidades', count: results.filter(r => r.type === 'skill').length },
-                          { key: 'command', label: 'Comandos', count: results.filter(r => r.type === 'command').length }
-                        ].map(filter => filter.count > 0 && (
+                          { key: 'command', label: 'Comandos', count: results.filter(r => r.type === 'command').length }                        ].map(filter => filter.count > 0 ? (
                           <button
                             key={filter.key}
                             onClick={() => setActiveFilter(filter.key)}
@@ -634,7 +633,7 @@ export default function GlobalSearch() {
                           >
                             {filter.label} ({filter.count})
                           </button>
-                        ))}
+                        ) : null)}
                       </div>
                     </div>
                   )}

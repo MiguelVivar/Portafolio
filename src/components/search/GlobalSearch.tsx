@@ -34,6 +34,22 @@ interface SearchCommand {
   icon: React.ReactNode
 }
 
+// Helper function para obtener iconos basados en el tipo
+const getIconByType = (type: string): React.ReactNode => {
+  switch (type) {
+    case 'project':
+      return <FaProjectDiagram />
+    case 'skill':
+      return <FaCode />
+    case 'page':
+      return <FaUser />
+    case 'command':
+      return <FaTimes />
+    default:
+      return <FaSearch />
+  }
+}
+
 export default function GlobalSearch() {
   const [isOpen, setIsOpen] = useState(false)
   const [query, setQuery] = useState('')
@@ -237,14 +253,15 @@ export default function GlobalSearch() {
           // Limpiar datos corruptos
           localStorage.removeItem('search-history')
         }
-      }
-      
-      if (savedRecents) {
+      }      if (savedRecents) {
         try {
-          const recents = JSON.parse(savedRecents).map((item: SearchResult) => ({
-            ...item,
-            lastAccessed: item.lastAccessed ? new Date(item.lastAccessed) : undefined
-          }))
+          const recents = JSON.parse(savedRecents).map((item: Omit<SearchResult, 'icon'> & { lastAccessed?: string }) => {
+            return {
+              ...item,
+              icon: getIconByType(item.type),
+              lastAccessed: item.lastAccessed ? new Date(item.lastAccessed) : undefined
+            };
+          })
           setRecentResults(recents)
         } catch (error) {
           console.error('Error loading recent results:', error)
@@ -409,9 +426,7 @@ export default function GlobalSearch() {
         command.action()
         return
       }
-    }
-
-    // Actualizar resultados recientes con protección para SSR
+    }    // Actualizar resultados recientes with protección para SSR
     const updatedResult = {
       ...result,
       lastAccessed: new Date()
@@ -422,11 +437,30 @@ export default function GlobalSearch() {
         updatedResult,
         ...prev.filter(r => r.id !== result.id).slice(0, 4)
       ]
-      if (typeof window !== 'undefined') {
-        try {
-          localStorage.setItem('recent-results', JSON.stringify(updatedRecents))
+      if (typeof window !== 'undefined') {        try {
+          // Filtrar datos serializables para localStorage (excluir React nodes como icon)
+          const serializableRecents = updatedRecents.map((item) => ({
+            id: item.id,
+            title: item.title,
+            description: item.description,
+            type: item.type,
+            url: item.url,
+            category: item.category,
+            tags: item.tags,
+            score: item.score,
+            isStarred: item.isStarred,
+            // Convertir Date a string para serialización
+            lastAccessed: item.lastAccessed?.toISOString()
+          }))
+          localStorage.setItem('recent-results', JSON.stringify(serializableRecents))
         } catch (error) {
           console.error('Error saving recent results:', error)
+          // Intentar limpiar localStorage si está lleno
+          try {
+            localStorage.removeItem('recent-results')
+          } catch (cleanupError) {
+            console.error('Error clearing recent results:', cleanupError)
+          }
         }
       }
       return updatedRecents

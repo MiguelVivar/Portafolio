@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+/* Optimización de animaciones para TypewriterRole */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 8px 2px rgba(52, 211, 153, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 12px 4px rgba(52, 211, 153, 0.2);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Optimización para will-change en elementos animados */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}

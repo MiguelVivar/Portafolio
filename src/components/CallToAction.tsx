@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useState, useCallback, useMemo, memo } from 'react';
 import { motion } from 'framer-motion';
 
 interface CallToActionProps {
@@ -15,7 +15,144 @@ interface CallToActionProps {
   buttonSecondaryLink?: string;
 }
 
-const CallToAction: React.FC<CallToActionProps> = ({ 
+// Optimized animation variants - computed once and memoized
+const animationVariants = {
+  container: {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8 }
+  },
+  content: {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.5 }
+  },
+  description: {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    transition: { duration: 0.5, delay: 0.2 }
+  },
+  buttons: {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.5, delay: 0.3 }
+  },  titleSpan: {
+    transition: { 
+      duration: 5,
+      repeat: Infinity,
+      ease: "linear" 
+    }
+  },
+  buttonHover: {
+    scale: 1.05,
+    transition: { type: "spring", stiffness: 400, damping: 17 }
+  },
+  buttonTap: {
+    scale: 0.98,
+    transition: { type: "spring", stiffness: 400, damping: 17 }
+  }
+};
+
+// Memoized decorative components to prevent re-renders
+const BackgroundDecorations = memo(() => (
+  <>
+    <div className="absolute inset-0 bg-gradient-to-br from-neutral-800 via-neutral-900 to-neutral-800 z-0" />
+    <div className="absolute inset-0 bg-[url('/path-to-subtle-pattern.png')] opacity-5 mix-blend-soft-light z-0" />
+    <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-[80px] transform translate-x-1/4 -translate-y-1/4 z-0" />
+    <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-[80px] transform -translate-x-1/4 translate-y-1/4 z-0" />
+  </>
+));
+BackgroundDecorations.displayName = 'BackgroundDecorations';
+
+const DecorativeLines = memo(() => (
+  <>
+    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
+    <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
+  </>
+));
+DecorativeLines.displayName = 'DecorativeLines';
+
+const CornerDecorations = memo(() => (
+  <>
+    <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-emerald-500/30 rounded-tl-lg" />
+    <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-emerald-500/30 rounded-tr-lg" />
+    <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-emerald-500/30 rounded-bl-lg" />
+    <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-emerald-500/30 rounded-br-lg" />
+  </>
+));
+CornerDecorations.displayName = 'CornerDecorations';
+
+// Optimized button component with reduced re-renders
+interface OptimizedButtonProps {
+  type: 'primary' | 'secondary';
+  text: string;
+  icon: React.ReactNode;
+  link: string;
+  isHovered: boolean;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+}
+
+const OptimizedButton = memo<OptimizedButtonProps>(({ 
+  type, 
+  text, 
+  icon, 
+  link, 
+  isHovered, 
+  onMouseEnter, 
+  onMouseLeave 
+}) => {
+  const isPrimary = type === 'primary';
+  
+  const buttonStyles = useMemo(() => ({
+    container: `relative group ${isPrimary ? 'order-2 sm:order-1' : 'order-1 sm:order-2'}`,
+    glow: `absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-xl blur transition duration-200 ${
+      isPrimary 
+        ? `opacity-70 group-hover:opacity-80 ${isHovered ? 'animate-pulse' : ''}` 
+        : `opacity-30 group-hover:opacity-70 ${isHovered ? 'animate-pulse' : ''}`
+    }`,
+    button: isPrimary
+      ? "relative px-7 py-4 bg-gradient-to-r from-emerald-400 to-teal-500 text-neutral-900 rounded-lg font-bold flex items-center gap-3 shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-500/40 transition-all duration-300"
+      : "relative px-7 py-4 bg-neutral-800 border border-emerald-300/20 rounded-lg text-emerald-300 font-medium flex items-center gap-3 transition-all duration-300 group-hover:border-emerald-300/50"
+  }), [isPrimary, isHovered]);
+
+  const linkProps = useMemo(() => 
+    isPrimary 
+      ? { target: "_blank", rel: "noopener noreferrer" }
+      : {}
+  , [isPrimary]);
+
+  return (
+    <motion.div
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      whileHover={animationVariants.buttonHover}
+      whileTap={animationVariants.buttonTap}
+      className={buttonStyles.container}
+    >
+      <div className={buttonStyles.glow} />
+      <a 
+        href={link}
+        className={buttonStyles.button}
+        {...linkProps}
+      >
+        <motion.span 
+          animate={{ 
+            rotate: isHovered ? [0, -10, 10, -10, 0] : 0
+          }}
+          transition={{ duration: 0.5 }}
+          className="text-xl"
+        >
+          {icon}
+        </motion.span>
+        <span>{text}</span>
+      </a>
+    </motion.div>
+  );
+});
+OptimizedButton.displayName = 'OptimizedButton';
+
+const CallToAction: React.FC<CallToActionProps> = memo(({ 
   title, 
   titlespan, 
   description, 
@@ -28,48 +165,50 @@ const CallToAction: React.FC<CallToActionProps> = ({
 }) => {
   const [hoveredButton, setHoveredButton] = useState<'primary' | 'secondary' | null>(null);
   
+  // Memoized event handlers to prevent unnecessary re-renders
+  const handlePrimaryHover = useCallback(() => setHoveredButton('primary'), []);
+  const handleSecondaryHover = useCallback(() => setHoveredButton('secondary'), []);
+  const handleMouseLeave = useCallback(() => setHoveredButton(null), []);
+
+  // Memoized viewport configuration
+  const viewportConfig = useMemo(() => ({ 
+    once: true, 
+    margin: "-100px" 
+  }), []);
+
+  // Memoized title span styles
+  const titleSpanStyles = useMemo(() => ({
+    backgroundSize: "200% auto"
+  }), []);
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8 }}
+      initial={animationVariants.container.initial}
+      whileInView={animationVariants.container.animate}
+      viewport={viewportConfig}
+      transition={animationVariants.container.transition}
       className="relative overflow-hidden"
     >
-      {/* Elementos decorativos de fondo */}
-      <div className="absolute inset-0 bg-gradient-to-br from-neutral-800 via-neutral-900 to-neutral-800 z-0"></div>
-      <div className="absolute inset-0 bg-[url('/path-to-subtle-pattern.png')] opacity-5 mix-blend-soft-light z-0"></div>
-      <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-[80px] transform translate-x-1/4 -translate-y-1/4 z-0"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-[80px] transform -translate-x-1/4 translate-y-1/4 z-0"></div>
-      
-      {/* Líneas decorativas animadas */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent"></div>
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent"></div>
+      <BackgroundDecorations />
+      <DecorativeLines />
       
       {/* Contenido principal */}
       <div className="relative z-10 py-12 px-8 sm:px-12 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          initial={animationVariants.content.initial}
+          whileInView={animationVariants.content.animate}
+          viewport={viewportConfig}
+          transition={animationVariants.content.transition}
           className="max-w-4xl mx-auto"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
-            <span className="text-white">{title}</span>{" "}
-            <motion.span 
+            <span className="text-white">{title}</span>{" "}            <motion.span 
               className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-teal-400"
               animate={{ 
-                backgroundPosition: ["0% center", "100% center", "0% center"],
+                backgroundPosition: ["0% center", "100% center", "0% center"]
               }}
-              transition={{ 
-                duration: 5,
-                repeat: Infinity,
-                ease: "linear" 
-              }}
-              style={{
-                backgroundSize: "200% auto"
-              }}
+              transition={animationVariants.titleSpan.transition}
+              style={titleSpanStyles}
             >
               {titlespan}
             </motion.span>
@@ -77,10 +216,10 @@ const CallToAction: React.FC<CallToActionProps> = ({
           </h2>
           
           <motion.p 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            initial={animationVariants.description.initial}
+            whileInView={animationVariants.description.animate}
+            viewport={viewportConfig}
+            transition={animationVariants.description.transition}
             className="text-lg text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed"
           >
             {description}
@@ -88,75 +227,39 @@ const CallToAction: React.FC<CallToActionProps> = ({
           
           <motion.div 
             className="flex flex-col sm:flex-row gap-5 justify-center items-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            initial={animationVariants.buttons.initial}
+            whileInView={animationVariants.buttons.animate}
+            viewport={viewportConfig}
+            transition={animationVariants.buttons.transition}
           >
-            {/* Botón secundario */}
-            <motion.div
-              onMouseEnter={() => setHoveredButton('secondary')}
-              onMouseLeave={() => setHoveredButton(null)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              className="relative group"
-            >
-              <div className={`absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-xl blur opacity-30 group-hover:opacity-70 transition duration-200 ${hoveredButton === 'secondary' ? 'animate-pulse' : ''}`}></div>
-              <a 
-                href={buttonSecondaryLink}
-                className="relative px-7 py-4 bg-neutral-800 border border-emerald-300/20 rounded-lg text-emerald-300 font-medium flex items-center gap-3 transition-all duration-300 group-hover:border-emerald-300/50"
-              >
-                <motion.span 
-                  animate={{ 
-                    rotate: hoveredButton === 'secondary' ? [0, -10, 10, -10, 0] : 0
-                  }}
-                  transition={{ duration: 0.5 }}
-                  className="text-xl"
-                >
-                  {buttonSecundaryIcon}
-                </motion.span>
-                <span>{buttonSecondaryText}</span>
-              </a>
-            </motion.div>
+            <OptimizedButton
+              type="secondary"
+              text={buttonSecondaryText}
+              icon={buttonSecundaryIcon}
+              link={buttonSecondaryLink}
+              isHovered={hoveredButton === 'secondary'}
+              onMouseEnter={handleSecondaryHover}
+              onMouseLeave={handleMouseLeave}
+            />
             
-            {/* Botón primario */}
-            <motion.div
-              onMouseEnter={() => setHoveredButton('primary')}
-              onMouseLeave={() => setHoveredButton(null)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              className="relative group"
-            >
-              <div className={`absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-xl blur opacity-70 group-hover:opacity-80 transition duration-200 ${hoveredButton === 'primary' ? 'animate-pulse' : ''}`}></div>
-              <a 
-                href={buttonPrimaryLink}
-                className="relative px-7 py-4 bg-gradient-to-r from-emerald-400 to-teal-500 text-neutral-900 rounded-lg font-bold flex items-center gap-3 shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-500/40 transition-all duration-300"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <motion.span 
-                  animate={{ 
-                    rotate: hoveredButton === 'primary' ? [0, -10, 10, -10, 0] : 0
-                  }}
-                  transition={{ duration: 0.5 }}
-                  className="text-xl"
-                >
-                  {buttonPrimaryIcon}
-                </motion.span>
-                <span>{buttonPrimaryText}</span>
-              </a>
-            </motion.div>
+            <OptimizedButton
+              type="primary"
+              text={buttonPrimaryText}
+              icon={buttonPrimaryIcon}
+              link={buttonPrimaryLink}
+              isHovered={hoveredButton === 'primary'}
+              onMouseEnter={handlePrimaryHover}
+              onMouseLeave={handleMouseLeave}
+            />
           </motion.div>
         </motion.div>
       </div>
       
-      {/* Esquinas decorativas */}
-      <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-emerald-500/30 rounded-tl-lg"></div>
-      <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-emerald-500/30 rounded-tr-lg"></div>
-      <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-emerald-500/30 rounded-bl-lg"></div>
-      <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-emerald-500/30 rounded-br-lg"></div>
+      <CornerDecorations />
     </motion.div>
   );
-};
+});
+
+CallToAction.displayName = 'CallToAction';
 
 export default CallToAction;

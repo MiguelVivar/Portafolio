@@ -45,7 +45,7 @@ export default function GlobalSearch() {
   const [isLoading, setIsLoading] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  // Comandos de búsqueda especiales
+  // Comandos de búsqueda especiales con protección para SSR
   const searchCommands: SearchCommand[] = useMemo(() => [
     {
       id: 'clear-history',
@@ -54,8 +54,14 @@ export default function GlobalSearch() {
       action: () => {
         setSearchHistory([])
         setRecentResults([])
-        localStorage.removeItem('search-history')
-        localStorage.removeItem('recent-results')
+        if (typeof window !== 'undefined') {
+          try {
+            localStorage.removeItem('search-history')
+            localStorage.removeItem('recent-results')
+          } catch (error) {
+            console.error('Error clearing localStorage:', error)
+          }
+        }
       },
       icon: <FaTimes />
     },
@@ -64,7 +70,9 @@ export default function GlobalSearch() {
       command: '/home',
       description: 'Ir a página de inicio',
       action: () => {
-        window.location.href = '/'
+        if (typeof window !== 'undefined') {
+          window.location.href = '/'
+        }
         setIsOpen(false)
       },
       icon: <FaUser />
@@ -74,113 +82,125 @@ export default function GlobalSearch() {
       command: '/contact',
       description: 'Ir a página de contacto',
       action: () => {
-        window.location.href = '/contacto'
+        if (typeof window !== 'undefined') {
+          window.location.href = '/contacto'
+        }
         setIsOpen(false)
       },
       icon: <FaEnvelope />
     }
   ], [])
 
-  // Datos de búsqueda mejorados
-  const searchData: SearchResult[] = useMemo(() => [
-    // Páginas
-    {
-      id: 'home',
-      title: 'Inicio',
-      description: 'Página principal con información general y presentación profesional',
-      type: 'page',
-      url: '/',
-      icon: <FaUser />,
-      category: 'Navegación',
-      tags: ['inicio', 'home', 'principal', 'presentación', 'perfil'],
-      score: 0
-    },
-    {
-      id: 'projects',
-      title: 'Proyectos',
-      description: 'Galería de proyectos desarrollados con diferentes tecnologías',
-      type: 'page',
-      url: '/proyectos',
-      icon: <FaProjectDiagram />,
-      category: 'Navegación',
-      tags: ['proyectos', 'portfolio', 'trabajos', 'desarrollo', 'código'],
-      score: 0
-    },
-    {
-      id: 'skills',
-      title: 'Habilidades',
-      description: 'Tecnologías, herramientas y competencias técnicas',
-      type: 'page',
-      url: '/habilidades',
-      icon: <FaCode />,
-      category: 'Navegación',
-      tags: ['habilidades', 'skills', 'tecnologías', 'competencias', 'conocimientos'],
-      score: 0
-    },
-    {
-      id: 'about',
-      title: 'Sobre Mí',
-      description: 'Mi historia, experiencia profesional y trayectoria',
-      type: 'page',
-      url: '/sobremi',
-      icon: <FaUser />,
-      category: 'Navegación',
-      tags: ['sobre mi', 'about', 'experiencia', 'biografía', 'historia'],
-      score: 0
-    },
-    {
-      id: 'contact',
-      title: 'Contacto',
-      description: 'Formulario de contacto y redes sociales',
-      type: 'page',
-      url: '/contacto',
-      icon: <FaEnvelope />,
-      category: 'Navegación',
-      tags: ['contacto', 'contact', 'email', 'mensaje', 'comunicación'],
-      score: 0
-    },
+  // Datos de búsqueda mejorados con protección para datos faltantes
+  const searchData: SearchResult[] = useMemo(() => {
+    const data: SearchResult[] = []
     
-    // Proyectos con información expandida
-    ...proyectos.map(proyecto => ({
-      id: `project-${proyecto.id}`,
-      title: proyecto.titulo,
-      description: proyecto.descripcion,
-      type: 'project' as const,
-      url: `/proyectos/${proyecto.id}`,
-      icon: <FaProjectDiagram />,
-      category: proyecto.categoria || 'Proyecto',
-      tags: [
-        proyecto.titulo.toLowerCase(),
-        proyecto.categoria?.toLowerCase() || '',
-        ...proyecto.tecnologias.map(tech => tech.nombre.toLowerCase()),
-        'proyecto', 'development'
-      ],
-      score: 0,
-      isStarred: proyecto.destacado
-    })),
-
-    // Habilidades con información expandida
-    ...categoriasHabilidades.flatMap((categoria) => 
-      categoria.habilidades.map((habilidad: HabilidadType) => ({
-        id: `skill-${habilidad.nombre}`,
-        title: habilidad.nombre,
-        description: habilidad.descripcion || `Habilidad en ${habilidad.nombre} - Nivel: ${habilidad.nivel}`,
-        type: 'skill' as const,
+    // Páginas
+    data.push(
+      {
+        id: 'home',
+        title: 'Inicio',
+        description: 'Página principal con información general y presentación profesional',
+        type: 'page',
+        url: '/',
+        icon: <FaUser />,
+        category: 'Navegación',
+        tags: ['inicio', 'home', 'principal', 'presentación', 'perfil'],
+        score: 0
+      },
+      {
+        id: 'projects',
+        title: 'Proyectos',
+        description: 'Galería de proyectos desarrollados con diferentes tecnologías',
+        type: 'page',
+        url: '/proyectos',
+        icon: <FaProjectDiagram />,
+        category: 'Navegación',
+        tags: ['proyectos', 'portfolio', 'trabajos', 'desarrollo', 'código'],
+        score: 0
+      },
+      {
+        id: 'skills',
+        title: 'Habilidades',
+        description: 'Tecnologías, herramientas y competencias técnicas',
+        type: 'page',
         url: '/habilidades',
         icon: <FaCode />,
-        category: categoria.titulo,
-        tags: [
-          habilidad.nombre.toLowerCase(),
-          categoria.titulo.toLowerCase(),
-          habilidad.nivel.toLowerCase(),
-          'habilidad', 'skill', 'tecnología'
-        ],
+        category: 'Navegación',
+        tags: ['habilidades', 'skills', 'tecnologías', 'competencias', 'conocimientos'],
         score: 0
+      },
+      {
+        id: 'about',
+        title: 'Sobre Mí',
+        description: 'Mi historia, experiencia profesional y trayectoria',
+        type: 'page',
+        url: '/sobremi',
+        icon: <FaUser />,
+        category: 'Navegación',
+        tags: ['sobre mi', 'about', 'experiencia', 'biografía', 'historia'],
+        score: 0
+      },
+      {
+        id: 'contact',
+        title: 'Contacto',
+        description: 'Formulario de contacto y redes sociales',
+        type: 'page',
+        url: '/contacto',
+        icon: <FaEnvelope />,
+        category: 'Navegación',
+        tags: ['contacto', 'contact', 'email', 'mensaje', 'comunicación'],
+        score: 0
+      }
+    )
+    
+    // Proyectos con información expandida y protección para datos faltantes
+    if (Array.isArray(proyectos)) {
+      const projectsData = proyectos.map(proyecto => ({
+        id: `project-${proyecto.id || Math.random()}`,
+        title: proyecto.titulo || 'Proyecto sin título',
+        description: proyecto.descripcion || 'Sin descripción',
+        type: 'project' as const,
+        url: `/proyectos/${proyecto.id || ''}`,
+        icon: <FaProjectDiagram />,
+        category: proyecto.categoria || 'Proyecto',
+        tags: [
+          (proyecto.titulo || '').toLowerCase(),
+          (proyecto.categoria || '').toLowerCase(),
+          ...(proyecto.tecnologias || []).map(tech => (tech.nombre || '').toLowerCase()),
+          'proyecto', 'development'
+        ].filter(Boolean), // Filtrar valores vacíos
+        score: 0,
+        isStarred: Boolean(proyecto.destacado)
       }))
-    ),
+      data.push(...projectsData)
+    }
+
+    // Habilidades con información expandida y protección para datos faltantes
+    if (Array.isArray(categoriasHabilidades)) {
+      const skillsData = categoriasHabilidades.flatMap((categoria) => 
+        (categoria.habilidades || []).map((habilidad: HabilidadType) => ({
+          id: `skill-${habilidad.nombre || Math.random()}`,
+          title: habilidad.nombre || 'Habilidad sin nombre',
+          description: habilidad.descripcion || `Habilidad en ${habilidad.nombre || 'tecnología'} - Nivel: ${habilidad.nivel || 'No especificado'}`,
+          type: 'skill' as const,
+          url: '/habilidades',
+          icon: <FaCode />,
+          category: categoria.titulo || 'Sin categoría',
+          tags: [
+            (habilidad.nombre || '').toLowerCase(),
+            (categoria.titulo || '').toLowerCase(),
+            (habilidad.nivel || '').toLowerCase(),
+            'habilidad', 'skill', 'tecnología'
+          ].filter(Boolean), // Filtrar valores vacíos
+          score: 0
+        }))
+      )
+      data.push(...skillsData)
+    }
 
     // Comandos
-    ...searchCommands.map(cmd => ({
+    const commandsData = searchCommands.map(cmd => ({
       id: cmd.id,
       title: cmd.command,
       description: cmd.description,
@@ -191,35 +211,49 @@ export default function GlobalSearch() {
       tags: [cmd.command, 'comando', 'command'],
       score: 0
     }))
-  ], [searchCommands])
+    data.push(...commandsData)
 
-  // Cargar datos del localStorage al montar
+    return data
+  }, [searchCommands])
+
+  // Cargar datos del localStorage al montar con protección para SSR
   useEffect(() => {
-    const savedHistory = localStorage.getItem('search-history')
-    const savedRecents = localStorage.getItem('recent-results')
+    // Proteger contra errores de SSR
+    if (typeof window === 'undefined') return
     
-    if (savedHistory) {
-      try {
-        const history = JSON.parse(savedHistory).map((item: SearchHistory) => ({
-          ...item,
-          timestamp: new Date(item.timestamp)
-        }))
-        setSearchHistory(history)
-      } catch (error) {
-        console.error('Error loading search history:', error)
+    try {
+      const savedHistory = localStorage.getItem('search-history')
+      const savedRecents = localStorage.getItem('recent-results')
+      
+      if (savedHistory) {
+        try {
+          const history = JSON.parse(savedHistory).map((item: SearchHistory) => ({
+            ...item,
+            timestamp: new Date(item.timestamp)
+          }))
+          setSearchHistory(history)
+        } catch (error) {
+          console.error('Error loading search history:', error)
+          // Limpiar datos corruptos
+          localStorage.removeItem('search-history')
+        }
       }
-    }
-    
-    if (savedRecents) {
-      try {
-        const recents = JSON.parse(savedRecents).map((item: SearchResult) => ({
-          ...item,
-          lastAccessed: item.lastAccessed ? new Date(item.lastAccessed) : undefined
-        }))
-        setRecentResults(recents)
-      } catch (error) {
-        console.error('Error loading recent results:', error)
+      
+      if (savedRecents) {
+        try {
+          const recents = JSON.parse(savedRecents).map((item: SearchResult) => ({
+            ...item,
+            lastAccessed: item.lastAccessed ? new Date(item.lastAccessed) : undefined
+          }))
+          setRecentResults(recents)
+        } catch (error) {
+          console.error('Error loading recent results:', error)
+          // Limpiar datos corruptos
+          localStorage.removeItem('recent-results')
+        }
       }
+    } catch (error) {
+      console.error('Error accessing localStorage:', error)
     }
   }, [])
 
@@ -326,8 +360,8 @@ export default function GlobalSearch() {
       setResults(scoredResults)
       setSelectedIndex(0)
 
-      // Guardar en historial si hay resultados
-      if (scoredResults.length > 0) {
+      // Guardar en historial si hay resultados con protección para SSR
+      if (scoredResults.length > 0 && typeof window !== 'undefined') {
         setSearchHistory(prev => {
           const newHistoryEntry: SearchHistory = {
             query: searchQuery,
@@ -336,7 +370,11 @@ export default function GlobalSearch() {
           }
           
           const updatedHistory = [newHistoryEntry, ...prev.slice(0, 9)]
-          localStorage.setItem('search-history', JSON.stringify(updatedHistory))
+          try {
+            localStorage.setItem('search-history', JSON.stringify(updatedHistory))
+          } catch (error) {
+            console.error('Error saving search history:', error)
+          }
           return updatedHistory
         })
       }
@@ -363,7 +401,7 @@ export default function GlobalSearch() {
       }
     }
   }, [query, performSearch])
-  // Función para manejar selección de resultado
+  // Función para manejar selección de resultado con protección para SSR
   const handleResultSelect = useCallback((result: SearchResult) => {
     if (result.type === 'command') {
       const command = searchCommands.find(cmd => cmd.id === result.id)
@@ -373,7 +411,7 @@ export default function GlobalSearch() {
       }
     }
 
-    // Actualizar resultados recientes
+    // Actualizar resultados recientes con protección para SSR
     const updatedResult = {
       ...result,
       lastAccessed: new Date()
@@ -384,12 +422,18 @@ export default function GlobalSearch() {
         updatedResult,
         ...prev.filter(r => r.id !== result.id).slice(0, 4)
       ]
-      localStorage.setItem('recent-results', JSON.stringify(updatedRecents))
+      if (typeof window !== 'undefined') {
+        try {
+          localStorage.setItem('recent-results', JSON.stringify(updatedRecents))
+        } catch (error) {
+          console.error('Error saving recent results:', error)
+        }
+      }
       return updatedRecents
     })
 
-    // Navegar si no es comando
-    if (result.url) {
+    // Navegar si no es comando y window está disponible
+    if (result.url && typeof window !== 'undefined') {
       window.location.href = result.url
     }
     
@@ -483,7 +527,7 @@ export default function GlobalSearch() {
     }
   }
 
-  const highlightText = (text: string, query: string) => {
+  const highlightText = (text: string, query: string): React.ReactNode => {
     if (!query.trim()) return text
     
     const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi')
@@ -491,10 +535,12 @@ export default function GlobalSearch() {
     
     return parts.map((part, index) =>
       regex.test(part) ? (
-        <mark key={index} className="bg-emerald-500/30 text-emerald-300 rounded px-1">
+        <mark key={`highlight-${index}`} className="bg-emerald-500/30 text-emerald-300 rounded px-1">
           {part}
         </mark>
-      ) : part
+      ) : (
+        <span key={`text-${index}`}>{part}</span>
+      )
     )
   }
 
@@ -642,7 +688,8 @@ export default function GlobalSearch() {
                             <FaHistory className="w-4 h-4 text-gray-400" />
                             <h3 className="text-sm font-medium text-gray-300">Búsquedas recientes</h3>
                           </div>
-                          <div className="space-y-1">                            {searchHistory.slice(0, 5).map((historyItem, index) => (
+                          <div className="space-y-1">
+                            {searchHistory.slice(0, 5).map((historyItem, index) => (
                               <button
                                 key={`${historyItem.query}-${index}`}
                                 onClick={() => setQuery(historyItem.query)}

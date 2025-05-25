@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const PageHeader: React.FC = () => {
   return (
-    <motion.div 
+    <motion.header 
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -16,12 +16,13 @@ const PageHeader: React.FC = () => {
           initial={{ width: 0 }}
           animate={{ width: "100%" }}
           transition={{ duration: 0.8, delay: 0.5 }}
+          aria-hidden="true"
         />
       </h1>
       <p className="text-lg text-gray-400 max-w-3xl mx-auto">
         Una selección de mis trabajos más recientes y destacados en desarrollo web
       </p>
-    </motion.div>
+    </motion.header>
   );
 };
 

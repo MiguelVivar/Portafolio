@@ -52,12 +52,11 @@ const elementoVariantes = {
 const ProjectCard: React.FC<ProjectCardProps> = ({ proyecto, listView = false }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
-
   // Vista de lista
   if (listView) {
     return (
       <>
-        <motion.div
+        <motion.article
           variants={elementoVariantes}
           className={`bg-neutral-800 rounded-lg overflow-hidden hover:shadow-lg hover:shadow-emerald-500/20 transition-all duration-300 flex flex-col sm:flex-row ${proyecto.destacado ? 'border-l-4 border-emerald-300' : 'border-l-4 border-transparent'} cursor-pointer relative`}
           whileHover={{ 
@@ -68,16 +67,24 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ proyecto, listView = false })
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onClick={() => setShowDetails(true)}
+          role="button"
+          tabIndex={0}
+          aria-label={`Ver detalles del proyecto ${proyecto.titulo}`}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              setShowDetails(true);
+            }
+          }}
         >
           {/* Imagen del proyecto (solo visible en mobile o cuando se hace hover) */}
           <div className={`sm:w-48 h-40 sm:h-auto ${isHovered ? 'sm:opacity-100' : 'sm:opacity-80'} transition-all duration-300`}>
             <ProjectImage 
               src={proyecto.imagen} 
-              alt={`Imagen del proyecto ${proyecto.titulo}`}
+              alt={`Captura de pantalla del proyecto ${proyecto.titulo}`}
               className="object-cover w-full h-full"
             />
-          </div>
-          
+          </div>          
           {/* Contenido del proyecto */}
           <div className="p-6 flex-1 flex flex-col justify-between">
             <div>
@@ -97,11 +104,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ proyecto, listView = false })
                   {proyecto.categoria}
                 </span>
               )}
-            </div>
-            
-            <div className="flex flex-wrap justify-between items-end">
+            </div>            <div className="flex flex-wrap justify-between items-end">
               {/* Tecnologías utilizadas */}
-              <div className="flex flex-wrap gap-2 mb-2 sm:mb-0">
+              <div className="flex flex-wrap gap-2 mb-2 sm:mb-0" aria-label="Tecnologías utilizadas">
                 {proyecto.tecnologias.map((tech, techIndex) => (
                   <TechnologyBadge 
                     key={techIndex} 
@@ -117,7 +122,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ proyecto, listView = false })
               </div>
             </div>
           </div>
-        </motion.div>
+        </motion.article>
 
         {/* Modal de detalles */}
         <ProjectDetails
@@ -128,11 +133,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ proyecto, listView = false })
       </>
     );
   }
-
   // Vista de cuadrícula (default)
   return (
     <>
-      <motion.div
+      <motion.article
         variants={elementoVariantes}
         className={`bg-neutral-800 rounded-lg overflow-hidden hover:shadow-lg hover:shadow-emerald-500/20 transition-all duration-300 group relative h-full flex flex-col ${proyecto.destacado ? 'border-t-2 border-emerald-300' : 'border-t-2 border-neutral-700'} cursor-pointer`}
         whileHover={{ 
@@ -141,15 +145,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ proyecto, listView = false })
         }}
         whileTap={{ scale: 0.98 }}
         onClick={() => setShowDetails(true)}
+        role="button"
+        tabIndex={0}
+        aria-label={`Ver detalles del proyecto ${proyecto.titulo}`}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setShowDetails(true);
+          }
+        }}
       >
         {/* Badge de proyecto destacado */}
         {proyecto.destacado && <ProjectFeatureBadge position="top-right" />}
-        
-        {/* Imagen del proyecto */}
+          {/* Imagen del proyecto */}
         <div className="relative overflow-hidden h-48">
           <ProjectImage 
             src={proyecto.imagen} 
-            alt={`Imagen del proyecto ${proyecto.titulo}`}
+            alt={`Captura de pantalla del proyecto ${proyecto.titulo}`}
             className="object-cover w-full h-full transform transition-transform group-hover:scale-105"
           />
           {/* Overlay al hacer hover */}
@@ -175,7 +187,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ proyecto, listView = false })
           {/* Tecnologías utilizadas */}
           <div className="mb-4 mt-auto">
             <h4 className="text-sm font-semibold text-white mb-2">Tecnologías</h4>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2" aria-label="Tecnologías utilizadas">
               {proyecto.tecnologias.map((tech, techIndex) => (
                 <TechnologyBadge 
                   key={techIndex} 
@@ -190,7 +202,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ proyecto, listView = false })
             <ProjectLinks enlaces={proyecto.enlaces} />
           </div>
         </div>
-      </motion.div>
+      </motion.article>
 
       {/* Modal de detalles */}
       <ProjectDetails

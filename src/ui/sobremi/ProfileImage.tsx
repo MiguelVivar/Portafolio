@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect, useMemo } from "react";
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
-import ProfilePicture from "../../assets/images/perfil.webp";
+import ProfilePicture from "../../assets/images/perfil.png";
 import Link from "next/link";
 import Image from "next/image";
 

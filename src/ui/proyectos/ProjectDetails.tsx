@@ -92,7 +92,6 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ proyecto, onClose, isOp
       document.body.style.overflow = 'auto';
     };
   }, [isOpen, onClose]);
-
   return (
     <AnimatePresence>
       {isOpen && (
@@ -102,6 +101,10 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ proyecto, onClose, isOp
           initial="hidden"
           animate="visible"
           exit="hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
+          aria-describedby="modal-description"
         >
           <motion.div
             ref={modalRef}
@@ -110,6 +113,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ proyecto, onClose, isOp
             initial="hidden"
             animate="visible"
             exit="exit"
+            role="document"
           >
             {/* Header con imagen de fondo */}
             <div className="relative h-60 sm:h-72">
@@ -119,22 +123,25 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ proyecto, onClose, isOp
                   backgroundImage: `url(${typeof proyecto.imagen === 'string' ? proyecto.imagen : proyecto.imagen.src})`,
                   backgroundPosition: 'center top'
                 }}
+                role="img"
+                aria-label={`Imagen de fondo del proyecto ${proyecto.titulo}`}
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/20" />
               
               {/* Botón de cerrar */}
               <button 
                 onClick={onClose} 
-                className="absolute top-4 right-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/80 transition-colors"
-                aria-label="Cerrar"
+                className="absolute top-4 right-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/80 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-300/50"
+                aria-label="Cerrar modal de detalles del proyecto"
+                title="Cerrar"
               >
-                <FiX size={20} />
+                <FiX size={20} aria-hidden="true" />
               </button>
               
               {/* Badge destacado */}
               {proyecto.destacado && (
                 <div className="absolute top-4 left-4 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                  Destacado
+                  <span aria-label="Proyecto destacado">Destacado</span>
                 </div>
               )}
               
@@ -142,60 +149,63 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ proyecto, onClose, isOp
               {proyecto.categoria && (
                 <div className="absolute bottom-4 left-4 bg-neutral-900/80 text-white text-sm px-3 py-1 rounded-md backdrop-blur-sm">
                   <div className="flex items-center gap-2">
-                    <FaCode />
+                    <FaCode aria-hidden="true" />
                     <span>{proyecto.categoria}</span>
                   </div>
                 </div>
               )}
-            </div>
-            
+            </div>            
             {/* Content */}
             <div className="flex-1 overflow-y-auto p-6">
-              <h2 className="text-2xl font-bold text-white mb-2">{proyecto.titulo}</h2>
+              <h2 id="modal-title" className="text-2xl font-bold text-white mb-2">{proyecto.titulo}</h2>
               
-              <p className="text-gray-300 mb-6">{proyecto.descripcion}</p>
+              <p id="modal-description" className="text-gray-300 mb-6">{proyecto.descripcion}</p>
               
               {/* Tecnologías */}
-              <div className="mb-6">
+              <section className="mb-6">
                 <h3 className="text-lg font-semibold text-white mb-3">Tecnologías</h3>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2" role="list" aria-label="Tecnologías utilizadas en el proyecto">
                   {proyecto.tecnologias.map((tech, index: number) => (
-                      <TechnologyBadge key={index} tech={tech} />
-                    ))}
+                    <div key={index} role="listitem">
+                      <TechnologyBadge tech={tech} />
+                    </div>
+                  ))}
                 </div>
-              </div>
+              </section>
               
-              {/* Detalles adicionales - ejemplo */}
+              {/* Detalles adicionales */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
+                <section>
                   <h3 className="text-lg font-semibold text-white mb-3">Características</h3>
-                  <ul className="list-disc list-inside text-gray-300">
+                  <ul className="list-disc list-inside text-gray-300" role="list">
                     <li>Diseño responsivo</li>
                     <li>Optimizado para SEO</li>
                     <li>Animaciones fluidas</li>
                     <li>Rendimiento optimizado</li>
                   </ul>
-                </div>
+                </section>
                 
-                <div>
+                <section>
                   <h3 className="text-lg font-semibold text-white mb-3">Estado del proyecto</h3>
                   <div className="flex items-center mb-2">
-                    <div className="w-full bg-neutral-700 rounded-full h-2.5">
+                    <div className="w-full bg-neutral-700 rounded-full h-2.5" role="progressbar" aria-valuenow={parseInt(proyecto.porcentajeAvance || (proyecto.destacado ? "75" : "100"))} aria-valuemin={0} aria-valuemax={100}>
                       <div className="bg-emerald-500 h-2.5 rounded-full" style={{ width: `${proyecto.porcentajeAvance || (proyecto.destacado ? "75%" : "100%")}` }}></div>
                     </div>
-                    <span className="ml-2 text-sm text-white">{proyecto.porcentajeAvance || (proyecto.destacado ? "75%" : "100%")}</span>
+                    <span className="ml-2 text-sm text-white" aria-label={`Progreso: ${proyecto.porcentajeAvance || (proyecto.destacado ? "75%" : "100%")}`}>
+                      {proyecto.porcentajeAvance || (proyecto.destacado ? "75%" : "100%")}
+                    </span>
                   </div>
                   <p className="text-gray-300 text-sm">
                     {proyecto.destacado 
                       ? "Proyecto en desarrollo activo"
                       : "Proyecto completado"}
                   </p>
-                </div>
+                </section>
               </div>
             </div>
             
             {/* Footer con enlaces */}
-            <div className="border-t border-neutral-700 p-4">
+            <footer className="border-t border-neutral-700 p-4">
               <div className="flex justify-end gap-3">
                 {proyecto.enlaces.map((enlace: { tipo: string; url: string }, index: number) => (
                   <Link 
@@ -203,18 +213,19 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ proyecto, onClose, isOp
                     href={enlace.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`px-4 py-2 rounded-lg flex items-center gap-2 transition-colors ${
+                    className={`px-4 py-2 rounded-lg flex items-center gap-2 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-300/50 ${
                       enlace.tipo === 'github' 
                         ? 'bg-neutral-700 text-white hover:bg-neutral-600' 
                         : 'bg-emerald-600 text-white hover:bg-emerald-500'
                     }`}
+                    aria-label={enlace.tipo === 'github' ? 'Ver código fuente en GitHub' : 'Ver demostración en vivo'}
                   >
-                    {enlace.tipo === 'github' ? <FiGithub /> : <FiExternalLink />}
+                    <span aria-hidden="true">{enlace.tipo === 'github' ? <FiGithub /> : <FiExternalLink />}</span>
                     {enlace.tipo === 'github' ? 'Ver código' : 'Ver demo'}
                   </Link>
                 ))}
               </div>
-            </div>
+            </footer>
           </motion.div>
         </motion.div>
       )}

@@ -131,7 +131,6 @@ const Proyectos: React.FC = () => {
     // Scroll suave hacia arriba
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
   return (
     <main className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-neutral-900 pt-24">
       <div className="w-full max-w-7xl mx-auto py-8 sm:py-12">
@@ -139,71 +138,101 @@ const Proyectos: React.FC = () => {
         <PageHeader />
 
         {/* Barra de herramientas superior */}
-        <div className="flex flex-col md:flex-row gap-4 justify-between items-center mb-8">
+        <section 
+          className="flex flex-col md:flex-row gap-4 justify-between items-center mb-8"
+          aria-label="Herramientas de filtrado y búsqueda"
+        >
           {/* Buscador */}
           <div className="w-full md:w-96 relative">
-            <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            <label htmlFor="search-projects" className="sr-only">
+              Buscar proyectos por título, descripción o tecnología
+            </label>
+            <FiSearch 
+              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+              aria-hidden="true"
+            />
             <input
+              id="search-projects"
               type="text"
               placeholder="Buscar proyectos..."
               value={busqueda}
               onChange={(e) => setBusqueda(e.target.value)}
               className="w-full bg-neutral-800 border border-neutral-700 rounded-lg py-2 pl-10 pr-3 text-white focus:outline-none focus:ring-2 focus:ring-emerald-300/50 transition-all"
+              aria-describedby="search-description"
             />
+            <div id="search-description" className="sr-only">
+              Busca proyectos por título, descripción o tecnología utilizada
+            </div>
             {busqueda && (
               <button 
                 onClick={() => setBusqueda('')}
                 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
+                aria-label="Limpiar búsqueda"
+                title="Limpiar búsqueda"
               >
                 &times;
               </button>
             )}
-          </div>
-          
+          </div>          
           {/* Controles de visualización */}
-          <div className="flex items-center gap-4">
-            {/* Selector de ordenación */}
+          <div className="flex items-center gap-4">            {/* Selector de ordenación */}
             <div className="relative group">
-              <button className="text-white bg-neutral-800 hover:bg-neutral-700 p-2 rounded-lg flex items-center gap-2">
-                <span>{sortOptions.find(opt => opt.id === ordenActivo)?.icon}</span>
+              <button 
+                className="text-white bg-neutral-800 hover:bg-neutral-700 p-2 rounded-lg flex items-center gap-2"
+                aria-label={`Ordenar por: ${sortOptions.find(opt => opt.id === ordenActivo)?.label}`}
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                <span aria-hidden="true">{sortOptions.find(opt => opt.id === ordenActivo)?.icon}</span>
                 <span className="hidden sm:inline">Ordenar</span>
               </button>
-              <div className="absolute right-0 mt-2 w-48 bg-neutral-800 border border-neutral-700 rounded-lg shadow-lg overflow-hidden z-10 hidden group-hover:block">
-                {sortOptions.map(option => (
-                  <button
+              <div 
+                className="absolute right-0 mt-2 w-48 bg-neutral-800 border border-neutral-700 rounded-lg shadow-lg overflow-hidden z-10 hidden group-hover:block"
+                role="menu"
+                aria-label="Opciones de ordenación"
+              >
+                {sortOptions.map(option => (                  <button
                     key={option.id}
                     onClick={() => setOrdenActivo(option.id)}
                     className={`w-full text-left px-4 py-2 hover:bg-neutral-700 flex items-center gap-2 ${ordenActivo === option.id ? 'text-emerald-300' : 'text-white'}`}
+                    role="menuitem"
+                    aria-current={ordenActivo === option.id ? "true" : "false"}
                   >
-                    <span>{option.icon}</span>
+                    <span aria-hidden="true">{option.icon}</span>
                     <span>{option.label}</span>
                   </button>
                 ))}
               </div>
             </div>
-            
-            {/* Toggle vista grid/lista */}
+              {/* Toggle vista grid/lista */}
             <button 
               onClick={() => setVistaGrid(!vistaGrid)}
               className="text-white bg-neutral-800 hover:bg-neutral-700 p-2 rounded-lg"
               aria-label={vistaGrid ? "Cambiar a vista de lista" : "Cambiar a vista de cuadrícula"}
+              {...(vistaGrid ? { "aria-pressed": "true" } : { "aria-pressed": "false" })}
+              title={vistaGrid ? "Cambiar a vista de lista" : "Cambiar a vista de cuadrícula"}
             >
-              {vistaGrid ? <FaThList /> : <FaThLarge />}
+              <span aria-hidden="true">{vistaGrid ? <FaThList /> : <FaThLarge />}</span>
             </button>
             
             {/* Selector de proyectos por página */}
+            <label htmlFor="items-per-page" className="sr-only">
+              Proyectos por página
+            </label>
             <select 
+              id="items-per-page"
               value={proyectosPorPagina} 
               onChange={(e) => setProyectosPorPagina(Number(e.target.value))}
               className="text-white bg-neutral-800 hover:bg-neutral-700 p-2 rounded-lg border border-neutral-700"
+              aria-label={`Mostrar ${proyectosPorPagina} proyectos por página`}
             >
-              <option value="3">3</option>
-              <option value="6">6</option>
-              <option value="9">9</option>
-              <option value="12">12</option>
+              <option value="3">3 por página</option>
+              <option value="6">6 por página</option>
+              <option value="9">9 por página</option>
+              <option value="12">12 por página</option>
             </select>
           </div>
-        </div>
+        </section>
 
         {/* Filtro de categorías */}
         <CategoryFilter
@@ -211,14 +240,12 @@ const Proyectos: React.FC = () => {
           categoriaActiva={categoriaActiva}
           setCategoriaActiva={setCategoriaActiva}
           conteo={proyectosPorCategoria}
-        />
-
-        {/* Estado de carga */}
+        />        {/* Estado de carga */}
         {cargando ? (
           <LoadingSpinner />
         ) : (
           <AnimatePresence mode="wait">
-            <motion.div 
+            <motion.section 
               key={`${categoriaActiva}-${vistaGrid}-${paginaActual}`}
               className={vistaGrid 
                 ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -228,6 +255,8 @@ const Proyectos: React.FC = () => {
               initial="oculto"
               animate="visible"
               exit="salida"
+              aria-label={`Lista de proyectos (${proyectosActuales.length} de ${proyectosMostrados.length})`}
+              role="region"
             >
               {proyectosActuales.length === 0 ? (
                 <motion.div 
@@ -236,8 +265,10 @@ const Proyectos: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
+                  role="status"
+                  aria-live="polite"
                 >
-                  <div className="text-emerald-300 text-6xl mb-4">🔍</div>
+                  <div className="text-emerald-300 text-6xl mb-4" aria-hidden="true">🔍</div>
                   <h3 className="text-2xl font-bold text-white mb-2">No se encontraron proyectos</h3>
                   <p className="text-gray-400">
                     {busqueda 
@@ -247,7 +278,8 @@ const Proyectos: React.FC = () => {
                   {busqueda && (
                     <button 
                       onClick={() => setBusqueda('')}
-                      className="mt-4 px-4 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-lg text-white"
+                      className="mt-4 px-4 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-emerald-300/50"
+                      aria-label="Limpiar término de búsqueda"
                     >
                       Limpiar búsqueda
                     </button>
@@ -263,15 +295,17 @@ const Proyectos: React.FC = () => {
                   />
                 ))
               )}
-            </motion.div>
+            </motion.section>
           </AnimatePresence>
         )}        {/* Paginación */}
         {!cargando && proyectosMostrados.length > proyectosPorPagina && (
-          <motion.div 
+          <motion.nav 
             className="flex flex-col items-center mt-12 gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            aria-label="Navegación de páginas"
+            role="navigation"
           >
             <div className="flex flex-wrap justify-center gap-2 md:gap-1">
               {/* Primera página */}
@@ -279,11 +313,12 @@ const Proyectos: React.FC = () => {
                 onClick={() => cambiarPagina(1)}
                 disabled={paginaActual === 1}
                 className="h-10 w-10 flex items-center justify-center rounded-lg bg-neutral-800 text-white disabled:opacity-40 disabled:cursor-not-allowed hover:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-emerald-300/50 transition-all transform active:scale-95"
+                aria-label="Ir a la primera página"
                 title="Primera página"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <FiChevronsLeft className="text-lg" />
+                <FiChevronsLeft className="text-lg" aria-hidden="true" />
               </motion.button>
 
               {/* Página anterior */}
@@ -291,11 +326,12 @@ const Proyectos: React.FC = () => {
                 onClick={() => cambiarPagina(Math.max(1, paginaActual - 1))}
                 disabled={paginaActual === 1}
                 className="h-10 w-10 flex items-center justify-center rounded-lg bg-neutral-800 text-white disabled:opacity-40 disabled:cursor-not-allowed hover:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-emerald-300/50 transition-all transform active:scale-95"
+                aria-label="Ir a la página anterior"
                 title="Página anterior"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <FiChevronLeft className="text-lg" />
+                <FiChevronLeft className="text-lg" aria-hidden="true" />
               </motion.button>
               
               {/* Números de página */}
@@ -310,9 +346,8 @@ const Proyectos: React.FC = () => {
                   .map((page, i, arr) => {
                     // Si hay un salto en la secuencia, mostrar puntos suspensivos
                     if (i > 0 && page - arr[i-1] > 1) {
-                      return (
-                        <React.Fragment key={`ellipsis-${page}`}>
-                          <span className="h-10 w-8 flex items-center justify-center text-gray-400">
+                      return (                        <React.Fragment key={`ellipsis-${page}`}>
+                          <span className="h-10 w-8 flex items-center justify-center text-gray-400" aria-hidden="true">
                             •••
                           </span>
                           <motion.button
@@ -323,6 +358,8 @@ const Proyectos: React.FC = () => {
                                 ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/30' 
                                 : 'bg-neutral-800 text-white hover:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-emerald-300/50'
                             }`}
+                            aria-label={`Ir a la página ${page}`}
+                            aria-current={paginaActual === page ? "page" : "false"}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                           >
@@ -330,8 +367,7 @@ const Proyectos: React.FC = () => {
                           </motion.button>
                         </React.Fragment>
                       );
-                    }
-                    return (
+                    }                    return (
                       <motion.button
                         key={page}
                         onClick={() => cambiarPagina(page)}
@@ -340,6 +376,8 @@ const Proyectos: React.FC = () => {
                             ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/30' 
                             : 'bg-neutral-800 text-white hover:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-emerald-300/50'
                         }`}
+                        aria-label={`Ir a la página ${page}`}
+                        aria-current={paginaActual === page ? "page" : "false"}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
@@ -348,17 +386,17 @@ const Proyectos: React.FC = () => {
                     );
                   })}
               </div>
-              
-              {/* Página siguiente */}
+                {/* Página siguiente */}
               <motion.button
                 onClick={() => cambiarPagina(Math.min(totalPaginas, paginaActual + 1))}
                 disabled={paginaActual === totalPaginas}
                 className="h-10 w-10 flex items-center justify-center rounded-lg bg-neutral-800 text-white disabled:opacity-40 disabled:cursor-not-allowed hover:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-emerald-300/50 transition-all transform active:scale-95"
+                aria-label="Ir a la página siguiente"
                 title="Página siguiente"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <FiChevronRight className="text-lg" />
+                <FiChevronRight className="text-lg" aria-hidden="true" />
               </motion.button>
 
               {/* Última página */}
@@ -366,19 +404,20 @@ const Proyectos: React.FC = () => {
                 onClick={() => cambiarPagina(totalPaginas)}
                 disabled={paginaActual === totalPaginas}
                 className="h-10 w-10 flex items-center justify-center rounded-lg bg-neutral-800 text-white disabled:opacity-40 disabled:cursor-not-allowed hover:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-emerald-300/50 transition-all transform active:scale-95"
+                aria-label="Ir a la última página"
                 title="Última página"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <FiChevronsRight className="text-lg" />
+                <FiChevronsRight className="text-lg" aria-hidden="true" />
               </motion.button>
             </div>
 
             {/* Indicador de página móvil */}
-            <div className="text-gray-400 text-sm font-medium">
+            <div className="text-gray-400 text-sm font-medium" aria-live="polite">
               Página <span className="text-emerald-400">{paginaActual}</span> de <span className="text-white">{totalPaginas}</span>
             </div>
-          </motion.div>
+          </motion.nav>
         )}        {/* Resumen de resultados */}
         {!cargando && (
           <motion.div 
@@ -386,6 +425,8 @@ const Proyectos: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
+            role="status"
+            aria-live="polite"
           >
             <span className="px-3 py-1 bg-neutral-800/50 rounded-full text-gray-300">
               Mostrando <span className="font-medium text-emerald-400">{proyectosActuales.length}</span> de <span className="font-medium text-white">{proyectosMostrados.length}</span> proyectos
@@ -393,7 +434,7 @@ const Proyectos: React.FC = () => {
             
             {busqueda && (
               <span className="px-3 py-1 bg-emerald-900/20 border border-emerald-500/20 rounded-full text-emerald-300 flex items-center gap-1.5">
-                <FiSearch className="text-xs" />
+                <FiSearch className="text-xs" aria-hidden="true" />
                 <span>Filtrando: &quot;{busqueda}&quot;</span>
               </span>
             )}

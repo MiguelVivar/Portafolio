@@ -17,8 +17,10 @@ const TechnologyBadge: React.FC<TechnologyBadgeProps> = ({ tech, mini = false })
         title={tech.nombre}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
+        aria-label={`Tecnología: ${tech.nombre}`}
+        role="img"
       >
-        {tech.icono}
+        <span aria-hidden="true">{tech.icono}</span>
       </motion.span>
     );
   }
@@ -29,9 +31,11 @@ const TechnologyBadge: React.FC<TechnologyBadgeProps> = ({ tech, mini = false })
       title={tech.nombre}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
+      aria-label={`Tecnología: ${tech.nombre}`}
+      role="img"
     >
-      <span className="text-emerald-300">{tech.icono}</span>
-      {tech.nombre}
+      <span className="text-emerald-300" aria-hidden="true">{tech.icono}</span>
+      <span>{tech.nombre}</span>
     </motion.span>
   );
 };

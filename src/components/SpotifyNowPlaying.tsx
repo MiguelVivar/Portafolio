@@ -225,6 +225,8 @@ const SpotifyNowPlaying: React.FC = () => {
                   alt={`${data.album} cover`}
                   className="w-full h-full object-cover"
                   loading="lazy"
+                  width={56}
+                  height={56}
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-black/40 to-transparent" />
                 

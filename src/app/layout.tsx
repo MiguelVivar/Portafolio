@@ -8,6 +8,8 @@ import Terminal from "@/components/terminal/Terminal";
 import TerminalButton from "@/components/terminal/TerminalButton";
 import JsonLd, { personSchema, websiteSchema } from "@/components/seo/JsonLd";
 import { ToastProvider } from "@/components/ui/ToastProvider";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import WebVitals, {
   PerformanceDebugger,
@@ -99,16 +101,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-        <link rel="canonical" href="https://miguelvivar.github.io" />
-        <link
-          rel="preconnect"
-          href="https://miguelvivar-api.vercel.app/"
-        ></link>
+        <link rel="canonical" href="https://miguelvivar.vercel.app/" />
         <JsonLd data={personSchema} />
         <JsonLd data={websiteSchema} />
       </head>
       <body className="overflow-x-hidden">
-        {" "}
+        <Analytics />
+        <SpeedInsights />
         <TerminalProvider>
           <ToastProvider>
             <Navbar />
@@ -121,7 +120,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <PerformanceDebugger />
             {process.env.NEXT_PUBLIC_GA_ID && (
               <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-            )}{" "}
+            )}
           </ToastProvider>
           <script
             dangerouslySetInnerHTML={{

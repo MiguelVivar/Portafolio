@@ -24,8 +24,8 @@ export const proyectos = [
       { nombre: "Framer Motion", icono: <SiFramer className="text-xl" /> },
     ],
     enlaces: [
-      { tipo: "github", url: "https://github.com/MiguelVivar/MiguelVivar.github.io" },
-      { tipo: "demo", url: "https://miguelvivar.github.io/" },
+      { tipo: "github", url: "https://github.com/MiguelVivar/Portafolio" },
+      { tipo: "demo", url: "https://miguelvivar.vercel.app/" },
     ],
     destacado: true,
     categoria: "Front-End"

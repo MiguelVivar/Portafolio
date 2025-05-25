@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaSpotify, FaHeadphones, FaPause, FaPlay, FaVolumeUp, FaExclamationTriangle } from 'react-icons/fa';
+import Image from 'next/image';
 
 interface SpotifyData {
   isPlaying: boolean;
@@ -219,10 +220,11 @@ const SpotifyNowPlaying: React.FC = () => {
                 whileHover={{ scale: 1.05, rotate: 3 }}
                 className="relative w-14 h-14 min-w-[56px] rounded-md overflow-hidden shadow-lg"
               >
-                <img 
+                <Image 
                   src={data.albumImageUrl} 
                   alt={`${data.album} cover`}
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-black/40 to-transparent" />
                 

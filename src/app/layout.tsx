@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://miguelvivar.github.io"),
+  metadataBase: new URL("https://miguelvivar.vercel.app/"),
   alternates: {
     canonical: "/",
   },
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     title: "Miguel Vivar - Desarrollador Full Stack",
     description:
       "Desarrollador Full Stack especializado en crear aplicaciones web modernas con React, Next.js, TypeScript y Node.js.",
-    url: "https://miguelvivar.github.io",
+    url: "https://miguelvivar.vercel.app/",
     siteName: "Miguel Vivar Portfolio",
     images: [
       {
@@ -102,6 +102,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/svg+xml" href="/logo.svg" />
         <link rel="canonical" href="https://miguelvivar.vercel.app/" />
+        <link rel="preload" href="https://i.scdn.co"/>
         <JsonLd data={personSchema} />
         <JsonLd data={websiteSchema} />
       </head>

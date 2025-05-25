@@ -5,7 +5,6 @@ const nextConfig: NextConfig = {
   output: 'export',
   trailingSlash: true,
   images: {
-    unoptimized: false,
     remotePatterns: [new URL('https://randomuser.me/api/portraits/**/**')],
   },
 };

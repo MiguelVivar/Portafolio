@@ -15,68 +15,71 @@
 
 ## 🚀 Descripción
 
-**Portfolio Personal Versión 6.0.0** - Una plataforma web avanzada y completamente interactiva que combina tecnologías de vanguardia para crear una experiencia de usuario excepcional. Más que un simple portafolio, es una demostración técnica completa de desarrollo web moderno que incluye:
+**Portfolio Personal Versión 7.0.0** - Una plataforma web avanzada y completamente interactiva que combina tecnologías de vanguardia para crear una experiencia de usuario excepcional. Más que un simple portafolio, es una demostración técnica completa de desarrollo web moderno que incluye:
 
-- **Sistema de Terminal Interactivo** con 15+ comandos funcionales
-- **Integración en tiempo real con GitHub API** para datos dinámicos
-- **Sistema de análisis y monitoreo de rendimiento** con Web Vitals
-- **Motor de búsqueda avanzado** con autocompletado y filtrado inteligente
-- **Animaciones de partículas optimizadas** con ajuste automático de rendimiento
-- **Arquitectura de componentes escalable** con gestión de estado reactiva
+- **Sistema de Terminal Interactivo** con 25+ comandos funcionales incluyendo sistema de archivos simulado
+- **Integración en tiempo real con APIs externas** (GitHub, Weather API, Spotify)
+- **Sistema de análisis y monitoreo de rendimiento** con Vercel Analytics y Web Vitals
+- **Motor de búsqueda global** con filtrado inteligente por categorías
+- **Animaciones de partículas optimizadas** con TSParticles y Framer Motion
+- **Arquitectura de componentes escalable** con gestión de estado usando Nanostores
 
 ## 🌐 Demostración
 
-Visita mi portfolio en vivo: [miguelvivar.vercel.ap](https://miguelvivar.vercel.app/)
+Visita mi portfolio en vivo: [miguelvivar.vercel.app](https://miguelvivar.vercel.app/)
 
 ## ✨ Características Técnicas Avanzadas
 
 ### 🖥️ Sistema de Terminal Interactivo
-- **15+ comandos funcionales**: `help`, `about`, `skills`, `projects`, `contact`, `socials`, `date`, `weather`, `joke`, `calc`, `quote`, `history`, `clear`, `exit`
+- **25+ comandos funcionales**: `help`, `nav`, `home`, `about`, `skills`, `projects`, `contact`, `socials`, `ls`, `dir`, `cd`, `pwd`, `cat`, `find`, `tree`, `git`, `npm`, `code`, `whoami`, `ps`, `date`, `weather`, `calc`, `quote`, `history`, `clear`, `exit`, `matrix`, `coffee`, `konami`, `fortune`, `sudo`, `joke`, `ascii`, `theme`, `game`, `guess`
+- **Sistema de archivos simulado** con navegación completa y estructura de directorios realista
 - **Autocompletado inteligente** con tecla Tab para navegación eficiente
 - **Historial de comandos** navegable con flechas arriba/abajo
-- **Procesamiento de expresiones matemáticas** con calculadora integrada
-- **Datos en tiempo real** (fecha/hora, clima simulado, citas inspiracionales)
-- **Sistema de ayuda contextual** con documentación completa de comandos
+- **Comandos de Git y NPM simulados** con outputs realistas
+- **Easter eggs y comandos divertidos** (Matrix, café, código Konami, chistes)
+- **Mini-juegos integrados** como adivinanza de números
+- **Calculadora matemática** con evaluación segura de expresiones
+- **Sistema de ayuda contextual** con documentación completa categorizada
 
-### 🔗 Integración GitHub API en Tiempo Real
-- **Datos de usuario dinámicos**: repositorios, seguidores, contribuciones totales
-- **Estadísticas de lenguajes de programación** calculadas desde repositorios activos
-- **Gráfico de contribuciones del último año** con mapeo de calor visual
-- **Actividad reciente**: commits, creación de repos, stars, forks
-- **Métricas de rendimiento**: total de commits, estrellas recibidas, repositorios públicos
-- **Fallback inteligente** a datos simulados en caso de límites de API
+### 🔗 Integración de APIs en Tiempo Real
+- **GitHub API**: Datos de usuario dinámicos, repositorios, estadísticas de contribuciones
+- **Weather API**: Información meteorológica en tiempo real con geolocalización
+- **Spotify API**: Reproducción actual de música con datos de artista y canción
+- **Fallback inteligente** a datos simulados en caso de límites de API o errores
+- **Cache y optimización** para reducir llamadas innecesarias a APIs
+- **Manejo de errores robusto** con mensajes informativos al usuario
 
 ### 📊 Sistema de Analytics y Monitoreo
-- **Google Analytics 4** integrado con eventos personalizados
-- **Web Vitals monitoring** en tiempo real (LCP, FID, CLS, TTFB)
-- **Performance tracking** con métricas de memoria y navegación
-- **FPS monitoring** para optimización automática de animaciones
-- **Resource monitoring** con alertas de recursos lentos (>1s)
-- **Custom event tracking** para interacciones de usuario
+- **Vercel Analytics** integrado con eventos personalizados
+- **Vercel Speed Insights** para monitoreo de rendimiento
+- **Web Vitals tracking** en tiempo real (LCP, FID, CLS, TTFB)
+- **Performance monitoring** automático con métricas detalladas
+- **Google Analytics** con seguimiento de interacciones de usuario
+- **Error tracking** y reporting para debugging proactivo
 
-### 🔍 Motor de Búsqueda Avanzado
+### 🔍 Motor de Búsqueda Global
 - **Búsqueda global** a través de proyectos, habilidades y contenido
-- **Autocompletado dinámico** con sugerencias contextuales
-- **Filtrado por categorías** (proyectos, habilidades, páginas)
-- **Soporte para comandos** de terminal integrado en búsqueda
-- **Resultados ponderados** con marcado de elementos destacados
+- **Filtrado por categorías** con resultados organizados
+- **Búsqueda semántica** con coincidencias inteligentes
 - **Navegación por teclado** completa (Enter, Escape, flechas)
+- **Resultados en tiempo real** sin necesidad de envío de formulario
+- **Highlighting de términos** de búsqueda en resultados
 
-### ✨ Sistema de Animaciones Optimizado
-- **Framer Motion 12.5** para animaciones fluidas y complejas
-- **TSParticles** con sistema de partículas interactivo
-- **Canvas personalizado** con 300+ partículas animadas
-- **Optimización automática** basada en FPS y dispositivo
-- **Niveles de rendimiento** (low/medium/high) con ajuste dinámico
-- **Respeto por accesibilidad** (`prefers-reduced-motion`)
+### ✨ Sistema de Animaciones y Efectos
+- **Framer Motion 12.5** para animaciones fluidas y performantes
+- **TSParticles Slim** con sistema de partículas interactivo optimizado
+- **Canvas Confetti** para efectos de celebración y feedback
+- **Animaciones de entrada** suaves y naturales en componentes
+- **Efectos de hover** responsivos y accesibles
+- **Respeto por preferencias de accesibilidad** (`prefers-reduced-motion`)
 
-### 🎨 Partículas Interactivas Avanzadas
-- **Motor de física realista** con colisiones y fricción
-- **Interacción con cursor** en radio configurable (120px)
-- **Conexiones dinámicas** entre partículas cercanas
-- **Colores adaptativos** (primario/secundario configurables)
-- **Detección de viewport** para optimización de recursos
-- **Throttling inteligente** según capacidad del dispositivo
+### 🎨 Partículas Interactivas y Background
+- **TSParticles Slim** optimizado para mejor rendimiento
+- **Configuración responsive** que se adapta al tamaño de pantalla
+- **Efectos de parallax** sutiles para profundidad visual
+- **Interacción con cursor** en dispositivos de escritorio
+- **Optimización automática** basada en capacidad del dispositivo
+- **Pausado inteligente** cuando no está visible para ahorrar recursos
 
 ### 🎯 Optimización de Rendimiento
 - **Adaptive Quality System**: ajuste automático basado en FPS
@@ -86,13 +89,15 @@ Visita mi portfolio en vivo: [miguelvivar.vercel.ap](https://miguelvivar.vercel.
 - **Memory monitoring** y liberación automática de recursos
 - **Lazy loading** de componentes pesados (TSParticles)
 
-### 🔧 Arquitectura Técnica Avanzada
-- **Context API** para gestión de estado del terminal
-- **Custom hooks** para funcionalidades reutilizables
-- **Nanostores** para estado global reactivo y ligero
-- **Error boundaries** con recuperación automática
-- **TypeScript estricto** con interfaces comprehensivas
-- **Component composition** con props drilling mínimo
+### 🔧 Arquitectura Técnica Moderna
+- **App Router de Next.js 15** con renderizado híbrido optimizado
+- **Server Components** para mejor rendimiento y SEO
+- **Client Components** estratégicamente ubicados para interactividad
+- **Nanostores** para gestión de estado global ligera y reactiva
+- **Custom hooks** especializados para funcionalidades reutilizables
+- **TypeScript estricto** con interfaces comprehensivas y type safety
+- **Error boundaries** con recuperación elegante de errores
+- **Lazy loading** de componentes y recursos pesados
 
 ### 📱 SEO y Accesibilidad
 - **JSON-LD structured data** para rich snippets en Google
@@ -103,45 +108,49 @@ Visita mi portfolio en vivo: [miguelvivar.vercel.ap](https://miguelvivar.vercel.
 - **Semantic HTML** con ARIA labels apropiados
 
 ### 🌐 Características Adicionales
-- **Toast notification system** para feedback de usuario
-- **Responsive design** mobile-first con breakpoints estratégicos
-- **Dark theme optimizado** con transiciones suaves
-- **Error 404 personalizada** con redirección automática
-- **Loading states** sofisticados para mejor UX
+- **Sistema de notificaciones** con Toast UI para feedback inmediato
+- **Responsive design** mobile-first con breakpoints optimizados
+- **Tema oscuro** elegante con transiciones suaves
+- **Página 404 personalizada** con navegación automática inteligente
+- **Loading states** sofisticados para mejor experiencia de usuario
 - **Progressive enhancement** con degradación elegante
+- **Integración de Spotify** mostrando música actual en reproducción
+- **Formulario de contacto** funcional con validación y envío
 
 ## 🛠️ Stack Tecnológico Completo
 
 ### 🚀 Core Framework
 - **Next.js 15.2.4**: Framework full-stack con App Router y renderizado híbrido
 - **React 19.0.0**: Biblioteca de UI con Concurrent Features y Server Components
-- **TypeScript 5.7**: Tipado estático avanzado con strict mode activado
+- **TypeScript 5**: Tipado estático avanzado con strict mode activado
 
 ### 🎨 Styling y UI
-- **Tailwind CSS 3.4.17**: Framework utility-first con diseño responsivo
+- **Tailwind CSS 4**: Framework utility-first con diseño responsivo moderno
 - **Framer Motion 12.5.0**: Animaciones declarativas y transiciones fluidas
-- **TSParticles 2.12.0**: Sistema de partículas interactivo de alto rendimiento
-- **Lucide React 0.468.0**: Iconos SVG modernos y optimizados
-- **Canvas Confetti 1.9.4**: Efectos visuales para celebraciones
+- **TSParticles Slim 2.12.0**: Sistema de partículas interactivo optimizado
+- **React Icons 5.5.0**: Iconos SVG modernos y optimizados para rendimiento
+- **Canvas Confetti 1.9.3**: Efectos visuales para celebraciones y feedback
 
 ### 📊 Analytics y Monitoreo
-- **@vercel/analytics 1.4.1**: Analytics de rendimiento y métricas de usuario
-- **web-vitals 4.2.4**: Monitoreo de Core Web Vitals en tiempo real
+- **@vercel/analytics 1.5.0**: Analytics de rendimiento y métricas de usuario
+- **@vercel/speed-insights 1.2.0**: Monitoreo de velocidad y optimización
 
 ### 🔧 Estado y Datos
-- **Nanostores 0.11.3**: Estado global reactivo y minimalista
-- **Date-fns 4.1.0**: Manipulación de fechas y formateo avanzado
-- **Octokit 4.0.2**: SDK oficial para GitHub API integration
+- **Nanostores 1.0.1**: Estado global reactivo y minimalista
+- **@nanostores/react 1.0.0**: Integración de Nanostores con React
 
 ### 🌐 SEO y Meta
-- **next-sitemap 4.2.3**: Generación automática de sitemap XML
-- **JSON-LD**: Structured data para rich snippets
+- **Sitemap automático** generado por Next.js App Router
+- **Robots.txt dinámico** optimizado para crawlers
+- **JSON-LD structured data** para rich snippets en buscadores
+- **Meta tags dinámicos** por página con Open Graph optimizado
 
 ### 🛠️ Herramientas de Desarrollo
-- **ESLint 9.17.0**: Linting con reglas Next.js optimizadas
-- **PostCSS 8.5.1**: Procesamiento de CSS con plugins
-- **Autoprefixer 10.4.20**: Prefijos CSS automáticos para compatibilidad
-- **@types/node**: Tipado completo para Node.js APIs
+- **ESLint 9**: Linting con reglas Next.js y TypeScript optimizadas
+- **Tailwind CSS 4**: Procesamiento CSS de próxima generación
+- **TypeScript 5**: Tipado estático avanzado con configuración estricta
+- **@types/node 20**: Tipado completo para Node.js APIs
+- **@types/react 19**: Tipado para React 19 y nuevas características
 
 ## 🚀 Instalación y Uso
 
@@ -190,90 +199,103 @@ Visita [http://localhost:3000](http://localhost:3000) para ver la aplicación en
 │
 ├── 📂 src/                     # Código fuente principal
 │   ├── 📂 app/                # Next.js App Router (v15)
-│   │   ├── 📱 (pages)/        # Rutas de páginas principales
-│   │   │   ├── 🏠 page.tsx    # Página de inicio
-│   │   │   ├── 👤 about/      # Sobre mí
-│   │   │   ├── 🛠️ skills/     # Habilidades técnicas
-│   │   │   ├── 💼 projects/   # Portfolio de proyectos
-│   │   │   └── 📞 contact/    # Formulario de contacto
-│   │   ├── 🎨 globals.css     # Estilos globales + Tailwind
+│   │   ├── 🏠 page.tsx        # Página de inicio
+│   │   ├── 🎨 globals.css     # Estilos globales + Tailwind CSS v4
 │   │   ├── 📱 layout.tsx      # Layout raíz con providers
-│   │   └── 🔧 loading.tsx     # Loading UI compartido
+│   │   ├── 🚫 not-found.tsx   # Página 404 personalizada
+│   │   ├── 🤖 robots.ts       # Configuración robots.txt
+│   │   ├── 🗺️ sitemap.ts      # Generación de sitemap automático
+│   │   ├── 🔌 api/            # API Routes
+│   │   │   └── 🎵 spotify/    # Integración Spotify API
+│   │   ├── 👤 sobremi/        # Sobre mí
+│   │   ├── 🛠️ habilidades/    # Habilidades técnicas
+│   │   ├── 💼 proyectos/      # Portfolio de proyectos
+│   │   └── 📞 contacto/       # Formulario de contacto
 │   │
 │   ├── 📂 components/          # Componentes reutilizables
 │   │   ├── 🖥️ terminal/       # Sistema de terminal interactivo
 │   │   │   ├── Terminal.tsx   # Componente principal
-│   │   │   ├── TerminalInput.tsx
-│   │   │   ├── TerminalOutput.tsx
-│   │   │   ├── commands/      # 15+ comandos implementados
-│   │   │   └── context/       # Estado del terminal
+│   │   │   ├── TerminalButton.tsx
+│   │   │   ├── TerminalCommand.tsx
+│   │   │   ├── TerminalContext.tsx # Estado del terminal
+│   │   │   └── LoadingIndicator.tsx
 │   │   │
-│   │   ├── 📊 analytics/      # Monitoreo y métricas
+│   │   ├── 📊 analytics/      # Monitoreo con Vercel Analytics
 │   │   │   ├── GoogleAnalytics.tsx
-│   │   │   ├── WebVitals.tsx
-│   │   │   └── PerformanceMonitor.tsx
+│   │   │   └── WebVitals.tsx
 │   │   │
-│   │   ├── 🔍 search/         # Motor de búsqueda avanzado
-│   │   │   ├── GlobalSearch.tsx
-│   │   │   ├── SearchInput.tsx
-│   │   │   └── SearchResults.tsx
+│   │   ├── 🔍 search/         # Motor de búsqueda global
+│   │   │   └── GlobalSearch.tsx
 │   │   │
-│   │   ├── 🎨 ui/             # Componentes UI base
-│   │   │   ├── Button.tsx
-│   │   │   ├── Card.tsx
-│   │   │   ├── Toast.tsx
-│   │   │   └── Modal.tsx
+│   │   ├── 🧭 navbar/         # Sistema de navegación
+│   │   │   ├── Navbar.tsx
+│   │   │   ├── Logo.tsx
+│   │   │   ├── DesktopMenu.tsx
+│   │   │   ├── MobileMenu.tsx
+│   │   │   ├── ContactButton.tsx
+│   │   │   └── SocialIcons.tsx
+│   │   │
+│   │   ├── 👣 footer/         # Footer con enlaces sociales
+│   │   │   ├── Footer.tsx
+│   │   │   ├── SocialLinks.tsx
+│   │   │   └── TypewriterText.tsx
 │   │   │
 │   │   ├── 🌐 seo/            # SEO y metadata
-│   │   │   ├── JsonLd.tsx     # Structured data
-│   │   │   └── MetaTags.tsx
+│   │   │   └── JsonLd.tsx     # Structured data
 │   │   │
-│   │   ├── ✨ AnimateBackground.tsx # Partículas TSParticles
-│   │   ├── 🏃 AnimatedText.tsx     # Animaciones de texto
-│   │   └── 📱 Navbar.tsx           # Navegación principal
+│   │   ├── ✨ AnimateBackground.tsx # Partículas TSParticles Slim
+│   │   ├── 📞 CallToAction.tsx     # Call-to-action components
+│   │   └── 🎵 SpotifyNowPlaying.tsx # Integración Spotify
 │   │
 │   ├── 📂 data/               # Estructuras de datos
-│   │   ├── 💼 projects.ts     # Portfolio de proyectos
-│   │   ├── 🛠️ skills.ts      # Habilidades técnicas
-│   │   ├── 👤 personal.ts     # Información personal
-│   │   └── 🌐 social.ts       # Enlaces sociales
+│   │   ├── 💼 proyectos.tsx   # Portfolio de proyectos
+│   │   ├── 🛠️ habilidades.tsx # Habilidades técnicas
+│   │   ├── 👤 sobremi.tsx     # Información personal
+│   │   ├── 🌐 redes.tsx       # Enlaces sociales
+│   │   ├── 💬 testimonios.tsx # Testimonios y reseñas
+│   │   └── 📊 index.tsx       # Exportaciones centralizadas
+│   │
+│   ├── 📂 ui/                 # Componentes UI especializados
+│   │   ├── 🏠 home/           # Componentes página inicio
+│   │   ├── 👤 sobremi/        # Componentes sobre mí
+│   │   ├── 🛠️ habilidades/    # Componentes habilidades
+│   │   ├── 💼 proyectos/      # Componentes proyectos
+│   │   ├── 📞 contacto/       # Componentes contacto
+│   │   └── 🚫 error404/       # Componentes página 404
+│   │
+│   ├── 📂 assets/             # Recursos estáticos
+│   │   └── 🖼️ images/         # Imágenes del proyecto
+│   │       ├── logo.svg
+│   │       ├── perfil.png
+│   │       └── proyectos/     # Screenshots de proyectos
 │   │
 │   ├── 📂 lib/                # Utilidades y configuración
 │   │   ├── 🐙 githubApi.ts    # GitHub API integration
-│   │   ├── 📊 analytics.ts    # Configuración de analytics
-│   │   ├── 🎨 particles.ts    # Configuración TSParticles
-│   │   └── 🔧 utils.ts        # Utilidades generales
+│   │   └── 🌤️ weatherApi.ts   # Weather API integration
 │   │
 │   ├── 📂 hooks/              # Custom React hooks
 │   │   ├── 💾 useLocalStorage.ts
-│   │   ├── ⚡ usePerformance.ts
-│   │   ├── 🎯 useIntersection.ts
-│   │   └── 🔍 useDebounce.ts
+│   │   └── ⌨️ useTypewriter.ts
 │   │
-│   ├── 📂 stores/             # Estado global (Nanostores)
-│   │   ├── 🎨 theme.ts        # Gestión de tema
-│   │   ├── 🔍 search.ts       # Estado de búsqueda
-│   │   └── 🖥️ terminal.ts     # Estado del terminal
-│   │
-│   └── 📂 types/              # Definiciones TypeScript
-│       ├── 🐙 github.ts       # Tipos GitHub API
-│       ├── 💼 project.ts      # Tipos de proyectos
-│       └── 🔍 search.ts       # Tipos de búsqueda
+│   └── 📂 public/             # Assets públicos
+│       ├── 🎨 logo.svg        # Logo principal
+│       └── 🖼️ portafolio.png  # Imagen de preview
 │
 ├── 📋 package.json            # Dependencias y scripts
-├── 📐 tsconfig.json           # Configuración TypeScript
-├── 🎨 tailwind.config.js      # Configuración Tailwind CSS
-├── ⚙️ next.config.js          # Configuración Next.js
+├── 📐 tsconfig.json           # Configuración TypeScript 5
+├── 🎨 postcss.config.mjs      # Configuración PostCSS
+├── ⚙️ next.config.ts          # Configuración Next.js 15
+├── 🔍 eslint.config.mjs       # Configuración ESLint
 └── 📖 README.md               # Documentación técnica
 ```
 
 ## 📱 Secciones Principales
 
-- **Inicio**: Presentación personal y resumen profesional con animaciones atractivas
-- **Sobre Mí**: Información detallada sobre mi trayectoria, formación y valores profesionales
-- **Habilidades**: Tecnologías y herramientas que domino, organizadas por categorías y nivel de experiencia
-- **Proyectos**: Portafolio de trabajos destacados con descripciones, tecnologías utilizadas y enlaces
-- **Contacto**: Formulario de contacto y enlaces directos a redes sociales y correo electrónico
+- **Inicio** (`/`): Presentación personal y resumen profesional con animaciones atractivas
+- **Sobre Mí** (`/sobremi`): Información detallada sobre mi trayectoria, formación y valores profesionales
+- **Habilidades** (`/habilidades`): Tecnologías y herramientas que domino, organizadas por categorías y nivel de experiencia
+- **Proyectos** (`/proyectos`): Portafolio de trabajos destacados con descripciones, tecnologías utilizadas y enlaces
+- **Contacto** (`/contacto`): Formulario de contacto y enlaces directos a redes sociales y correo electrónico
 
 ## 🔧 Scripts y Desarrollo
 
@@ -283,16 +305,17 @@ Visita [http://localhost:3000](http://localhost:3000) para ver la aplicación en
 npm run dev          # Inicia servidor con Turbopack (ultra-rápido)
 
 # 🏗️ Construcción para producción
-npm run build        # Build optimizado con análisis de bundle
+npm run build        # Build optimizado con Next.js 15
 npm run start        # Servidor de producción (post-build)
 
 # 🔍 Análisis y calidad de código
 npm run lint         # ESLint con reglas Next.js + TypeScript
-npm run lint:fix     # Corrección automática de linting
+```
 
-# 📊 Utilidades adicionales
-npm run analyze      # Análisis del tamaño del bundle
-npm run type-check   # Verificación de tipos TypeScript
+# 📊 Comandos de Desarrollo
+# Comandos adicionales disponibles
+npm run dev --help    # Ver opciones de desarrollo
+npm run build --help  # Ver opciones de construcción
 ```
 
 ### 🛠️ Workflow de Desarrollo
@@ -310,10 +333,10 @@ npm run type-check   # Verificación de tipos TypeScript
    - Compresión gzip/brotli
 
 3. **Monitoreo de Rendimiento**
-   - Bundle analyzer integrado
-   - Web Vitals tracking
-   - Performance budgets configurados
-   - Memory leak detection
+   - Vercel Analytics integrado
+   - Speed Insights para Core Web Vitals
+   - Performance tracking en tiempo real
+   - Optimización automática de Next.js
 
 ## 📱 Responsive Design
 
@@ -335,11 +358,12 @@ Diseño completamente adaptativo para todos los dispositivos:
 - **TTFB (Time to First Byte)**: < 600ms
 
 ### 📊 Optimizaciones Implementadas
-- **Bundle size**: < 200KB gzipped para critical path
-- **Image optimization**: WebP/AVIF con fallbacks
-- **Font loading**: Self-hosted con font-display swap
-- **Critical CSS**: Inlined para faster first paint
-- **Service Worker**: Precaching de assets críticos
+- **Next.js 15 optimizations**: App Router con Server Components
+- **Image optimization**: Next.js Image component con lazy loading
+- **Font optimization**: Sistema de fuentes optimizado
+- **Vercel Analytics**: Monitoreo de rendimiento en tiempo real
+- **Speed Insights**: Métricas de Core Web Vitals automáticas
+- **Turbopack**: Build system ultra-rápido para desarrollo
 
 ## 📞 Contacto
 
@@ -357,5 +381,9 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 <div align="center">
 
 ⭐️ **Desarrollado por Miguel Vivar** ⭐️
+
+**Última actualización:** Mayo 2025 | **Versión:** 7.0.0
+
+*Portafolio moderno construido con Next.js 15, React 19 y TypeScript 5*
 
 </div>

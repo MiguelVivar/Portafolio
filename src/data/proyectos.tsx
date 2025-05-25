@@ -1,15 +1,15 @@
 import { FaJava, FaCode, FaLayerGroup, FaDesktop, FaServer, FaSearch } from 'react-icons/fa';
 import { SiReact, SiNextdotjs, SiTailwindcss, SiFramer, SiNodedotjs, SiExpress, SiMongodb, SiJsonwebtokens, SiPug, SiBootstrap, SiMysql, SiHeroku, SiChatbot, SiVite, SiAstro, SiTypescript } from 'react-icons/si';
-import Proyecto1 from '../assets/images/proyectos/portafolio.png';
-import Proyecto2 from '../assets/images/proyectos/calculadoraconsumo.png';
-import Proyecto3 from '../assets/images/proyectos/vinnbonn.png';
-import Proyecto4 from '../assets/images/proyectos/chuchipg.png';
-import Proyecto5 from '../assets/images/proyectos/administradorveterinaria.png';
-import Proyecto6 from '../assets/images/proyectos/agenciaviajes.png';
-import Proyecto7 from '../assets/images/proyectos/aiassistedu.png';
-import Proyecto8 from '../assets/images/proyectos/sistemaadmision.png';
-import Proyecto9 from '../assets/images/proyectos/generadorexamenes.png';
-import Proyecto10 from '../assets/images/proyectos/innovatechica2025.png';
+import Proyecto1 from '../assets/images/proyectos/portafolio.webp';
+import Proyecto2 from '../assets/images/proyectos/calculadoraconsumo.webp';
+import Proyecto3 from '../assets/images/proyectos/vinnbonn.webp';
+import Proyecto4 from '../assets/images/proyectos/chuchipg.webp';
+import Proyecto5 from '../assets/images/proyectos/administradorveterinaria.webp';
+import Proyecto6 from '../assets/images/proyectos/agenciaviajes.webp';
+import Proyecto7 from '../assets/images/proyectos/aiassistedu.webp';
+import Proyecto8 from '../assets/images/proyectos/sistemaadmision.webp';
+import Proyecto9 from '../assets/images/proyectos/generadorexamenes.webp';
+import Proyecto10 from '../assets/images/proyectos/innovatechica2025.webp';
 
 export const proyectos = [
   {

@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
-import ProfilePicture from '../../assets/images/perfil.png';
+import ProfilePicture from '../../assets/images/perfil.webp';
 import Link from 'next/link';
 
 const ProfileImage: React.FC = () => {

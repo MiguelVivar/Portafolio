@@ -3,7 +3,7 @@
 import React, { useState, memo, useMemo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaCheck, FaStar } from 'react-icons/fa';
-import ProfilePicture from '../../assets/images/perfil.png';
+import ProfilePicture from '../../assets/images/perfil.webp';
 import Image from 'next/image';
 
 // Animation variants extracted for performance optimization

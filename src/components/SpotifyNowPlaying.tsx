@@ -23,8 +23,18 @@ const formatTime = (ms: number): string => {
   return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 };
 
-// Simplificada la URL de la API para Vercel
-const getApiUrl = () => 'https://miguel-vivar.vercel.app/api/spotify';
+// La URL base depende del entorno (desarrollo o producción)
+const getApiUrl = () => {
+  // Verifica si estamos en un entorno de GitHub Pages
+  const isGitHubPages = window.location.hostname.includes('github.io');
+  // Para GitHub Pages, usamos la URL absoluta del sitio desplegado
+  if (isGitHubPages) {
+    const baseUrl = window.location.origin;
+    return `${baseUrl}/api/spotify`;
+  }
+  // En desarrollo y producción con Next.js, usamos la ruta relativa
+  return '/api/spotify';
+};
 
 const SpotifyNowPlaying: React.FC = () => {
   const [data, setData] = useState<SpotifyData | null>(null);
@@ -75,7 +85,7 @@ const SpotifyNowPlaying: React.FC = () => {
         setError('No se pudieron cargar los datos de Spotify');
         
         // Si estamos en GitHub Pages, intentemos usar una alternativa
-        if (retryCount < 3) {
+        if (window.location.hostname.includes('github.io') && retryCount < 3) {
           setRetryCount(prev => prev + 1);
           setTimeout(fetchSpotifyData, 3000); // Reintentamos en 3 segundos
         }
@@ -265,10 +275,26 @@ const SpotifyNowPlaying: React.FC = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="px-3 py-2 bg-neutral-800"
+              className="px-3 pb-3"
             >
-              <div className="text-xs text-gray-400">{data.album}</div>
-              <div className="mt-2 text-gray-500 text-xs">{data.timestamp}</div>
+              <div className="text-xs text-gray-500 pt-2 border-t border-gray-800/50">
+                <p>Álbum: {data.album}</p>
+                <div className="mt-1 flex items-center">
+                  <div className="mr-2 text-emerald-400">
+                    <FaSpotify className="inline-block mr-1" size={10} />
+                    <span className="text-[10px]">SPOTIFY</span>
+                  </div>
+                  <a 
+                    href={data.songUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="underline hover:text-emerald-400 transition-colors text-[10px]"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    Abrir en Spotify
+                  </a>
+                </div>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

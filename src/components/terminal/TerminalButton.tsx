@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { FaTerminal } from 'react-icons/fa';
-import { useTerminal } from './TerminalContext';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { FaTerminal } from "react-icons/fa";
+import { useTerminal } from "./TerminalContext";
 
 const TerminalButton: React.FC = () => {
   const { toggleTerminal } = useTerminal();
@@ -14,14 +14,16 @@ const TerminalButton: React.FC = () => {
       onClick={toggleTerminal}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className="fixed bottom-6 left-6 z-40 p-3 rounded-full bg-neutral-800 border border-emerald-500/30 
-        shadow-lg shadow-emerald-500/10 transition-all duration-300 group"
+      className="fixed bottom-6 left-6 z-40 p-3 rounded-full bg-neutral-800 border border-emerald-500/30 shadow-lg shadow-emerald-500/10 transition-all duration-300 group cursor-pointer"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       aria-label="Abrir Terminal"
     >
-      <FaTerminal className="text-emerald-400 group-hover:text-emerald-300 transition-colors" size={18} />
-      
+      <FaTerminal
+        className="text-emerald-400 group-hover:text-emerald-300 transition-colors"
+        size={18}
+      />
+
       {/* Efecto de resplandor en hover */}
       {isHovered && (
         <motion.div
@@ -32,7 +34,7 @@ const TerminalButton: React.FC = () => {
           transition={{ duration: 0.3 }}
         />
       )}
-      
+
       {/* Tooltip */}
       <motion.div
         initial={{ opacity: 0, x: 10 }}

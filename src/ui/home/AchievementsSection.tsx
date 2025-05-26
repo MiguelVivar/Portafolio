@@ -113,7 +113,7 @@ const AchievementsSection: React.FC<AchievementsSectionProps> = memo(({ showAchi
   }), []);
 
   return (
-    <section className="min-h-[50vh] flex items-center justify-center relative z-10 px-4 sm:px-6 lg:px-8 py-24">
+    <section className="min-h-[50vh] flex items-center justify-center relative z-10 px-4 sm:px-6 lg:px-8 pb-24">
       <div className="w-full max-w-7xl mx-auto">
         <motion.div
           {...headerAnimationProps}

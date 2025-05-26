@@ -145,7 +145,7 @@ const HabilidadCard: React.FC<HabilidadCardProps> = ({ habilidad, index }) => {
         <motion.button
           layout
           onClick={() => setIsExpanded(!isExpanded)}
-          className={`w-full mt-4 py-2 px-4 rounded-md flex items-center justify-center gap-2 text-sm font-medium transition-all ${
+          className={`w-full mt-4 py-2 px-4 rounded-md flex items-center justify-center gap-2 text-sm font-medium transition-all cursor-pointer ${
             isExpanded 
               ? "bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30" 
               : "bg-neutral-700/50 text-gray-300 hover:bg-neutral-700"

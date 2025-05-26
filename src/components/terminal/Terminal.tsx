@@ -189,7 +189,7 @@ const Terminal: React.FC = () => {
                 <div className="mt-2 pt-2 border-t border-neutral-700/50">
                   <form onSubmit={handleSubmit} className="flex items-center gap-2">
                     <div className="flex items-center gap-1 text-sm">
-                      <span className="text-green-400 font-semibold">miguel@portfolio</span>
+                      <span className="text-green-400 font-semibold">miguel@vivar</span>
                       <span className="text-gray-400">:</span>
                       <span className="text-blue-400 font-mono">{currentPath}</span>
                       <span className="text-emerald-400 font-bold">$</span>

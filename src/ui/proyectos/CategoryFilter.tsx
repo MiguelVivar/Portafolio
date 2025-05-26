@@ -34,7 +34,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
           <motion.button
             key={categoria.id}
             onClick={() => setCategoriaActiva(categoria.id)}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-emerald-300/50 ${
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-emerald-300/50 cursor-pointer ${
               categoriaActiva === categoria.id
                 ? 'bg-emerald-300 text-neutral-900 shadow-md shadow-emerald-500/20'
                 : 'text-gray-400 hover:text-white hover:bg-neutral-700/50'
@@ -49,7 +49,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
             {/* Mostrar conteo si está disponible */}
             {conteo && conteo[categoria.id] !== undefined && (
               <span 
-                className={`ml-1 inline-flex items-center justify-center rounded-full min-w-[20px] h-5 text-xs ${
+                className={`ml-1 inline-flex items-center justify-center rounded-full min-w-[20px] h-5 text-xs cursor-pointer ${
                   categoriaActiva === categoria.id 
                     ? 'bg-neutral-800/80 text-white' 
                     : 'bg-neutral-700 text-gray-300'

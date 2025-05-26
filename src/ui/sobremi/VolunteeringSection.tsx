@@ -211,7 +211,7 @@ const VolunteeringSection: React.FC<VolunteeringSectionProps> = ({
               onClick={() =>
                 setSelectedCard(selectedCard === index ? null : index)
               }
-              className="group relative cursor-pointer"
+              className="group relative"
               style={{
                 transformStyle: "preserve-3d",
               }}

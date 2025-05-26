@@ -84,7 +84,7 @@ const Home = memo<HomeProps>(({ roles }) => {
   );
 
   const containerClasses = useMemo(
-    () => "w-full max-w-7xl mx-auto py-16 sm:py-24 relative z-10",
+    () => "w-full max-w-7xl mx-auto py-8 sm:py-24 relative z-10",
     []
   );
 

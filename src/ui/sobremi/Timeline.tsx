@@ -72,7 +72,7 @@ const Timeline: React.FC = () => {
         <motion.button
           variants={item}
           onClick={() => setActiveTab('both')}
-          className={`px-5 py-2.5 rounded-full flex items-center gap-2 transition-all duration-300 ${
+          className={`px-5 py-2.5 rounded-full flex items-center gap-2 transition-all duration-300 cursor-pointer ${
             activeTab === 'both' 
               ? 'bg-emerald-500 text-neutral-900 shadow-lg shadow-emerald-500/30' 
               : 'bg-neutral-800 text-gray-300 hover:bg-neutral-700'
@@ -83,7 +83,7 @@ const Timeline: React.FC = () => {
         <motion.button
           variants={item}
           onClick={() => setActiveTab('education')}
-          className={`px-5 py-2.5 rounded-full flex items-center gap-2 transition-all duration-300 ${
+          className={`px-5 py-2.5 rounded-full flex items-center gap-2 transition-all duration-300 cursor-pointer ${
             activeTab === 'education' 
               ? 'bg-emerald-500 text-neutral-900 shadow-lg shadow-emerald-500/30' 
               : 'bg-neutral-800 text-gray-300 hover:bg-neutral-700'
@@ -95,7 +95,7 @@ const Timeline: React.FC = () => {
         <motion.button
           variants={item}
           onClick={() => setActiveTab('experience')}
-          className={`px-5 py-2.5 rounded-full flex items-center gap-2 transition-all duration-300 ${
+          className={`px-5 py-2.5 rounded-full flex items-center gap-2 transition-all duration-300 cursor-pointer ${
             activeTab === 'experience' 
               ? 'bg-emerald-500 text-neutral-900 shadow-lg shadow-emerald-500/30' 
               : 'bg-neutral-800 text-gray-300 hover:bg-neutral-700'

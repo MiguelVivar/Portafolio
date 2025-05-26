@@ -583,7 +583,7 @@ export default function GlobalSearch() {
       {/* Botón de búsqueda mejorado */}
       <button
         onClick={() => setIsOpen(true)}
-        className="group flex items-center gap-3 px-4 py-2.5 bg-neutral-800/50 border border-neutral-700 rounded-xl text-gray-400 hover:text-white hover:border-emerald-500/50 hover:bg-neutral-800/80 transition-all duration-300 min-w-[200px]"
+        className="group flex items-center gap-3 px-4 py-2.5 bg-neutral-800/50 border border-neutral-700 rounded-xl text-gray-400 hover:text-white hover:border-emerald-500/50 hover:bg-neutral-800/80 transition-all duration-300 min-w-[200px] cursor-text"
         aria-label="Abrir búsqueda global"
       >
         <FaSearch className="w-4 h-4 group-hover:text-emerald-400 transition-colors" />

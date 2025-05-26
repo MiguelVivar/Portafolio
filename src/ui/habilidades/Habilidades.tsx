@@ -179,7 +179,7 @@ const Habilidades: React.FC = () => {
                   id="category-filter"
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="bg-neutral-800 border border-neutral-700 rounded-lg text-white py-2 px-3 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="bg-neutral-800 border border-neutral-700 rounded-lg text-white py-2 px-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer"
                 >
                   {categorias.map((cat) => (
                     <option key={cat} value={cat}>{cat}</option>
@@ -193,7 +193,7 @@ const Habilidades: React.FC = () => {
                   id="level-filter"
                   value={selectedLevel}
                   onChange={(e) => setSelectedLevel(e.target.value)}
-                  className="bg-neutral-800 border border-neutral-700 rounded-lg text-white py-2 px-3 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="bg-neutral-800 border border-neutral-700 rounded-lg text-white py-2 px-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer"
                 >
                   <option value="Todos">Todos</option>
                   {niveles.map((nivel) => (

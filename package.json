@@ -1,12 +1,15 @@
 {
   "name": "portfolio",
-  "version": "7.0.0",
-  "private": true,
-  "scripts": {
+  "version": "7.5.1",
+  "private": true,  "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:seo": "npm run sitemap:generate && npm run build",
+    "sitemap:generate": "node scripts/generate-sitemap.js",
+    "seo:validate": "npm run sitemap:generate && echo 'SEO files validated successfully'",
+    "deploy": "npm run build:seo && npm run start"
   },
   "dependencies": {
     "@nanostores/react": "^1.0.0",

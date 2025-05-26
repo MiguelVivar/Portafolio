@@ -15,9 +15,9 @@
 
 ## 🚀 Descripción
 
-**Portfolio Personal Versión 7.0.0** - Una plataforma web avanzada y completamente interactiva que combina tecnologías de vanguardia para crear una experiencia de usuario excepcional. Más que un simple portafolio, es una demostración técnica completa de desarrollo web moderno que incluye:
+**Portfolio Personal Versión 7.5.1** - Una plataforma web avanzada y completamente interactiva que combina tecnologías de vanguardia para crear una experiencia de usuario excepcional. Más que un simple portafolio, es una demostración técnica completa de desarrollo web moderno que incluye:
 
-- **Sistema de Terminal Interactivo** con 25+ comandos funcionales incluyendo sistema de archivos simulado
+- **Sistema de Terminal Interactivo** con 37 comandos funcionales incluyendo sistema de archivos simulado
 - **Integración en tiempo real con APIs externas** (GitHub, Weather API, Spotify)
 - **Sistema de análisis y monitoreo de rendimiento** con Vercel Analytics y Web Vitals
 - **Motor de búsqueda global** con filtrado inteligente por categorías
@@ -31,7 +31,7 @@ Visita mi portfolio en vivo: [miguelvivar.vercel.app](https://miguelvivar.vercel
 ## ✨ Características Técnicas Avanzadas
 
 ### 🖥️ Sistema de Terminal Interactivo
-- **25+ comandos funcionales**: `help`, `nav`, `home`, `about`, `skills`, `projects`, `contact`, `socials`, `ls`, `dir`, `cd`, `pwd`, `cat`, `find`, `tree`, `git`, `npm`, `code`, `whoami`, `ps`, `date`, `weather`, `calc`, `quote`, `history`, `clear`, `exit`, `matrix`, `coffee`, `konami`, `fortune`, `sudo`, `joke`, `ascii`, `theme`, `game`, `guess`
+- **37 comandos funcionales**: `help`, `nav`, `home`, `about`, `skills`, `projects`, `contact`, `socials`, `ls`, `dir`, `cd`, `pwd`, `cat`, `find`, `tree`, `git`, `npm`, `code`, `whoami`, `ps`, `date`, `weather`, `calc`, `quote`, `history`, `clear`, `exit`, `matrix`, `coffee`, `konami`, `fortune`, `sudo`, `joke`, `ascii`, `theme`, `game`, `guess`
 - **Sistema de archivos simulado** con navegación completa y estructura de directorios realista
 - **Autocompletado inteligente** con tecla Tab para navegación eficiente
 - **Historial de comandos** navegable con flechas arriba/abajo
@@ -152,6 +152,113 @@ Visita mi portfolio en vivo: [miguelvivar.vercel.app](https://miguelvivar.vercel
 - **@types/node 20**: Tipado completo para Node.js APIs
 - **@types/react 19**: Tipado para React 19 y nuevas características
 
+## 💼 Proyectos Destacados
+
+### 🌟 Portafolio Completo (10 Proyectos)
+
+Este portafolio incluye **10 proyectos reales** que demuestran mis habilidades en diferentes tecnologías y enfoques de desarrollo:
+
+#### 🏆 **Proyectos Destacados**
+
+1. **🎯 Portafolio Personal** - *Este proyecto*
+   - **Stack**: Next.js 15.2.4, React 19, TypeScript, Tailwind CSS, Framer Motion
+   - **Características**: Sistema de terminal interactivo, animaciones, analytics
+   - **Demo**: [miguelvivar.vercel.app](https://miguelvivar.vercel.app/)
+   - **Repo**: [GitHub](https://github.com/MiguelVivar/Portafolio)
+
+2. **🧮 Calculadora de Consumo y Propinas**
+   - **Stack**: Vite, React, Tailwind CSS, Framer Motion
+   - **Funcionalidad**: Cálculo automático, diseño responsivo
+   - **Demo**: [calculadoraconsumopropinas.netlify.app](https://calculadoraconsumopropinas.netlify.app/)
+   - **Repo**: [GitHub](https://github.com/MiguelVivar/Calculadora_Consumo_Propinas)
+
+3. **🏥 Administrador de Veterinaria**
+   - **Stack**: React, Node.js, Express, MongoDB, JWT
+   - **Características**: Autenticación, CRUD completo, API REST
+   - **Tipo**: Full-Stack MERN
+   - **Repo**: [GitHub](https://github.com/MiguelVivar/APV_MERN_frontend)
+
+4. **🎓 Sistema de Admisión**
+   - **Stack**: Java (Desktop Application)
+   - **Funcionalidad**: Gestión de procesos académicos, lectura de archivos DBF
+   - **Patrón**: MVC
+   - **Repo**: [GitHub](https://github.com/MiguelVivar/SistemaAdmision)
+
+5. **📝 Generador de Exámenes**
+   - **Stack**: Java con NetBeans
+   - **Funcionalidad**: Automatización de generación de exámenes
+   - **Características**: Interfaz gráfica, organización estructurada
+   - **Repo**: [GitHub](https://github.com/MiguelVivar/GeneradorExamenes)
+
+6. **🚀 InnovaTech Ica 2025**
+   - **Stack**: Astro, Tailwind CSS, TypeScript
+   - **Tipo**: Landing Page para evento tecnológico
+   - **Demo**: [innovatechica.github.io](https://innovatechica.github.io/)
+   - **Repo**: [GitHub](https://github.com/InnovaTechIca/InnovaTechIca.github.io)
+
+#### 📊 **Estadísticas del Portafolio**
+
+- **🎯 Total de Proyectos**: 10 proyectos reales
+- **⚡ Tecnologías Principales**: 15+ frameworks y librerías
+- **🏗️ Categorías**: Front-End (6), Full-Stack (2), Desktop Software (2)
+- **🔧 Lenguajes**: JavaScript/TypeScript, Java, Node.js
+- **🎨 Frameworks UI**: React, Next.js, Astro, Vite
+
+#### 🛠️ **Distribución Tecnológica**
+
+**Front-End** (6 proyectos):
+- React + Next.js: 4 proyectos
+- Vite + React: 1 proyecto  
+- Astro: 1 proyecto
+
+**Full-Stack** (2 proyectos):
+- MERN Stack: 1 proyecto
+- Node.js + Pug + MySQL: 1 proyecto
+
+**Desktop Software** (2 proyectos):
+- Java Applications: 2 proyectos
+
+## 🎯 Habilidades Técnicas - 35+ Tecnologías
+
+### 📈 **Estadísticas de Habilidades**
+
+- **🚀 Total de Habilidades**: 35+ tecnologías dominadas
+- **⭐ Nivel Avanzado**: 15 habilidades
+- **📊 Nivel Intermedio**: 15 habilidades  
+- **📚 Nivel Básico**: 5+ habilidades
+
+### 🏷️ **Categorías de Habilidades**
+
+**🖥️ Front-End** (11 habilidades):
+- HTML5, CSS3, JavaScript (Avanzado)
+- React, Next.js, Tailwind CSS (Avanzado)
+- TypeScript, Framer Motion, Vite (Intermedio)
+- Astro, SASS (Intermedio)
+
+**⚙️ Back-End** (2 habilidades):
+- Node.js, Express (Avanzado)
+
+**🗄️ Bases de Datos** (4 habilidades):
+- MongoDB (Intermedio)
+- MySQL, PostgreSQL, SQL Server (Intermedio)
+
+**💻 Lenguajes de Programación** (5 habilidades):
+- Python, Java, PHP, C# (Intermedio)
+- Go (Básico)
+
+**🔧 Herramientas** (7 habilidades):
+- Git, GitHub (Avanzado)
+- Figma, Postman (Intermedio)
+- Jest, Cypress (Básico)
+
+**✅ Testing** (2 habilidades):
+- Jest, Cypress (Básico)
+
+**🌐 Otros** (6 habilidades):
+- Responsive Design, UI/UX Design (Avanzado)
+- Metodologías Ágiles, Accesibilidad Web (Intermedio)
+- SEO, PWA (Básico)
+
 ## 🚀 Instalación y Uso
 
 ### Requisitos Previos
@@ -163,8 +270,8 @@ Visita mi portfolio en vivo: [miguelvivar.vercel.app](https://miguelvivar.vercel
 1. **Clonar el repositorio**
 
 ```bash
-git clone https://github.com/MiguelVivar/MiguelVivar.github.io.git
-cd MiguelVivar.github.io
+git clone https://github.com/MiguelVivar/Portafolio.git
+cd Portafolio
 ```
 
 2. **Instalar dependencias**
@@ -190,7 +297,7 @@ Visita [http://localhost:3000](http://localhost:3000) para ver la aplicación en
 ## 📁 Arquitectura del Proyecto
 
 ```
-📦 Portfolio v6.0.0
+📦 Portfolio v7.5.1
 ├── 📂 public/                  # Assets estáticos optimizados
 │   ├── 🖼️ images/             # Imágenes del portfolio
 │   ├── 🎵 audio/              # Archivos de audio
@@ -316,7 +423,6 @@ npm run lint         # ESLint con reglas Next.js + TypeScript
 # Comandos adicionales disponibles
 npm run dev --help    # Ver opciones de desarrollo
 npm run build --help  # Ver opciones de construcción
-```
 
 ### 🛠️ Workflow de Desarrollo
 
@@ -371,10 +477,13 @@ Diseño completamente adaptativo para todos los dispositivos:
 - **LinkedIn**: [Miguel Vivar Farfan](https://www.linkedin.com/in/miguel-vivar-farfan/)
 - **GitHub**: [@MiguelVivar](https://github.com/MiguelVivar)
 - **Instagram**: [@mvivarf](https://www.instagram.com/mvivarf/)
+- **Portfolio**: [miguelvivar.vercel.app](https://miguelvivar.vercel.app/)
 
-## 📄 Licencia
+## 🔗 Enlaces del Proyecto
 
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+- **Repositorio**: [https://github.com/MiguelVivar/Portafolio](https://github.com/MiguelVivar/Portafolio)
+- **Demo en Vivo**: [https://miguelvivar.vercel.app/](https://miguelvivar.vercel.app/)
+- **Documentación**: Disponible en el repositorio y en el sitio web
 
 ---
 
@@ -382,7 +491,7 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 
 ⭐️ **Desarrollado por Miguel Vivar** ⭐️
 
-**Última actualización:** Mayo 2025 | **Versión:** 7.0.0
+**Última actualización:** Mayo 2025 | **Versión:** 7.5.1
 
 *Portafolio moderno construido con Next.js 15, React 19 y TypeScript 5*
 

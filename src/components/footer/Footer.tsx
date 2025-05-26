@@ -8,18 +8,18 @@ import SocialLinks from './SocialLinks';
 import FooterDivider from './FooterDivider';
 import FooterCopyright from './FooterCopyright';
 import SpotifyNowPlaying from '../SpotifyNowPlaying';
-import { FaHome, FaUser, FaCode, FaProjectDiagram, FaEnvelope } from 'react-icons/fa';
+import { FaHome, FaUser, FaCode, FaProjectDiagram, FaEnvelope, FaServer } from 'react-icons/fa';
 
 interface FooterProps {
   frases: string[];
 }
-export default function Footer({ frases }: FooterProps) {
-  // Enlaces para el footer
+export default function Footer({ frases }: FooterProps) {  // Enlaces para el footer
   const enlaces = [
     { href: '/', label: 'Inicio', icon: FaHome },
     { href: '/sobremi', label: 'Sobre Mí', icon: FaUser },
     { href: '/habilidades', label: 'Habilidades', icon: FaCode },
     { href: '/proyectos', label: 'Proyectos', icon: FaProjectDiagram },
+    { href: '/api', label: 'APIs', icon: FaServer },
     { href: '/contacto', label: 'Contacto', icon: FaEnvelope },
   ];
 

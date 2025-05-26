@@ -10,7 +10,7 @@ interface CallToActionProps {
   buttonPrimaryText: string;
   buttonSecondaryText: string;
   buttonPrimaryIcon: React.ReactNode;
-  buttonSecundaryIcon: React.ReactNode;
+  buttonSecondaryIcon: React.ReactNode;
   buttonPrimaryLink?: string;
   buttonSecondaryLink?: string;
 }
@@ -87,7 +87,7 @@ interface OptimizedButtonProps {
   type: 'primary' | 'secondary';
   text: string;
   icon: React.ReactNode;
-  link: string;
+  link?: string;
   isHovered: boolean;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
@@ -115,12 +115,13 @@ const OptimizedButton = memo<OptimizedButtonProps>(({
       ? "relative px-7 py-4 bg-gradient-to-r from-emerald-400 to-teal-500 text-neutral-900 rounded-lg font-bold flex items-center gap-3 shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-500/40 transition-all duration-300"
       : "relative px-7 py-4 bg-neutral-800 border border-emerald-300/20 rounded-lg text-emerald-300 font-medium flex items-center gap-3 transition-all duration-300 group-hover:border-emerald-300/50"
   }), [isPrimary, isHovered]);
-
-  const linkProps = useMemo(() => 
-    isPrimary 
+  const linkProps = useMemo(() => {
+    // Check if the link is external (starts with http/https or mailto)
+    const isExternalLink = link && (link.startsWith('http') || link.startsWith('mailto'));
+    return isExternalLink 
       ? { target: "_blank", rel: "noopener noreferrer" }
-      : {}
-  , [isPrimary]);
+      : {};
+  }, [link]);
 
   return (
     <motion.div
@@ -132,7 +133,7 @@ const OptimizedButton = memo<OptimizedButtonProps>(({
     >
       <div className={buttonStyles.glow} />
       <a 
-        href={link}
+        href={link || '#'}
         className={buttonStyles.button}
         {...linkProps}
       >
@@ -159,9 +160,9 @@ const CallToAction: React.FC<CallToActionProps> = memo(({
   buttonPrimaryText, 
   buttonSecondaryText, 
   buttonPrimaryIcon, 
-  buttonSecundaryIcon,
-  buttonPrimaryLink = "https://docs.google.com/document/d/1Jo8Nd2-7r0L_dINTaHM88493LuKsEhfAAyRfLTMVv8s/edit?tab=t.0#heading=h.cgr1jzl3ngp2",
-  buttonSecondaryLink = "/proyectos" 
+  buttonSecondaryIcon,
+  buttonPrimaryLink,
+  buttonSecondaryLink, 
 }) => {
   const [hoveredButton, setHoveredButton] = useState<'primary' | 'secondary' | null>(null);
   
@@ -235,8 +236,8 @@ const CallToAction: React.FC<CallToActionProps> = memo(({
             <OptimizedButton
               type="secondary"
               text={buttonSecondaryText}
-              icon={buttonSecundaryIcon}
-              link={buttonSecondaryLink}
+              icon={buttonSecondaryIcon}
+              link={buttonSecondaryLink || '#'}
               isHovered={hoveredButton === 'secondary'}
               onMouseEnter={handleSecondaryHover}
               onMouseLeave={handleMouseLeave}

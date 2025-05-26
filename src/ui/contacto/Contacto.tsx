@@ -174,10 +174,12 @@ const Contacto: React.FC = () => {
             title='¿Listo para' 
             titlespan='trabajar juntos?' 
             description='Estoy disponible para proyectos freelance, colaboraciones y oportunidades laborales. ¡Contáctame y hagamos realidad tus ideas!' 
-            buttonSecundaryIcon={<MdFolderOpen className="h-5 w-5" />} 
+            buttonSecondaryIcon={<MdFolderOpen className="h-5 w-5" />} 
             buttonSecondaryText='Ver mis proyectos' 
+            buttonSecondaryLink='/proyectos'
             buttonPrimaryIcon={<FaDownload className="h-5 w-5" />} 
             buttonPrimaryText='Descargar CV'
+            buttonPrimaryLink='https://docs.google.com/document/d/1Jo8Nd2-7r0L_dINTaHM88493LuKsEhfAAyRfLTMVv8s/edit?tab=t.0#heading=h.cgr1jzl3ngp2'
           />
         </motion.div>
 

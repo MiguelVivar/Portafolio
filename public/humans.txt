@@ -1,0 +1,23 @@
+/* TEAM */
+Developer: Miguel Vivar
+Contact: miguelvivarfarfan [at] gmail.com
+From: España
+LinkedIn: https://www.linkedin.com/in/miguel-vivar-farfan/
+GitHub: https://github.com/MiguelVivar
+
+/* THANKS */
+Next.js: https://nextjs.org/
+React: https://reactjs.org/
+TypeScript: https://www.typescriptlang.org/
+Tailwind CSS: https://tailwindcss.com/
+Vercel: https://vercel.com/
+
+/* SITE */
+Last update: 2025/05/26
+Language: Español / Spanish
+Doctype: HTML5
+IDE: Visual Studio Code
+Framework: Next.js 15
+Styling: Tailwind CSS
+Version Control: Git
+Hosting: GitHub Pages / Vercel

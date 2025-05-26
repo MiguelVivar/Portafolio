@@ -1,0 +1,38 @@
+{
+  "name": "Miguel Vivar - Desarrollador Full Stack",
+  "short_name": "Miguel Vivar",
+  "description": "Portfolio profesional de Miguel Vivar, Desarrollador Full Stack especializado en React, Next.js, TypeScript y Node.js",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "categories": ["portfolio", "developer", "technology"],
+  "lang": "es",
+  "dir": "ltr",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/portafolio.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Miguel Vivar Portfolio Homepage"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

@@ -187,7 +187,7 @@ const SobreMi: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="mt-20 relative overflow-hidden rounded-2xl"
+          className="mt-0 relative overflow-hidden rounded-2xl"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/20 to-teal-600/20 -z-10"></div>
           
@@ -195,10 +195,12 @@ const SobreMi: React.FC = () => {
             title='¿Listo para' 
             titlespan='colaborar?' 
             description='Estoy disponible para nuevos proyectos y oportunidades. Si tienes una idea o necesitas ayuda con tu proyecto, ¡contáctame!' 
-            buttonSecundaryIcon={<FaFileAlt className="text-xl" />} 
+            buttonSecondaryIcon={<FaFileAlt className="text-xl" />} 
             buttonSecondaryText='Descargar CV' 
+            buttonSecondaryLink='https://docs.google.com/document/d/1Jo8Nd2-7r0L_dINTaHM88493LuKsEhfAAyRfLTMVv8s/edit?tab=t.0#heading=h.cgr1jzl3ngp2'
             buttonPrimaryIcon={<MdEmail className="text-xl" />} 
             buttonPrimaryText='Contáctame'
+            buttonPrimaryLink='/contacto'
           />
         </motion.div>
 

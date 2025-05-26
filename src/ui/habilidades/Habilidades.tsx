@@ -395,10 +395,12 @@ const Habilidades: React.FC = () => {
           title='¿Interesado en mis' 
           titlespan='habilidades' 
           description='Estoy constantemente aprendiendo y mejorando mis habilidades. Si quieres saber más sobre mi trabajo o tienes un proyecto en mente, ¡contáctame!' 
-          buttonSecundaryIcon={<FiFolder className="h-5 w-5" />} 
+          buttonSecondaryIcon={<FiFolder className="h-5 w-5" />} 
           buttonSecondaryText='Ver Proyectos' 
+          buttonSecondaryLink='/proyectos'
           buttonPrimaryIcon={<FiMail className="h-5 w-5" />} 
           buttonPrimaryText='Contactar' 
+          buttonPrimaryLink='/contacto'
         />
         <AnimatedBackground />
       </div>

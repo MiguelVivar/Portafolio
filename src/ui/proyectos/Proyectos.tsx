@@ -520,10 +520,12 @@ const Proyectos: React.FC = () => {
             title="¿Interesado en"
             titlespan="colaborar"
             description="Siempre estoy abierto a nuevos proyectos y desafíos. Si tienes una idea o necesitas ayuda con tu proyecto, ¡contáctame!"
-            buttonSecundaryIcon={<FaGithub className="text-xl" />}
+            buttonSecondaryIcon={<FaGithub className="text-xl" />}
             buttonSecondaryText="Ver GitHub"
+            buttonSecondaryLink="https://github.com/MiguelVivar"
             buttonPrimaryIcon={<FiMail className="text-xl" />}
             buttonPrimaryText="Contactar"
+            buttonPrimaryLink="/contacto"
           />
         </div>
         {/* Fondo animado */}

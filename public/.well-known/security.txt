@@ -1,0 +1,8 @@
+Contact: mailto:miguelvivarfarfan@gmail.com
+Contact: https://github.com/MiguelVivar
+Expires: 2026-05-26T00:00:00.000Z
+Encryption: https://keybase.io/miguelvivar/pgp_keys.asc
+Acknowledgments: https://miguelvivar.vercel.app/security-acknowledgments
+Preferred-Languages: es, en
+Canonical: https://miguelvivar.vercel.app/.well-known/security.txt
+Policy: https://miguelvivar.vercel.app/security-policy

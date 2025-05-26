@@ -30,6 +30,15 @@
         "aria-progressbar-name": "off",
         "aria-valid-attr-value": "off"
       }
-    ]
+    ],
+    "compat-api/html": [
+      "default",
+      {
+        "ignore": [
+          "meta[name=theme-color]"
+        ]
+      }
+    ],
+    "apple-touch-icons": "off"
   }
 }

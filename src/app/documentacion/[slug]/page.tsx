@@ -4,9 +4,9 @@ import DocumentationPage from '@/ui/documentacion/DocumentationPage';
 
 // Configurar metadatos dinámicos
 export async function generateMetadata(
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> {
-  const { slug } = params;
+  const { slug } = await params;
   
   const titles: Record<string, string> = {
     spotify: 'Documentación API Spotify | Miguel Vivar',
@@ -53,12 +53,12 @@ export function generateStaticParams() {
   ];
 }
 
-export default function ApiDocumentationPage({ 
+export default async function ApiDocumentationPage({ 
   params 
 }: { 
-  params: { slug: string } 
+  params: Promise<{ slug: string }> 
 }) {
-  const { slug } = params;
+  const { slug } = await params;
   
   // Verificar que el slug sea válido
   const validSlugs = ['spotify', 'github', 'weather'];

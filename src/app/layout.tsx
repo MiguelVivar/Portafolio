@@ -96,7 +96,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
     "La programación es el lenguaje que nos permite comunicarnos con la máquina.",
   ];
   return (
-    <html lang="es" className="hydrated overflow-x-hidden">      <head>
+    <html lang="es" className="hydrated overflow-x-hidden">
+      <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#3b82f6" />
@@ -106,19 +107,23 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Miguel Vivar" />
         <meta name="mobile-web-app-capable" content="yes" />
-        
+
         <link rel="icon" type="image/svg+xml" href="/logo.svg" />
         <link rel="apple-touch-icon" href="/logo.svg" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="canonical" href="https://miguelvivar.vercel.app/" />
         <link rel="author" href="/humans.txt" />
-        <link rel="preload" href="https://i.scdn.co"/>
-        
+        <link rel="preload" href="https://i.scdn.co" />
+
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link rel="preconnect" href="https://api.github.com" />
-        
+
         <JsonLd data={personSchema} />
         <JsonLd data={websiteSchema} />
       </head>

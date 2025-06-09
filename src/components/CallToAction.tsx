@@ -36,7 +36,8 @@ const animationVariants = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.5, delay: 0.3 }
-  },  titleSpan: {
+  },
+  titleSpan: {
     transition: { 
       duration: 5,
       repeat: Infinity,
@@ -115,13 +116,17 @@ const OptimizedButton = memo<OptimizedButtonProps>(({
       ? "relative px-7 py-4 bg-gradient-to-r from-emerald-400 to-teal-500 text-neutral-900 rounded-lg font-bold flex items-center gap-3 shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-500/40 transition-all duration-300"
       : "relative px-7 py-4 bg-neutral-800 border border-emerald-300/20 rounded-lg text-emerald-300 font-medium flex items-center gap-3 transition-all duration-300 group-hover:border-emerald-300/50"
   }), [isPrimary, isHovered]);
+
   const linkProps = useMemo(() => {
-    // Check if the link is external (starts with http/https or mailto)
     const isExternalLink = link && (link.startsWith('http') || link.startsWith('mailto'));
     return isExternalLink 
       ? { target: "_blank", rel: "noopener noreferrer" }
       : {};
   }, [link]);
+
+  const iconAnimation = useMemo(() => ({
+    rotate: isHovered ? [0, -10, 10, -10, 0] : 0
+  }), [isHovered]);
 
   return (
     <motion.div
@@ -138,9 +143,7 @@ const OptimizedButton = memo<OptimizedButtonProps>(({
         {...linkProps}
       >
         <motion.span 
-          animate={{ 
-            rotate: isHovered ? [0, -10, 10, -10, 0] : 0
-          }}
+          animate={iconAnimation}
           transition={{ duration: 0.5 }}
           className="text-xl"
         >
@@ -166,21 +169,102 @@ const CallToAction: React.FC<CallToActionProps> = memo(({
 }) => {
   const [hoveredButton, setHoveredButton] = useState<'primary' | 'secondary' | null>(null);
   
-  // Memoized event handlers to prevent unnecessary re-renders
   const handlePrimaryHover = useCallback(() => setHoveredButton('primary'), []);
   const handleSecondaryHover = useCallback(() => setHoveredButton('secondary'), []);
   const handleMouseLeave = useCallback(() => setHoveredButton(null), []);
 
-  // Memoized viewport configuration
   const viewportConfig = useMemo(() => ({ 
     once: true, 
     margin: "-100px" 
   }), []);
 
-  // Memoized title span styles
   const titleSpanStyles = useMemo(() => ({
     backgroundSize: "200% auto"
   }), []);
+
+  const titleSpanAnimation = useMemo(() => ({
+    backgroundPosition: ["0% center", "100% center", "0% center"]
+  }), []);
+
+  const content = useMemo(() => (
+    <div className="relative z-10 py-12 px-8 sm:px-12 text-center">
+      <motion.div
+        initial={animationVariants.content.initial}
+        whileInView={animationVariants.content.animate}
+        viewport={viewportConfig}
+        transition={animationVariants.content.transition}
+        className="max-w-4xl mx-auto"
+      >
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
+          <span className="text-white">{title}</span>{" "}
+          <motion.span 
+            className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-teal-400"
+            animate={titleSpanAnimation}
+            transition={animationVariants.titleSpan.transition}
+            style={titleSpanStyles}
+          >
+            {titlespan}
+          </motion.span>
+          <span className="text-white">?</span>
+        </h2>
+        
+        <motion.p 
+          initial={animationVariants.description.initial}
+          whileInView={animationVariants.description.animate}
+          viewport={viewportConfig}
+          transition={animationVariants.description.transition}
+          className="text-lg text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed"
+        >
+          {description}
+        </motion.p>
+        
+        <motion.div 
+          className="flex flex-col sm:flex-row gap-5 justify-center items-center"
+          initial={animationVariants.buttons.initial}
+          whileInView={animationVariants.buttons.animate}
+          viewport={viewportConfig}
+          transition={animationVariants.buttons.transition}
+        >
+          <OptimizedButton
+            type="secondary"
+            text={buttonSecondaryText}
+            icon={buttonSecondaryIcon}
+            link={buttonSecondaryLink || '#'}
+            isHovered={hoveredButton === 'secondary'}
+            onMouseEnter={handleSecondaryHover}
+            onMouseLeave={handleMouseLeave}
+          />
+          
+          <OptimizedButton
+            type="primary"
+            text={buttonPrimaryText}
+            icon={buttonPrimaryIcon}
+            link={buttonPrimaryLink}
+            isHovered={hoveredButton === 'primary'}
+            onMouseEnter={handlePrimaryHover}
+            onMouseLeave={handleMouseLeave}
+          />
+        </motion.div>
+      </motion.div>
+    </div>
+  ), [
+    title,
+    titlespan,
+    description,
+    buttonPrimaryText,
+    buttonSecondaryText,
+    buttonPrimaryIcon,
+    buttonSecondaryIcon,
+    buttonPrimaryLink,
+    buttonSecondaryLink,
+    hoveredButton,
+    handlePrimaryHover,
+    handleSecondaryHover,
+    handleMouseLeave,
+    viewportConfig,
+    titleSpanStyles,
+    titleSpanAnimation
+  ]);
 
   return (
     <motion.div
@@ -192,71 +276,8 @@ const CallToAction: React.FC<CallToActionProps> = memo(({
     >
       <BackgroundDecorations />
       <DecorativeLines />
-      
-      {/* Contenido principal */}
-      <div className="relative z-10 py-12 px-8 sm:px-12 text-center">
-        <motion.div
-          initial={animationVariants.content.initial}
-          whileInView={animationVariants.content.animate}
-          viewport={viewportConfig}
-          transition={animationVariants.content.transition}
-          className="max-w-4xl mx-auto"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
-            <span className="text-white">{title}</span>{" "}            <motion.span 
-              className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-teal-400"
-              animate={{ 
-                backgroundPosition: ["0% center", "100% center", "0% center"]
-              }}
-              transition={animationVariants.titleSpan.transition}
-              style={titleSpanStyles}
-            >
-              {titlespan}
-            </motion.span>
-            <span className="text-white">?</span>
-          </h2>
-          
-          <motion.p 
-            initial={animationVariants.description.initial}
-            whileInView={animationVariants.description.animate}
-            viewport={viewportConfig}
-            transition={animationVariants.description.transition}
-            className="text-lg text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed"
-          >
-            {description}
-          </motion.p>
-          
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-5 justify-center items-center"
-            initial={animationVariants.buttons.initial}
-            whileInView={animationVariants.buttons.animate}
-            viewport={viewportConfig}
-            transition={animationVariants.buttons.transition}
-          >
-            <OptimizedButton
-              type="secondary"
-              text={buttonSecondaryText}
-              icon={buttonSecondaryIcon}
-              link={buttonSecondaryLink || '#'}
-              isHovered={hoveredButton === 'secondary'}
-              onMouseEnter={handleSecondaryHover}
-              onMouseLeave={handleMouseLeave}
-            />
-            
-            <OptimizedButton
-              type="primary"
-              text={buttonPrimaryText}
-              icon={buttonPrimaryIcon}
-              link={buttonPrimaryLink}
-              isHovered={hoveredButton === 'primary'}
-              onMouseEnter={handlePrimaryHover}
-              onMouseLeave={handleMouseLeave}
-            />
-          </motion.div>
-        </motion.div>
-      </div>
-      
       <CornerDecorations />
+      {content}
     </motion.div>
   );
 });

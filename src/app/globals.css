@@ -12,13 +12,59 @@
 
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
+  will-change: box-shadow;
 }
 
 /* Optimización para will-change en elementos animados */
 .will-change-transform {
   will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .will-change-opacity {
   will-change: opacity;
+}
+
+/* Optimizaciones de rendimiento generales */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimización de scroll */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Optimización de imágenes */
+img {
+  content-visibility: auto;
+}
+
+/* Optimización de contenedores */
+.container {
+  contain: content;
+}
+
+/* Optimización de fuentes */
+@layer base {
+  :root {
+    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+}
+
+/* Optimización de transiciones */
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Optimización de renderizado */
+.optimize-rendering {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }

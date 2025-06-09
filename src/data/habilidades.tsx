@@ -215,17 +215,18 @@ export const categoriasHabilidades: CategoriaHabilidad[] = [
         nivel: "Intermedio", 
         icono: <SiMongodb className="text-2xl" />,
         descripcion: "Base de datos NoSQL orientada a documentos, flexible y escalable.",
-        proyectosRelacionados: ["API REST", "Aplicación MERN", "Gestor de Contenidos"],
+        proyectosRelacionados: ["Administrador de Veterinaria"],
         recursos: [
           { nombre: "Documentación MongoDB", url: "https://docs.mongodb.com/" },
           { nombre: "MongoDB University", url: "https://university.mongodb.com/" }
         ]
       },
       { 
-        nombre: "MySQL",        nivel: "Intermedio", 
+        nombre: "MySQL",        
+        nivel: "Intermedio", 
         icono: <SiMysql className="text-2xl" />,
         descripcion: "Sistema de gestión de bases de datos relacionales con SQL.",
-        proyectosRelacionados: ["E-commerce", "Sistema de Gestión", "API REST"],
+        proyectosRelacionados: ["Agencia de Viajes"],
         recursos: [
           { nombre: "Documentación MySQL", url: "https://dev.mysql.com/doc/" },
           { nombre: "MySQL Tutorial", url: "https://www.mysqltutorial.org/" }
@@ -236,7 +237,7 @@ export const categoriasHabilidades: CategoriaHabilidad[] = [
         nivel: "Intermedio", 
         icono: <BsServer className="text-2xl" />,
         descripcion: "Sistema de gestión de bases de datos relacionales de Microsoft.",
-        proyectosRelacionados: ["Aplicación Empresarial", "Sistema de Gestión"],
+        proyectosRelacionados: ["SistemaAdmision"],
         recursos: [
           { nombre: "Documentación SQL Server", url: "https://docs.microsoft.com/es-es/sql/" },
           { nombre: "SQL Server Tutorial", url: "https://www.sqlservertutorial.net/" }
@@ -247,7 +248,7 @@ export const categoriasHabilidades: CategoriaHabilidad[] = [
         nivel: "Intermedio", 
         icono: <SiPostgresql className="text-2xl" />,
         descripcion: "Sistema de gestión de bases de datos relacional orientado a objetos.",
-        proyectosRelacionados: ["API REST", "Sistema de Gestión Avanzado"],
+        proyectosRelacionados: [],
         recursos: [
           { nombre: "Documentación PostgreSQL", url: "https://www.postgresql.org/docs/" },
           { nombre: "PostgreSQL Tutorial", url: "https://www.postgresqltutorial.com/" }

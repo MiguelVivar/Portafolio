@@ -116,6 +116,35 @@ const Navbar: React.FC = () => {
     });
     document.dispatchEvent(event);
   }, [menuOpen]);
+
+  const navContent = useMemo(() => (
+    <div className="max-w-7xl mx-auto">
+      <div className="flex items-center justify-between h-16">
+        <Logo />
+        <DesktopMenu links={links} currentPath={normalizedPath} />
+        <GlobalSearch />
+        <MobileToggle />
+      </div>
+      
+      <MobileMenu 
+        links={links} 
+        currentPath={normalizedPath}
+        isOpen={menuOpen} 
+      />
+    </div>
+  ), [links, normalizedPath, menuOpen]);
+
+  const bottomGlow = useMemo(() => (
+    <AnimatePresence mode="wait">
+      {hovered && (
+        <motion.div 
+          className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-emerald-300/20 to-transparent"
+          {...bottomGlowAnimation}
+        />
+      )}
+    </AnimatePresence>
+  ), [hovered, bottomGlowAnimation]);
+
   return (
     <motion.div
       className="fixed top-0 left-0 right-0 z-50 px-4 py-2"
@@ -132,30 +161,9 @@ const Navbar: React.FC = () => {
         {/* Efecto de brillo en la parte superior optimizado */}
         <div className={topGlowClassName}></div>
         
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between h-16">
-            <Logo />
-            <DesktopMenu links={links} currentPath={normalizedPath} />
-            <GlobalSearch />
-            <MobileToggle />
-          </div>
-          
-          <MobileMenu 
-            links={links} 
-            currentPath={normalizedPath}
-            isOpen={menuOpen} 
-          />
-        </div>
+        {navContent}
         
-        {/* Efecto de línea de brillo en la parte inferior optimizado */}
-        <AnimatePresence mode="wait">
-          {hovered && (
-            <motion.div 
-              className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-emerald-300/20 to-transparent"
-              {...bottomGlowAnimation}
-            />
-          )}
-        </AnimatePresence>
+        {bottomGlow}
       </motion.nav>
     </motion.div>
   );

@@ -90,7 +90,7 @@ export async function fetchGitHubRepos(): Promise<GitHubRepo[]> {
 
 // Función para obtener eventos/actividad reciente
 export async function fetchGitHubEvents(): Promise<GitHubEvent[]> {
-  const response = await fetch(`${GITHUB_API_BASE}/users/${GITHUB_USERNAME}/events?per_page=30`);
+  const response = await fetch(`${GITHUB_API_BASE}/users/${GITHUB_USERNAME}/events?per_page=50`);
   if (!response.ok) {
     throw new Error(`Error fetching events: ${response.statusText}`);
   }
@@ -201,7 +201,7 @@ export async function calculateGitHubStats() {
 // Función para formatear actividad reciente
 export function formatRecentActivity(events: GitHubEvent[]) {
   return events
-    .slice(0, 5)
+    .slice(0, 8)
     .map(event => {
       const date = new Date(event.created_at).toISOString().split('T')[0];
       

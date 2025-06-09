@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useTypewriter } from '@/hooks/useTypewriter';
 
 interface TypewriterTextProps {
@@ -18,12 +18,19 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
 }) => {
   const { text, showCursor } = useTypewriter(phrases, typingSpeed, deletingSpeed, pauseTime);
 
-  return (
+  const cursorStyle = useMemo(() => 
+    `absolute ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`,
+    [showCursor]
+  );
+
+  const textContent = useMemo(() => (
     <div className="inline relative">
       <span>&quot;{text}&quot;</span>
-      <span className={`absolute ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}>|</span>
+      <span className={cursorStyle}>|</span>
     </div>
-  );
+  ), [text, cursorStyle]);
+
+  return textContent;
 };
 
-export default TypewriterText;
+export default React.memo(TypewriterText);

@@ -1,20 +1,17 @@
 import type { Metadata } from "next";
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import { TerminalProvider } from "@/components/terminal/TerminalContext";
-import Terminal from "@/components/terminal/Terminal";
 import TerminalButton from "@/components/terminal/TerminalButton";
 import JsonLd, { personSchema, websiteSchema } from "@/components/seo/JsonLd";
 import { ToastProvider } from "@/components/ui/ToastProvider";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-
-import WebVitals, {
-  PerformanceDebugger,
-} from "@/components/analytics/WebVitals";
+import WebVitals, { PerformanceDebugger } from "@/components/analytics/WebVitals";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
+import Terminal from "@/components/terminal/Terminal";
 
 export const metadata: Metadata = {
   title: "Miguel Vivar - Desarrollador Full Stack",
@@ -113,31 +110,36 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <link rel="manifest" href="/manifest.json" />
         <link rel="canonical" href="https://miguelvivar.vercel.app/" />
         <link rel="author" href="/humans.txt" />
-        <link rel="preload" href="https://i.scdn.co" />
 
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://api.github.com" />
+        <link rel="preconnect" href="https://i.scdn.co" />
+
+        {/* Preload critical assets */}
+        <link rel="preload" href="/logo.svg" as="image" type="image/svg+xml" />
+        <link rel="preload" href="/portafolio.png" as="image" />
 
         <JsonLd data={personSchema} />
         <JsonLd data={websiteSchema} />
       </head>
       <body className="overflow-x-hidden">
-        <Analytics />
-        <SpeedInsights />
+        <Suspense fallback={null}>
+          <Analytics />
+          <SpeedInsights />
+        </Suspense>
         <TerminalProvider>
           <ToastProvider>
             <Navbar />
             <main id="main-content" className="overflow-x-hidden">
               {children}
             </main>
-            <Footer frases={frases} /> <TerminalButton />
-            <Terminal />
+            <Footer frases={frases} />
+            <TerminalButton />
+            <Suspense fallback={null}>
+              <Terminal />
+            </Suspense>
             <WebVitals />
             <PerformanceDebugger />
             {process.env.NEXT_PUBLIC_GA_ID && (

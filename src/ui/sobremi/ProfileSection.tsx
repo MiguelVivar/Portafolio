@@ -5,13 +5,49 @@ import { motion } from 'framer-motion';
 import { FaFileAlt, FaGraduationCap, FaLaptopCode, FaRocket } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
 import { MdOutlineWorkOutline } from 'react-icons/md';
+import { SiReact, SiNodedotjs, SiTypescript, SiAstro, SiTailwindcss, SiNextdotjs } from 'react-icons/si';
 import SpotifyNowPlaying from '../../components/SpotifyNowPlaying';
 
 const ProfileSection: React.FC = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   
-  const skills = [
-    "React", "Node.js", "TypeScript", "Astro", "Tailwind CSS", "Next.js"
+  const technologies = [
+    {
+      name: "React",
+      icon: <SiReact className="text-blue-400" />,
+      category: "Frontend",
+      description: "Biblioteca JavaScript para construir interfaces de usuario"
+    },
+    {
+      name: "Node.js",
+      icon: <SiNodedotjs className="text-green-500" />,
+      category: "Backend",
+      description: "Entorno de ejecución para JavaScript"
+    },
+    {
+      name: "TypeScript",
+      icon: <SiTypescript className="text-blue-500" />,
+      category: "Lenguaje",
+      description: "Superset tipado de JavaScript"
+    },
+    {
+      name: "Astro",
+      icon: <SiAstro className="text-orange-500" />,
+      category: "Frontend",
+      description: "Framework para sitios web centrado en el contenido"
+    },
+    {
+      name: "Tailwind CSS",
+      icon: <SiTailwindcss className="text-cyan-400" />,
+      category: "Frontend",
+      description: "Framework CSS de utilidades"
+    },
+    {
+      name: "Next.js",
+      icon: <SiNextdotjs className="text-white" />,
+      category: "Frontend",
+      description: "Framework React para aplicaciones web"
+    }
   ];
   
   const highlights = [
@@ -90,21 +126,22 @@ const ProfileSection: React.FC = () => {
           <FaRocket className="text-emerald-300" /> Tecnologías preferidas
         </h3>
         <div className="flex flex-wrap gap-2">
-          {skills.map((skill, index) => (
+          {technologies.map((tech, index) => (
             <motion.span
-              key={skill}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+              key={tech.name}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.3, delay: 0.5 + (index * 0.1) }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-300 ${
+              className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-colors duration-300 ${
                 hoveredIndex === index 
                   ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/40' 
                   : 'bg-neutral-800 text-emerald-300 border border-emerald-500/20'
               }`}
             >
-              {skill}
+              <span className="text-lg">{tech.icon}</span>
+              {tech.name}
             </motion.span>
           ))}
         </div>

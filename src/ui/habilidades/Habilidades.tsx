@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { categoriasHabilidades } from '../../data/habilidades';
 import PageHeader from './PageHeader';
 import CategoryHeader from './CategoryHeader';
@@ -8,7 +8,7 @@ import HabilidadCard from './HabilidadCard';
 import AnimatedBackground from '../../components/AnimateBackground';
 import { motion, AnimatePresence } from 'framer-motion';
 import CallToAction from '../../components/CallToAction';
-import { FiFolder, FiMail, FiSearch, FiFilter, FiBarChart2, FiX, FiChevronUp } from 'react-icons/fi';
+import { FiFolder, FiMail, FiSearch, FiFilter, FiBarChart2, FiX } from 'react-icons/fi';
 
 const Habilidades: React.FC = () => {
   // Estados para los filtros y la búsqueda
@@ -16,19 +16,9 @@ const Habilidades: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('Todas');
   const [selectedLevel, setSelectedLevel] = useState('Todos');
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
 
   // Lista de niveles disponibles
   const niveles = ['Básico', 'Intermedio', 'Avanzado'];
-
-  // Seguimiento del desplazamiento para el botón de volver arriba
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollPosition(window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Lista de todas las categorías disponibles
   const categorias = useMemo(() => {
@@ -84,11 +74,6 @@ const Habilidades: React.FC = () => {
       })
       .filter(Boolean); // Eliminar las categorías que no tienen habilidades que coincidan
   }, [selectedCategory, selectedLevel, searchTerm]);
-
-  // Función para volver al principio de la página
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   return (
     <main className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-neutral-900 pt-24 relative">
@@ -372,23 +357,6 @@ const Habilidades: React.FC = () => {
               </motion.div>
             ))}
           </div>
-        </AnimatePresence>
-
-        {/* Botón para volver arriba */}
-        <AnimatePresence>
-          {scrollPosition > 500 && (
-            <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              onClick={scrollToTop}
-              className="fixed bottom-8 right-8 bg-emerald-500 text-white p-3 rounded-full shadow-lg hover:bg-emerald-600 transition-colors z-50"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <FiChevronUp size={24} />
-            </motion.button>
-          )}
         </AnimatePresence>
 
         <CallToAction 

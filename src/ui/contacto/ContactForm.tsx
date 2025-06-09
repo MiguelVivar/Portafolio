@@ -4,8 +4,10 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaEnvelope, FaUser, FaComment, FaCheck, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import { MdWork, MdError } from 'react-icons/md';
+import emailjs from '@emailjs/browser';
 import SubmitButton from './SubmitButton';
 import SuccessMessage from './SuccessMessage';
+import { EMAILJS_CONFIG } from '@/config/emailjs';
 
 interface ContactFormProps {
   setFormStep: React.Dispatch<React.SetStateAction<number>>;
@@ -106,18 +108,45 @@ const ContactForm: React.FC<ContactFormProps> = ({ setFormStep }) => {
     e.preventDefault();
     
     if (!validarPaso()) return;
+
+    // Verificación temporal de las variables de entorno
+    console.log('EmailJS Config:', {
+      serviceId: EMAILJS_CONFIG.SERVICE_ID,
+      templateId: EMAILJS_CONFIG.TEMPLATE_ID,
+      publicKey: EMAILJS_CONFIG.PUBLIC_KEY
+    });
+
+    // Validar que las variables de entorno estén configuradas
+    if (!EMAILJS_CONFIG.SERVICE_ID || !EMAILJS_CONFIG.TEMPLATE_ID || !EMAILJS_CONFIG.PUBLIC_KEY) {
+      setError('Error de configuración: Las credenciales de EmailJS no están configuradas correctamente.');
+      return;
+    }
     
     setEnviando(true);
     setError('');
     
     try {
-      // Simulación de envío de formulario
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const templateParams = {
+        from_name: datosFormulario.nombre,
+        from_email: datosFormulario.email,
+        subject: datosFormulario.asunto || 'Nuevo mensaje de contacto',
+        budget: datosFormulario.presupuesto || 'No especificado',
+        message: datosFormulario.mensaje,
+      };
+
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        templateParams,
+        EMAILJS_CONFIG.PUBLIC_KEY
+      );
+
       setEnviado(true);
       setDatosFormulario({ nombre: '', email: '', asunto: '', presupuesto: '', mensaje: '' });
       setPaso(1);
-    } catch {
-      setError('Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.');
+    } catch (error) {
+      console.error('Error al enviar el correo:', error);
+      setError('Hubo un error al enviar el mensaje. Por favor, intenta nuevamente o usa los datos de contacto directos.');
     } finally {
       setEnviando(false);
     }

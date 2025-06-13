@@ -21,6 +21,9 @@ import {
   SiHeroku,
   SiChatbot,
   SiVite,
+  SiOdoo,
+  SiPostgresql,
+  SiRailway,
   // SiAstro,
   // SiTypescript,
 } from "react-icons/si";
@@ -33,7 +36,8 @@ import Proyecto6 from "../assets/images/proyectos/agenciaviajes.png";
 import Proyecto7 from "../assets/images/proyectos/aiassistedu.png";
 import Proyecto8 from "../assets/images/proyectos/sistemaadmision.png";
 import Proyecto9 from "../assets/images/proyectos/generadorexamenes.png";
-// import Proyecto10 from "../assets/images/proyectos/innovatechica2025.png";
+import Proyecto10 from "../assets/images/proyectos/escuelaposgradoodoo.png";
+// import Proyecto11 from "../assets/images/proyectos/innovatechica2025.png";
 
 export const proyectos = [
   {
@@ -74,7 +78,7 @@ export const proyectos = [
       },
       { tipo: "demo", url: "https://calculadoraconsumopropinas.netlify.app/" },
     ],
-    destacado: true,
+    destacado: false,
     categoria: "Front-End",
   },
   {
@@ -207,8 +211,24 @@ export const proyectos = [
     destacado: true,
     categoria: "Software",
   },
+  {
+    id: 10,
+    titulo: "Escuela de Posgrado Odoo",
+    descripcion: "Sistema de gestión para la Escuela de Posgrado Odoo, que permite administrar cursos, estudiantes y profesores. Incluye funcionalidades de autenticación y gestión de datos.",
+    imagen: Proyecto10,
+    tecnologias: [
+      { nombre: "Odoo", icono: <SiOdoo className="text-xl" /> },
+      { nombre: "PostgreSQL", icono: <SiPostgresql className="text-xl" /> },
+      { nombre: "Railway", icono: <SiRailway className="text-xl" /> },
+    ],
+    enlaces: [
+      { tipo: "demo", url: "https://escuelaposgradoodoo-production.up.railway.app/" }
+    ],
+    destacado: true,
+    categoria: "Front-End"
+  },
   // {
-  //   id: 10,
+  //   id: 11,
   //   titulo: "InnovaTech Ica 2025",
   //   descripcion: "Landing page para el evento InnovaTech Ica 2025, con un diseño moderno y responsivo. Incluye secciones informativas y enlaces a redes sociales.",
   //   imagen: Proyecto10,

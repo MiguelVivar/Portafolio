@@ -2,6 +2,8 @@
 
 import React, { JSX, useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { FiInfo } from "react-icons/fi";
 import ProjectFeatureBadge from "./ProjectFeatureBadge";
 import ProjectImage from "./ProjectImage";
 import TechnologyBadge from "./TechnologyBadge";
@@ -125,11 +127,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 {proyecto.tecnologias.map((tech, techIndex) => (
                   <TechnologyBadge key={techIndex} tech={tech} mini={true} />
                 ))}
-              </div>
-
+              </div>{" "}
               {/* Enlaces del proyecto */}
               <div onClick={(e) => e.stopPropagation()}>
-                <ProjectLinks enlaces={proyecto.enlaces} />
+                <div className="flex items-center gap-2">
+                  <ProjectLinks enlaces={proyecto.enlaces} />
+                  <Link
+                    href={`/proyectos/${proyecto.id}`}
+                    className="inline-flex items-center gap-1 bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1 rounded text-xs transition-colors"
+                    title="Ver detalles completos del proyecto"
+                  >
+                    <FiInfo className="text-sm" />
+                    <span>Más info</span>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -198,7 +209,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <p className="text-gray-400 mb-4 line-clamp-3">
             {proyecto.descripcion}
           </p>
-
           {/* Tecnologías utilizadas */}
           <div className="mb-4 mt-auto">
             <h4 className="text-sm font-semibold text-white mb-2">
@@ -212,14 +222,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 <TechnologyBadge key={techIndex} tech={tech} />
               ))}
             </div>
-          </div>
-
+          </div>{" "}
           {/* Enlaces del proyecto */}
           <div
             className="flex justify-between items-center pt-2 border-t border-neutral-700 mt-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <ProjectLinks enlaces={proyecto.enlaces} />
+            <Link
+              href={`/proyectos/${proyecto.id}`}
+              className="inline-flex items-center gap-1 bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-2 rounded text-sm transition-colors"
+              title="Ver detalles completos del proyecto"
+            >
+              <FiInfo className="text-sm" />
+              <span>Más info</span>
+            </Link>
           </div>
         </div>
       </motion.article>

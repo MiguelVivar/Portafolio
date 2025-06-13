@@ -1,14 +1,16 @@
-import React from 'react';
-import { FaStar } from 'react-icons/fa';
+import React from "react";
+import { FaStar } from "react-icons/fa";
 
 interface ProjectFeatureBadgeProps {
-  position?: 'top-right' | 'inline';
+  position?: "top-right" | "inline";
 }
 
-const ProjectFeatureBadge: React.FC<ProjectFeatureBadgeProps> = ({ position = 'top-right' }) => {
-  if (position === 'inline') {
+const ProjectFeatureBadge: React.FC<ProjectFeatureBadgeProps> = ({
+  position = "top-right",
+}) => {
+  if (position === "inline") {
     return (
-      <div 
+      <div
         className="bg-emerald-300 text-neutral-900 text-xs font-bold px-2 py-1 rounded flex items-center gap-1"
         role="img"
         aria-label="Proyecto destacado"
@@ -18,9 +20,9 @@ const ProjectFeatureBadge: React.FC<ProjectFeatureBadgeProps> = ({ position = 't
       </div>
     );
   }
-  
+
   return (
-    <div 
+    <div
       className="absolute top-0 right-0 bg-emerald-300 text-neutral-900 text-xs font-bold px-3 py-1 rounded-bl-lg z-10 flex items-center gap-1 shadow-md"
       role="img"
       aria-label="Proyecto destacado"

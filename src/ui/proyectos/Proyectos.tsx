@@ -365,7 +365,9 @@ const Proyectos: React.FC = () => {
             aria-label="Navegación de páginas"
             role="navigation"
           >
-            <div className="flex flex-wrap justify-center gap-2 md:gap-1">              {/* Primera página */}
+            <div className="flex flex-wrap justify-center gap-2 md:gap-1">
+              {" "}
+              {/* Primera página */}
               <motion.button
                 onClick={() => cambiarPagina(1)}
                 disabled={paginaActual === 1}
@@ -376,7 +378,8 @@ const Proyectos: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <FiChevronsLeft className="text-lg" aria-hidden="true" />
-              </motion.button>              {/* Página anterior */}
+              </motion.button>{" "}
+              {/* Página anterior */}
               <motion.button
                 onClick={() => cambiarPagina(Math.max(1, paginaActual - 1))}
                 disabled={paginaActual === 1}
@@ -388,7 +391,6 @@ const Proyectos: React.FC = () => {
               >
                 <FiChevronLeft className="text-lg" aria-hidden="true" />
               </motion.button>
-
               {/* Números de página */}
               <div className="flex">
                 {Array.from({ length: totalPaginas }, (_, i) => i + 1)
@@ -410,7 +412,8 @@ const Proyectos: React.FC = () => {
                             aria-hidden="true"
                           >
                             •••
-                          </span>                          <motion.button
+                          </span>{" "}
+                          <motion.button
                             key={page}
                             onClick={() => cambiarPagina(page)}
                             className={`h-10 w-10 rounded-lg flex items-center justify-center font-medium transition-all duration-300 cursor-pointer ${
@@ -429,7 +432,8 @@ const Proyectos: React.FC = () => {
                           </motion.button>
                         </React.Fragment>
                       );
-                    }                    return (
+                    }
+                    return (
                       <motion.button
                         key={page}
                         onClick={() => cambiarPagina(page)}
@@ -447,7 +451,8 @@ const Proyectos: React.FC = () => {
                       </motion.button>
                     );
                   })}
-              </div>              {/* Página siguiente */}
+              </div>{" "}
+              {/* Página siguiente */}
               <motion.button
                 onClick={() =>
                   cambiarPagina(Math.min(totalPaginas, paginaActual + 1))
@@ -460,7 +465,8 @@ const Proyectos: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <FiChevronRight className="text-lg" aria-hidden="true" />
-              </motion.button>              {/* Última página */}
+              </motion.button>{" "}
+              {/* Última página */}
               <motion.button
                 onClick={() => cambiarPagina(totalPaginas)}
                 disabled={paginaActual === totalPaginas}

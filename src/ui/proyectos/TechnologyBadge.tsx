@@ -7,9 +7,10 @@ interface TechnologyBadgeProps {
     icono: React.ReactNode;
   };
   mini?: boolean;
+  large?: boolean;
 }
 
-const TechnologyBadge: React.FC<TechnologyBadgeProps> = ({ tech, mini = false }) => {
+const TechnologyBadge: React.FC<TechnologyBadgeProps> = ({ tech, mini = false, large = false }) => {
   if (mini) {
     return (
       <motion.span 
@@ -22,6 +23,21 @@ const TechnologyBadge: React.FC<TechnologyBadgeProps> = ({ tech, mini = false })
       >
         <span aria-hidden="true">{tech.icono}</span>
       </motion.span>
+    );
+  }
+
+  if (large) {
+    return (
+      <motion.div 
+        className="flex items-center gap-3 bg-neutral-700 px-4 py-3 rounded-lg text-white hover:bg-neutral-600 transition-colors duration-200 w-full"
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        aria-label={`Tecnología: ${tech.nombre}`}
+        role="img"
+      >
+        <span className="text-emerald-300 text-xl" aria-hidden="true">{tech.icono}</span>
+        <span className="font-medium">{tech.nombre}</span>
+      </motion.div>
     );
   }
 

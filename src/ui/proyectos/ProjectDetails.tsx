@@ -11,6 +11,7 @@ interface Proyecto {
   id?: number;
   imagen: string | { src: string };
   destacado?: boolean;
+  estado?: string;
   categoria?: string;
   titulo: string;
   descripcion: string;
@@ -213,8 +214,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                     <li>Animaciones fluidas</li>
                     <li>Rendimiento optimizado</li>
                   </ul>
-                </section>
-
+                </section>{" "}
                 <section>
                   <h3 className="text-lg font-semibold text-white mb-3">
                     Estado del proyecto
@@ -225,7 +225,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                       role="progressbar"
                       aria-valuenow={parseInt(
                         proyecto.porcentajeAvance ||
-                          (proyecto.destacado ? "75" : "100")
+                          (proyecto.estado === "en-desarrollo" ? "75" : "100")
                       )}
                       aria-valuemin={0}
                       aria-valuemax={100}
@@ -235,7 +235,9 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                         style={{
                           width: `${
                             proyecto.porcentajeAvance ||
-                            (proyecto.destacado ? "75%" : "100%")
+                            (proyecto.estado === "en-desarrollo"
+                              ? "75%"
+                              : "100%")
                           }`,
                         }}
                       ></div>
@@ -244,15 +246,15 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                       className="ml-2 text-sm text-white"
                       aria-label={`Progreso: ${
                         proyecto.porcentajeAvance ||
-                        (proyecto.destacado ? "75%" : "100%")
+                        (proyecto.estado === "en-desarrollo" ? "75%" : "100%")
                       }`}
                     >
                       {proyecto.porcentajeAvance ||
-                        (proyecto.destacado ? "75%" : "100%")}
+                        (proyecto.estado === "en-desarrollo" ? "75%" : "100%")}
                     </span>
                   </div>
                   <p className="text-gray-300 text-sm">
-                    {proyecto.destacado
+                    {proyecto.estado === "en-desarrollo"
                       ? "Proyecto en desarrollo activo"
                       : "Proyecto completado"}
                   </p>

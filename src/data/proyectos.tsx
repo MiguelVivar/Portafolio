@@ -57,6 +57,7 @@ export const proyectos = [
       { tipo: "demo", url: "https://miguelvivar.vercel.app/" },
     ],
     destacado: true,
+    estado: "en-desarrollo",
     categoria: "Front-End",
   },
   {
@@ -79,6 +80,7 @@ export const proyectos = [
       { tipo: "demo", url: "https://calculadoraconsumopropinas.netlify.app/" },
     ],
     destacado: false,
+    estado: "terminado",
     categoria: "Front-End",
   },
   {
@@ -98,6 +100,7 @@ export const proyectos = [
       { tipo: "demo", url: "https://vinn-bonn.vercel.app/" },
     ],
     destacado: false,
+    estado: "terminado",
     categoria: "Front-End",
   },
   {
@@ -120,6 +123,7 @@ export const proyectos = [
       { tipo: "demo", url: "https://calculadoraconsumopropinas.netlify.app/" },
     ],
     destacado: false,
+    estado: "terminado",
     categoria: "Front-End",
   },
   {
@@ -143,6 +147,7 @@ export const proyectos = [
       },
     ],
     destacado: true,
+    estado: "terminado",
     categoria: "Full-Stack",
   },
   {
@@ -165,6 +170,7 @@ export const proyectos = [
       },
     ],
     destacado: false,
+    estado: "terminado",
     categoria: "Full-Stack",
   },
   {
@@ -180,6 +186,7 @@ export const proyectos = [
     ],
     enlaces: [{ tipo: "demo", url: "https://gjpf.edu.pe/aiassistedu/" }],
     destacado: false,
+    estado: "terminado",
     categoria: "Front-End",
   },
   {
@@ -193,6 +200,7 @@ export const proyectos = [
       { tipo: "github", url: "https://github.com/MiguelVivar/SistemaAdmision" },
     ],
     destacado: true,
+    estado: "terminado",
     categoria: "Software",
   },
   {
@@ -209,12 +217,14 @@ export const proyectos = [
       },
     ],
     destacado: true,
+    estado: "terminado",
     categoria: "Software",
   },
   {
     id: 10,
     titulo: "Escuela de Posgrado Odoo",
-    descripcion: "Sistema de gestión para la Escuela de Posgrado Odoo, que permite administrar cursos, estudiantes y profesores. Incluye funcionalidades de autenticación y gestión de datos.",
+    descripcion:
+      "Sistema de gestión para la Escuela de Posgrado Odoo, que permite administrar cursos, estudiantes y profesores. Incluye funcionalidades de autenticación y gestión de datos.",
     imagen: Proyecto10,
     tecnologias: [
       { nombre: "Odoo", icono: <SiOdoo className="text-xl" /> },
@@ -222,10 +232,14 @@ export const proyectos = [
       { nombre: "Railway", icono: <SiRailway className="text-xl" /> },
     ],
     enlaces: [
-      { tipo: "demo", url: "https://escuelaposgradoodoo-production.up.railway.app/" }
+      {
+        tipo: "demo",
+        url: "https://escuelaposgradoodoo-production.up.railway.app/",
+      },
     ],
     destacado: true,
-    categoria: "Front-End"
+    estado: "en-desarrollo",
+    categoria: "Front-End",
   },
   // {
   //   id: 11,

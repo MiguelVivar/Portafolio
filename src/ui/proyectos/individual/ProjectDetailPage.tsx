@@ -20,6 +20,7 @@ interface Proyecto {
   tecnologias: { nombre: string; icono: React.ReactNode }[];
   enlaces: { tipo: string; url: string }[];
   destacado: boolean;
+  estado: string;
   categoria: string;
 }
 
@@ -102,6 +103,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ proyecto }) => {
                 Información del Proyecto
               </h3>
               <div className="space-y-4">
+                {" "}
                 {/* Estado */}
                 <div>
                   <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-2">
@@ -110,15 +112,18 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ proyecto }) => {
                   <div className="flex items-center gap-2">
                     <div
                       className={`w-2 h-2 rounded-full ${
-                        proyecto.destacado ? "bg-emerald-400" : "bg-emerald-500"
+                        proyecto.estado === "en-desarrollo"
+                          ? "bg-yellow-400"
+                          : "bg-emerald-400"
                       }`}
                     />
                     <span className="text-white">
-                      {proyecto.destacado ? "En desarrollo" : "Completado"}
+                      {proyecto.estado === "en-desarrollo"
+                        ? "En desarrollo"
+                        : "Completado"}
                     </span>
                   </div>
                 </div>
-
                 {/* Categoría */}
                 <div>
                   <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-2">
@@ -129,7 +134,6 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ proyecto }) => {
                     <span className="text-white">{proyecto.categoria}</span>
                   </div>
                 </div>
-
                 {/* Destacado */}
                 {proyecto.destacado && (
                   <div>

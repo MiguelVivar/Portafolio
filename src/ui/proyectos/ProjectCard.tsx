@@ -21,6 +21,7 @@ declare global {
     tecnologias: { nombre: string; icono: JSX.Element }[];
     enlaces: { tipo: string; url: string }[];
     destacado: boolean;
+    estado: string;
     categoria: string;
   }
 }

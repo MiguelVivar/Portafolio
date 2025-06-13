@@ -16,6 +16,7 @@ interface Proyecto {
   tecnologias: { nombre: string; icono: React.ReactNode }[];
   enlaces: { tipo: string; url: string }[];
   destacado: boolean;
+  estado: string;
   categoria: string;
 }
 

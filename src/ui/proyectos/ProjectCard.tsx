@@ -15,6 +15,7 @@ import { StaticImageData } from "next/image";
 declare global {
   interface Proyecto {
     id: number;
+    slug: string;
     titulo: string;
     descripcion: string;
     imagen: string | StaticImageData;
@@ -134,7 +135,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 <div className="flex items-center gap-2">
                   <ProjectLinks enlaces={proyecto.enlaces} />
                   <Link
-                    href={`/proyectos/${proyecto.id}`}
+                    href={`/proyectos/${proyecto.slug}`}
                     className="inline-flex items-center gap-1 bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1 rounded text-xs transition-colors"
                     title="Ver detalles completos del proyecto"
                   >
@@ -229,9 +230,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             className="flex justify-between items-center pt-2 border-t border-neutral-700 mt-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <ProjectLinks enlaces={proyecto.enlaces} />
-            <Link
-              href={`/proyectos/${proyecto.id}`}
+            <ProjectLinks enlaces={proyecto.enlaces} />            <Link
+              href={`/proyectos/${proyecto.slug}`}
               className="inline-flex items-center gap-1 bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-2 rounded text-sm transition-colors"
               title="Ver detalles completos del proyecto"
             >

@@ -4,13 +4,13 @@ import { proyectos } from "@/data/proyectos";
 import ProjectDetailPage from "@/ui/proyectos/individual/ProjectDetailPage";
 
 interface PageProps {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }
 
 // Generar metadata dinámica para cada proyecto
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { id } = await params;
-  const proyecto = proyectos.find(p => p.id === parseInt(id));
+  const { slug } = await params;
+  const proyecto = proyectos.find(p => p.slug === slug);
   
   if (!proyecto) {
     return {
@@ -54,13 +54,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 // Generar rutas estáticas para todos los proyectos
 export async function generateStaticParams() {
   return proyectos.map((proyecto) => ({
-    id: proyecto.id.toString(),
+    slug: proyecto.slug,
   }));
 }
 
 export default async function ProjectPage({ params }: PageProps) {
-  const { id } = await params;
-  const proyecto = proyectos.find(p => p.id === parseInt(id));
+  const { slug } = await params;
+  const proyecto = proyectos.find(p => p.slug === slug);
 
   if (!proyecto) {
     notFound();

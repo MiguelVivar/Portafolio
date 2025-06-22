@@ -42,6 +42,7 @@ import Proyecto11 from "../assets/images/proyectos/innovatechica2025.png";
 export const proyectos = [
   {
     id: 1,
+    slug: "portafolio-personal",
     titulo: "Portafolio Personal",
     descripcion:
       "Sitio web personal para mostrar proyectos y habilidades, con animaciones fluidas y diseño responsivo.",
@@ -62,6 +63,7 @@ export const proyectos = [
   },
   {
     id: 2,
+    slug: "calculadora-consumo-propinas",
     titulo: "Calculadora de Consumo Y Propinas",
     descripcion:
       "Una página web para calcular el consumo y propinas de un restaurante.",
@@ -85,6 +87,7 @@ export const proyectos = [
   },
   {
     id: 3,
+    slug: "portafolio-vinnbonn",
     titulo: "Portafolio VinnBonn",
     descripcion:
       "Portafolio para mostrar proyectos y habilidades, con animaciones fluidas y diseño responsivo.",
@@ -105,6 +108,7 @@ export const proyectos = [
   },
   {
     id: 4,
+    slug: "portafolio-chuchipg",
     titulo: "Portafolio ChuchiPG",
     descripcion:
       "Portafolio para mostrar proyectos y habilidades, con animaciones fluidas y diseño responsivo.",
@@ -128,6 +132,7 @@ export const proyectos = [
   },
   {
     id: 5,
+    slug: "administrador-veterinaria",
     titulo: "Administrador de Veterinaria",
     descripcion:
       "Un sistema de administración de una veterinaria con autenticación de usuarios.",
@@ -152,6 +157,7 @@ export const proyectos = [
   },
   {
     id: 6,
+    slug: "agencia-de-viajes",
     titulo: "Agencia de Viajes",
     descripcion:
       "Un sitio web para una agencia de viajes con un diseño moderno y responsivo.",
@@ -175,6 +181,7 @@ export const proyectos = [
   },
   {
     id: 7,
+    slug: "aiassistedu",
     titulo: "AiAssistEdu",
     descripcion:
       "Sitio web sobre una IA para la educación, cuenta con un chatbot capaz de generar tickets de soporte.",
@@ -191,6 +198,7 @@ export const proyectos = [
   },
   {
     id: 8,
+    slug: "sistema-admision",
     titulo: "SistemaAdmison",
     descripcion:
       "Aplicación que gestiona el proceso de admisión académica. Utiliza el patrón MVC y permite leer datos desde archivos DBF, mostrando los resultados de manera organizada en una interfaz gráfica.",
@@ -205,6 +213,7 @@ export const proyectos = [
   },
   {
     id: 9,
+    slug: "generador-examenes",
     titulo: "GeneradorExamenes",
     descripcion:
       "Aplicación que genera exámenes de forma automatizada. Desarrollada en Java con NetBeans, permite organizar preguntas y respuestas en un formato estructurado para su aplicación.",
@@ -222,6 +231,7 @@ export const proyectos = [
   },
   {
     id: 10,
+    slug: "escuela-posgrado-odoo",
     titulo: "Escuela de Posgrado Odoo",
     descripcion:
       "Sistema de gestión para la Escuela de Posgrado Odoo, que permite administrar cursos, estudiantes y profesores. Incluye funcionalidades de autenticación y gestión de datos.",
@@ -243,6 +253,7 @@ export const proyectos = [
   },
   {
     id: 11,
+    slug: "innovatech-ica-2025",
     titulo: "InnovaTech Ica 2025",
     descripcion: "Landing page para el evento InnovaTech Ica 2025, con un diseño moderno y responsivo. Incluye secciones informativas y enlaces a redes sociales.",
     imagen: Proyecto11,

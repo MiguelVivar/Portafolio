@@ -8,6 +8,7 @@ import { StaticImageData } from "next/image";
 
 interface Proyecto {
   id: number;
+  slug: string;
   titulo: string;
   descripcion: string;
   imagen: string | StaticImageData;

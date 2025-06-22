@@ -173,11 +173,11 @@ export default function GlobalSearch() {
     // Proyectos con información expandida y protección para datos faltantes
     if (Array.isArray(proyectos)) {
       const projectsData = proyectos.map(proyecto => ({
-        id: `project-${proyecto.id || Math.random()}`,
+        id: `project-${proyecto.slug || Math.random()}`,
         title: proyecto.titulo || 'Proyecto sin título',
         description: proyecto.descripcion || 'Sin descripción',
         type: 'project' as const,
-        url: `/proyectos/${proyecto.id || ''}`,
+        url: `/proyectos/${proyecto.slug || ''}`,
         icon: <FaProjectDiagram />,
         category: proyecto.categoria || 'Proyecto',
         tags: [

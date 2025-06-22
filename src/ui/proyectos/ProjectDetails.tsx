@@ -9,6 +9,7 @@ import Link from "next/link";
 
 interface Proyecto {
   id?: number;
+  slug: string;
   imagen: string | { src: string };
   destacado?: boolean;
   estado?: string;
@@ -263,9 +264,8 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
             </div>
             {/* Footer con enlaces */}
             <footer className="border-t border-neutral-700 p-4">
-              <div className="flex justify-between items-center">
-                <Link
-                  href={`/proyectos/${proyecto.id || ""}`}
+              <div className="flex justify-between items-center">                <Link
+                  href={`/proyectos/${proyecto.slug}`}
                   className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-300/50"
                   aria-label="Ver página completa del proyecto"
                 >

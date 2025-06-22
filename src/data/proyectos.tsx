@@ -256,6 +256,7 @@ export const proyectos = [
       { tipo: "demo", url: "https://innovatechica.github.io/" }
     ],
     destacado: true,
+    estado: "terminado",
     categoria: "Front-End"
   },
 ];

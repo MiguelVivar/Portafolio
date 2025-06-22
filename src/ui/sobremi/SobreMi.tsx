@@ -7,7 +7,7 @@ import {
   idiomas,
   valores,
   carrera,
-  // voluntariados,
+  voluntariados,
   setupData,
 } from "../../data/sobremi";
 import PageHeader from "./PageHeader";
@@ -19,7 +19,7 @@ import CertificatesSection from "./CertificatesSection";
 import LanguagesSection from "./LanguagesSection";
 import ValuesSection from "./ValuesSection";
 import AcademicProgress from "./AcademicProgress";
-// import VolunteeringSection from "./VolunteeringSection";
+import VolunteeringSection from "./VolunteeringSection";
 import SetupSection from "./SetupSection";
 import CallToAction from "../../components/CallToAction";
 import AnimatedBackground from "../../components/AnimateBackground";
@@ -186,7 +186,7 @@ const SobreMi: React.FC = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
         >
-          {/* <VolunteeringSection voluntariados={voluntariados} /> */}
+          <VolunteeringSection voluntariados={voluntariados} />
         </motion.div>
         {/* Sección de Setup de Desarrollo */}
         <motion.div

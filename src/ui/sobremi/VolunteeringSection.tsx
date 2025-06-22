@@ -402,16 +402,19 @@ const VolunteeringSection: React.FC<VolunteeringSectionProps> = ({
               <FaHeart className="text-emerald-400 group-hover:text-emerald-300 transition-colors duration-300 text-xl" />
             </motion.div>
 
-            <motion.a className="text-neutral-300 group-hover:text-white transition-colors duration-300 font-medium relative z-10" href="https://www.linkedin.com/in/miguel-vivar-farfan/" target="_blank">
-              Comprometido con el crecimiento de la comunidad tech
-            </motion.a>
-
-            <motion.div
-              className="text-emerald-400 group-hover:text-emerald-300 transition-colors duration-300"
-              whileHover={{ x: 4 }}
+            <motion.a
+              className="text-neutral-300 group-hover:text-white transition-colors duration-300 font-medium relative z-10 flex items-center gap-2"
+              href="https://www.linkedin.com/in/miguel-vivar-farfan/"
+              target="_blank"
             >
-              <FaExternalLinkAlt className="text-sm" />
-            </motion.div>
+              Comprometido con el crecimiento de la comunidad tech
+              <motion.div
+                className="text-emerald-400 group-hover:text-emerald-300 transition-colors duration-300"
+                whileHover={{ x: 4 }}
+              >
+                <FaExternalLinkAlt className="text-sm" />
+              </motion.div>
+            </motion.a>
           </motion.div>
           {/* Línea decorativa animada */}
           <motion.div

@@ -24,8 +24,8 @@ import {
   SiOdoo,
   SiPostgresql,
   SiRailway,
-  // SiAstro,
-  // SiTypescript,
+  SiAstro,
+  SiTypescript,
 } from "react-icons/si";
 import Proyecto1 from "../assets/images/proyectos/portafolio.png";
 import Proyecto2 from "../assets/images/proyectos/calculadoraconsumo.png";
@@ -37,7 +37,7 @@ import Proyecto7 from "../assets/images/proyectos/aiassistedu.png";
 import Proyecto8 from "../assets/images/proyectos/sistemaadmision.png";
 import Proyecto9 from "../assets/images/proyectos/generadorexamenes.png";
 import Proyecto10 from "../assets/images/proyectos/escuelaposgradoodoo.png";
-// import Proyecto11 from "../assets/images/proyectos/innovatechica2025.png";
+import Proyecto11 from "../assets/images/proyectos/innovatechica2025.png";
 
 export const proyectos = [
   {
@@ -241,23 +241,23 @@ export const proyectos = [
     estado: "en-desarrollo",
     categoria: "Front-End",
   },
-  // {
-  //   id: 11,
-  //   titulo: "InnovaTech Ica 2025",
-  //   descripcion: "Landing page para el evento InnovaTech Ica 2025, con un diseño moderno y responsivo. Incluye secciones informativas y enlaces a redes sociales.",
-  //   imagen: Proyecto10,
-  //   tecnologias: [
-  //     { nombre: "Astro", icono: <SiAstro className="text-xl" /> },
-  //     { nombre: "Tailwind CSS", icono: <SiTailwindcss className="text-xl" /> },
-  //     { nombre: "TypeScript", icono: <SiTypescript className="text-xl" /> },
-  //   ],
-  //   enlaces: [
-  //     { tipo: "github", url: "https://github.com/InnovaTechIca/InnovaTechIca.github.io" },
-  //     { tipo: "demo", url: "https://innovatechica.github.io/" }
-  //   ],
-  //   destacado: true,
-  //   categoria: "Front-End"
-  // },
+  {
+    id: 11,
+    titulo: "InnovaTech Ica 2025",
+    descripcion: "Landing page para el evento InnovaTech Ica 2025, con un diseño moderno y responsivo. Incluye secciones informativas y enlaces a redes sociales.",
+    imagen: Proyecto11,
+    tecnologias: [
+      { nombre: "Astro", icono: <SiAstro className="text-xl" /> },
+      { nombre: "Tailwind CSS", icono: <SiTailwindcss className="text-xl" /> },
+      { nombre: "TypeScript", icono: <SiTypescript className="text-xl" /> },
+    ],
+    enlaces: [
+      { tipo: "github", url: "https://github.com/InnovaTechIca/InnovaTechIca.github.io" },
+      { tipo: "demo", url: "https://innovatechica.github.io/" }
+    ],
+    destacado: true,
+    categoria: "Front-End"
+  },
 ];
 
 // Categorías para el filtro

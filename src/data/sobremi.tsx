@@ -1,5 +1,21 @@
-import React from 'react';
-import { FaLightbulb, FaHandshake, FaClock, FaRocket, FaCode, FaTeamspeak, FaUsers, FaGraduationCap, FaDesktop, FaTools, FaCogs, FaLaptop, FaKeyboard, FaMouse, FaChair } from 'react-icons/fa';
+import React from "react";
+import {
+  FaLightbulb,
+  FaHandshake,
+  FaClock,
+  FaRocket,
+  FaCode,
+  FaTeamspeak,
+  FaUsers,
+  FaGraduationCap,
+  FaDesktop,
+  FaTools,
+  FaCogs,
+  FaLaptop,
+  FaKeyboard,
+  FaMouse,
+  FaChair,
+} from "react-icons/fa";
 
 // Tipos exportados para usar en componentes
 export interface CertificadoCategoria {
@@ -73,15 +89,15 @@ export const certificados: CertificadoData[] = [
         titulo: "Responsive Web Desing",
         emisor: "freeCodeCamp",
         anio: "2024",
-        link: "https://www.freecodecamp.org/certification/fcc334e614b-0f23-4bd8-b91f-a031321a21a2/responsive-web-design"
+        link: "https://www.freecodecamp.org/certification/fcc334e614b-0f23-4bd8-b91f-a031321a21a2/responsive-web-design",
       },
       {
         titulo: "JavaScript Algorithms and Data Structures",
         emisor: "freeCodeCamp",
         anio: "2025",
-        link: "https://www.freecodecamp.org/certification/fcc334e614b-0f23-4bd8-b91f-a031321a21a2/javascript-algorithms-and-data-structures-v8"
-      }
-    ]
+        link: "https://www.freecodecamp.org/certification/fcc334e614b-0f23-4bd8-b91f-a031321a21a2/javascript-algorithms-and-data-structures-v8",
+      },
+    ],
   },
   {
     categoria: "Computación",
@@ -90,55 +106,62 @@ export const certificados: CertificadoData[] = [
         titulo: "Computer Hardware Basics",
         emisor: "Cisco",
         anio: "2024",
-        link: "https://www.credly.com/badges/22310860-c565-4787-94c2-33ed830d1c92/linked_in_profile"
-      }
-    ]
-  }
+        link: "https://www.credly.com/badges/22310860-c565-4787-94c2-33ed830d1c92/linked_in_profile",
+      },
+    ],
+  },
 ];
 
 // Datos para la sección de idiomas
 export const idiomas: IdiomaData[] = [
   {
     idioma: "Español",
-    nivel: "Nativo"
+    nivel: "Nativo",
   },
   {
     idioma: "Inglés",
-    nivel: "Básico (A2)"
-  }
+    nivel: "Básico (A2)",
+  },
 ];
 
 // Datos para la sección de valores
 export const valores: ValorData[] = [
   {
     titulo: "Innovación",
-    descripcion: "Busco constantemente nuevas formas de resolver problemas y mejorar procesos mediante la tecnología.",
-    icono: <FaLightbulb className="w-8 h-8" />
+    descripcion:
+      "Busco constantemente nuevas formas de resolver problemas y mejorar procesos mediante la tecnología.",
+    icono: <FaLightbulb className="w-8 h-8" />,
   },
   {
     titulo: "Compromiso",
-    descripcion: "Me dedico completamente a cada proyecto, cumpliendo con los tiempos y superando expectativas.",
-    icono: <FaHandshake className="w-8 h-8" />
+    descripcion:
+      "Me dedico completamente a cada proyecto, cumpliendo con los tiempos y superando expectativas.",
+    icono: <FaHandshake className="w-8 h-8" />,
   },
   {
     titulo: "Calidad",
-    descripcion: "Me esfuerzo por escribir código limpio, mantenible y eficiente en cada proyecto.",
-    icono: <FaCode className="w-8 h-8" />
+    descripcion:
+      "Me esfuerzo por escribir código limpio, mantenible y eficiente en cada proyecto.",
+    icono: <FaCode className="w-8 h-8" />,
   },
   {
     titulo: "Puntualidad",
-    descripcion: "Valoro el tiempo propio y ajeno, cumpliendo plazos y manteniendo una gestión eficiente.",
-    icono: <FaClock className="w-8 h-8" />
+    descripcion:
+      "Valoro el tiempo propio y ajeno, cumpliendo plazos y manteniendo una gestión eficiente.",
+    icono: <FaClock className="w-8 h-8" />,
   },
   {
     titulo: "Colaboración",
-    descripcion: "Creo en el poder del trabajo en equipo para lograr resultados excepcionales.",
-    icono: <FaTeamspeak className="w-8 h-8" />
-  },  {
+    descripcion:
+      "Creo en el poder del trabajo en equipo para lograr resultados excepcionales.",
+    icono: <FaTeamspeak className="w-8 h-8" />,
+  },
+  {
     titulo: "Proactividad",
-    descripcion: "Tomo la iniciativa para identificar oportunidades y resolver problemas antes de que escalen.",
-    icono: <FaRocket className="w-8 h-8" />
-  }
+    descripcion:
+      "Tomo la iniciativa para identificar oportunidades y resolver problemas antes de que escalen.",
+    icono: <FaRocket className="w-8 h-8" />,
+  },
 ];
 
 // Datos para la sección de carrera universitaria
@@ -150,7 +173,7 @@ export const carrera: CarreraData = {
   porcentajeCompletado: 40,
   fechaInicio: "2023",
   fechaEstimadaFinalizacion: "2027",
-  estadoActual: "En curso"
+  estadoActual: "En curso",
 };
 
 // Datos para la sección de voluntariados
@@ -159,32 +182,28 @@ export const voluntariados: VoluntariadoData[] = [
     organizacion: "Google Developer Groups Ica (GDG Ica)",
     rol: "Team Member",
     periodo: "2024 - Presente",
-    descripcion: "Participación activa en la comunidad tecnológica local, colaborando en eventos y workshops para promover el desarrollo de habilidades en tecnologías Google.",
+    descripcion:
+      "Participación activa en la comunidad tecnológica local, colaborando en eventos y workshops para promover el desarrollo de habilidades en tecnologías Google.",
     actividades: [
       "Organización de eventos y workshops técnicos",
-      "Apoyo en conferencias y meetups tecnológicos",
-      "Desarrollo de la plataforma web del GDG Ica",
-      "Diseño de flyers y materiales promocionales",
-      "Promoción de tecnologías emergentes en la comunidad"
+      "Desarrollo de la plataforma web del GDG Ica"
     ],
     icono: <FaUsers className="w-8 h-8" />,
-    color: "from-blue-500 to-green-500"
+    color: "from-blue-500 to-green-500",
   },
   {
     organizacion: "InnovaTech Ica 2025",
     rol: "Organizador",
     periodo: "2025",
-    descripcion: "Evento de innovación tecnológica en Ica, donde se busca fomentar el emprendimiento y la creación de soluciones tecnológicas para la región.",
+    descripcion:
+      "Evento de innovación tecnológica en Ica, donde se busca fomentar el emprendimiento y la creación de soluciones tecnológicas para la región.",
     actividades: [
-      "Coordinación de sponsors",
       "Gestión de redes sociales y promoción del evento",
       "Desarrollo de la página web del evento",
-      "Diseño de materiales gráficos y promocionales",
-      "Colaboración con universidades y empresas locales",
-      "Colaboración con empresas locales para patrocinios"
-    ],    icono: <FaGraduationCap className="w-8 h-8" />,
-    color: "from-purple-500 to-pink-500"
-  }
+    ],
+    icono: <FaGraduationCap className="w-8 h-8" />,
+    color: "from-purple-500 to-pink-500",
+  },
 ];
 
 // Datos para la sección de setup de desarrollo
@@ -192,67 +211,79 @@ export const setupData: SetupData = {
   hardware: [
     {
       titulo: "Laptop HP Victus",
-      descripcion: "Intel i5, 32GB RAM, RTX 3050 - Potente y portátil para desarrollo y gaming",
-      icono: <FaLaptop className="w-8 h-8" />
+      descripcion:
+        "Intel i5, 32GB RAM, RTX 3050 - Potente y portátil para desarrollo y gaming",
+      icono: <FaLaptop className="w-8 h-8" />,
     },
     {
       titulo: "Monitor Teros TE-2471G Dual Setup",
-      descripcion: "Configuración de doble monitor para mayor productividad - código en una pantalla, documentación en otra",
-      icono: <FaDesktop className="w-8 h-8" />
+      descripcion:
+        "Configuración de doble monitor para mayor productividad - código en una pantalla, documentación en otra",
+      icono: <FaDesktop className="w-8 h-8" />,
     },
     {
       titulo: "Teclado Mecánico Redragon Kumara K552",
-      descripcion: "Teclado mecánico con retroiluminación RGB - comodidad y estilo para largas horas de codificación",
-      icono: <FaKeyboard className="w-8 h-8" />
+      descripcion:
+        "Teclado mecánico con retroiluminación RGB - comodidad y estilo para largas horas de codificación",
+      icono: <FaKeyboard className="w-8 h-8" />,
     },
     {
       titulo: "Mouse Gaming Logitech G502 Hero",
-      descripcion: "Mouse ergonómico con múltiples botones programables - optimiza mi flujo de trabajo",
-      icono: <FaMouse className="w-8 h-8" />
+      descripcion:
+        "Mouse ergonómico con múltiples botones programables - optimiza mi flujo de trabajo",
+      icono: <FaMouse className="w-8 h-8" />,
     },
     {
       titulo: "Silla Gamer",
-      descripcion: "Silla ergonómica para largas horas de trabajo - comodidad y soporte lumbar",
-      icono: <FaChair className="w-8 h-8" />
+      descripcion:
+        "Silla ergonómica para largas horas de trabajo - comodidad y soporte lumbar",
+      icono: <FaChair className="w-8 h-8" />,
     },
     {
       titulo: "Soporte para Laptop",
-      descripcion: "Soporte ajustable para laptop - mejora la ergonomía y la ventilación",
-      icono: <FaLaptop className="w-8 h-8" />
-    }
+      descripcion:
+        "Soporte ajustable para laptop - mejora la ergonomía y la ventilación",
+      icono: <FaLaptop className="w-8 h-8" />,
+    },
   ],
   software: [
     {
       titulo: "Visual Studio Code",
-      descripcion: "Mi editor principal con extensiones como Prettier, ESLint, GitLens y temas personalizados para una experiencia óptima",
-      icono: <FaCode className="w-8 h-8" />
+      descripcion:
+        "Mi editor principal con extensiones como Prettier, ESLint, GitLens y temas personalizados para una experiencia óptima",
+      icono: <FaCode className="w-8 h-8" />,
     },
     {
       titulo: "Git & GitHub",
-      descripcion: "Control de versiones esencial para todos mis proyectos, con workflows automatizados y CI/CD",
-      icono: <FaTools className="w-8 h-8" />
+      descripcion:
+        "Control de versiones esencial para todos mis proyectos, con workflows automatizados y CI/CD",
+      icono: <FaTools className="w-8 h-8" />,
     },
     {
       titulo: "Figma & Canva",
-      descripcion: "Para diseño UI/UX y creación de prototipos antes de desarrollar, manteniendo consistency en el diseño",
-      icono: <FaTools className="w-8 h-8" />
-    }
+      descripcion:
+        "Para diseño UI/UX y creación de prototipos antes de desarrollar, manteniendo consistency en el diseño",
+      icono: <FaTools className="w-8 h-8" />,
+    },
   ],
   workflow: [
     {
       titulo: "Metodología Agile",
-      descripcion: "Desarrollo iterativo con sprints cortos, planning y retrospectivas para mejora continua",
-      icono: <FaCogs className="w-8 h-8" />
+      descripcion:
+        "Desarrollo iterativo con sprints cortos, planning y retrospectivas para mejora continua",
+      icono: <FaCogs className="w-8 h-8" />,
     },
     {
       titulo: "Test-Driven Development",
-      descripcion: "Escribo pruebas antes del código para garantizar calidad y mantenibilidad del software",
-      icono: <FaCogs className="w-8 h-8" />
+      descripcion:
+        "Escribo pruebas antes del código para garantizar calidad y mantenibilidad del software",
+      icono: <FaCogs className="w-8 h-8" />,
     },
     {
       titulo: "Code Review & Documentation",
-      descripcion: "Revisión de código en equipo y documentación detallada para proyectos escalables y mantenibles",
-      icono: <FaCogs className="w-8 h-8" />
-    }
-  ]
+      descripcion:
+        "Revisión de código en equipo y documentación detallada para proyectos escalables y mantenibles",
+      icono: <FaCogs className="w-8 h-8" />,
+    },
+  ],
 };

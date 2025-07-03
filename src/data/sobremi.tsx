@@ -110,6 +110,28 @@ export const certificados: CertificadoData[] = [
       },
     ],
   },
+  {
+    categoria: "Lenguajes de Programación",
+    certificados: [
+      {
+        titulo: "Python Essentials 1",
+        emisor: "Cisco",
+        anio: "2025",
+        link: "https://www.credly.com/badges/ae417aae-6e1c-487a-9032-fdf90c763309",
+      },
+    ],
+  },
+  {
+    categoria: "Cloud Computing",
+    certificados: [
+      {
+        titulo: "Google Cloud StudyJam 2025",
+        emisor: "GDG Ica",
+        anio: "2025",
+        link: "https://www.linkedin.com/in/miguel-vivar-farfan/overlay/1751068874148/single-media-viewer/?type=DOCUMENT&profileId=ACoAAE3Im6IBa7CZ4Tbl0-z2NPhOgwRGuD2IYS8",
+      },
+    ],
+  },
 ];
 
 // Datos para la sección de idiomas

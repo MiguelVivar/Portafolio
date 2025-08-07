@@ -1,10 +1,13 @@
 import { Metadata } from 'next';
 import Habilidades from '@/ui/habilidades/Habilidades';
+import { generatePageMetadata } from '@/config/seo';
 
 export const metadata: Metadata = {
-  title: 'Mis Habilidades | Miguel Vivar - Desarrollador Full Stack',
-  description: 'Conoce las tecnologías y herramientas que utilizo en el desarrollo de mis proyectos.'
-};
+  ...generatePageMetadata('skills'),
+  alternates: {
+    canonical: '/habilidades',
+  },
+} as unknown as Metadata;
 
 export default function HabilidadesPage() {
   return <Habilidades />;

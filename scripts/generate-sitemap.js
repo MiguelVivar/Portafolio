@@ -3,7 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const baseUrl = 'https://miguelvivar.vercel.app';
+const baseUrl = 'https://www.miguelvivar.engineer';
 const currentDate = new Date().toISOString();
 
 // URLs estáticas principales

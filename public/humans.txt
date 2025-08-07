@@ -1,23 +1,33 @@
 /* TEAM */
-Developer: Miguel Vivar
+Developer: Miguel Vivar Farfán
+Title: Full Stack Developer | Software Engineer
 Contact: miguelvivarfarfan [at] gmail.com
+Website: https://www.miguelvivar.engineer
 From: España
 LinkedIn: https://www.linkedin.com/in/miguel-vivar-farfan/
 GitHub: https://github.com/MiguelVivar
+Instagram: https://www.instagram.com/mvivarf/
 
-/* THANKS */
-Next.js: https://nextjs.org/
-React: https://reactjs.org/
-TypeScript: https://www.typescriptlang.org/
-Tailwind CSS: https://tailwindcss.com/
-Vercel: https://vercel.com/
+/* TECHNOLOGIES */
+Frontend: React 19, Next.js 15, TypeScript 5
+Styling: Tailwind CSS 4, Framer Motion
+Backend: Node.js, Express.js
+Databases: MongoDB, MySQL, PostgreSQL
+Languages: JavaScript, TypeScript, Python, Java
+Tools: Git, Docker, VS Code
+Deployment: Vercel, Netlify
+Analytics: Vercel Analytics, Google Analytics
 
-/* SITE */
-Last update: 2025/05/26
+/* SITE INFO */
+Last update: 2025/08/06
 Language: Español / Spanish
 Doctype: HTML5
 IDE: Visual Studio Code
-Framework: Next.js 15
-Styling: Tailwind CSS
-Version Control: Git
-Hosting: GitHub Pages / Vercel
+Framework: Next.js 15.2.4
+Styling: Tailwind CSS 4
+Version Control: Git + GitHub
+Hosting: Vercel
+Domain: https://www.miguelvivar.engineer
+SEO: Optimized for search engines
+Performance: Core Web Vitals optimized
+Accessibility: WCAG compliant

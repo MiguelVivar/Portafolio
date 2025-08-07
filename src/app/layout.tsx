@@ -14,40 +14,77 @@ import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import Terminal from "@/components/terminal/Terminal";
 
 export const metadata: Metadata = {
-  title: "Miguel Vivar - Desarrollador Full Stack",
+  title: {
+    default: "Miguel Vivar - Desarrollador Full Stack | Ingeniero de Software",
+    template: "%s | Miguel Vivar - Full Stack Developer"
+  },
   description:
-    "Desarrollador Full Stack especializado en crear aplicaciones web modernas con React, Next.js, TypeScript y Node.js. Portafolio de proyectos y experiencia profesional.",
+    "Desarrollador Full Stack especializado en crear aplicaciones web modernas y escalables con React, Next.js, TypeScript y Node.js. Más de 3 años de experiencia en desarrollo web, consultoría tecnológica y arquitecturas cloud. Portafolio profesional con proyectos reales.",
   keywords: [
     "Miguel Vivar",
     "Desarrollador Full Stack",
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Node.js",
-    "JavaScript",
-    "Frontend",
-    "Backend",
-    "Portafolio",
-    "Web Developer",
+    "Ingeniero de Software",
+    "React Developer",
+    "Next.js Developer", 
+    "TypeScript Developer",
+    "Node.js Developer",
+    "JavaScript Expert",
+    "Frontend Developer",
+    "Backend Developer",
+    "Web Developer España",
+    "Consultor Tecnológico",
+    "Arquitecto Software",
+    "Desarrollo Web Moderno",
+    "Aplicaciones Escalables",
+    "Performance Web",
+    "SEO Technical",
+    "Responsive Design",
+    "API REST",
+    "GraphQL",
+    "MongoDB Expert",
+    "PostgreSQL",
+    "MySQL",
+    "Python Developer",
+    "Java Developer",
+    "Git Expert",
+    "Docker",
+    "Cloud Architecture",
+    "Vercel Expert",
+    "Netlify",
+    "Portfolio Profesional",
+    "Freelancer España",
+    "Remote Developer",
+    "Agile Methodologies",
+    "Scrum Master",
+    "Web Performance Optimization",
+    "Core Web Vitals",
+    "Accessibility Expert",
+    "UI/UX Implementation"
   ],
-  authors: [{ name: "Miguel Vivar" }],
+  authors: [{ name: "Miguel Vivar", url: "https://www.miguelvivar.engineer" }],
   creator: "Miguel Vivar",
   publisher: "Miguel Vivar",
+  category: "Technology",
+  classification: "Portfolio Website",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://miguelvivar.vercel.app/"),
+  metadataBase: new URL("https://www.miguelvivar.engineer"),
   alternates: {
     canonical: "/",
+    languages: {
+      'es-ES': '/',
+      'en-US': '/en'
+    }
   },
   openGraph: {
-    title: "Miguel Vivar - Desarrollador Full Stack",
+    title: "Miguel Vivar - Desarrollador Full Stack | Ingeniero de Software",
     description:
-      "Desarrollador Full Stack especializado en crear aplicaciones web modernas con React, Next.js, TypeScript y Node.js.",
-    url: "https://miguelvivar.vercel.app/",
-    siteName: "Miguel Vivar Portfolio",
+      "Desarrollador Full Stack especializado en crear aplicaciones web modernas y escalables. Portfolio profesional con proyectos reales usando React, Next.js, TypeScript y Node.js.",
+    url: "https://www.miguelvivar.engineer",
+    siteName: "Miguel Vivar - Portfolio Profesional",
     images: [
       {
         url: "/portafolio.png",
@@ -61,25 +98,59 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Miguel Vivar - Desarrollador Full Stack",
+    title: "Miguel Vivar - Desarrollador Full Stack | Ingeniero de Software", 
     description:
-      "Desarrollador Full Stack especializado en crear aplicaciones web modernas con React, Next.js, TypeScript y Node.js.",
+      "Desarrollador Full Stack especializado en crear aplicaciones web modernas y escalables. Portfolio con proyectos reales usando React, Next.js, TypeScript y Node.js.",
     images: ["/portafolio.png"],
+    creator: "@miguelvivar",
+    site: "@miguelvivar"
   },
   robots: {
     index: true,
     follow: true,
+    nocache: true,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
     },
   },
   verification: {
-    google: "verification_token_here", // Agrega tu token de Google Search Console
+    google: "verification_token_here", // Reemplazar con tu token real de Google Search Console
+    yandex: "verification_token_here", // Opcional: Yandex verification
+    yahoo: "verification_token_here", // Opcional: Yahoo verification
+    other: {
+      bing: ["verification_token_here"], // Opcional: Bing verification
+    }
   },
+  applicationName: "Miguel Vivar Portfolio",
+  referrer: "origin-when-cross-origin",
+  colorScheme: "dark light",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#3b82f6" },
+    { media: "(prefers-color-scheme: dark)", color: "#1e40af" },
+  ],
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/logo.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      { rel: "mask-icon", url: "/safari-pinned-tab.svg", color: "#3b82f6" },
+    ],
+  },
+  manifest: "/manifest.json",
 };
 
 interface RootLayoutProps {
@@ -108,7 +179,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <link rel="icon" type="image/svg+xml" href="/logo.svg" />
         <link rel="apple-touch-icon" href="/logo.svg" />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="canonical" href="https://miguelvivar.vercel.app/" />
+        <link rel="canonical" href="https://www.miguelvivar.engineer/" />
         <link rel="author" href="/humans.txt" />
 
         {/* Preconnect to external domains */}

@@ -82,7 +82,7 @@ export function ProjectJsonLd({ name, description, url, image, technologies, dat
     author: {
       '@type': 'Person',
       name: 'Miguel Vivar',
-      url: 'https://miguelvivar.vercel.app',
+      url: 'https://www.miguelvivar.engineer',
     },
     programmingLanguage: technologies,
     dateCreated,
@@ -106,10 +106,10 @@ export function OrganizationJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     name: 'Miguel Vivar - Desarrollador Full Stack',
-    description: 'Servicios de desarrollo web profesional especializado en React, Next.js, TypeScript y Node.js',
-    url: 'https://miguelvivar.vercel.app',
-    logo: 'https://miguelvivar.vercel.app/logo.svg',
-    image: 'https://miguelvivar.vercel.app/portafolio.png',
+    description: 'Servicios de desarrollo web profesional especializado en React, Next.js, TypeScript y Node.js. Consultoría tecnológica y desarrollo de aplicaciones web modernas.',
+    url: 'https://www.miguelvivar.engineer',
+    logo: 'https://www.miguelvivar.engineer/logo.svg',
+    image: 'https://www.miguelvivar.engineer/portafolio.png',
     founder: {
       '@type': 'Person',
       name: 'Miguel Vivar',

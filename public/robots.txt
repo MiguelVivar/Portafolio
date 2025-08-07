@@ -1,5 +1,5 @@
 # robots.txt para Miguel Vivar Portfolio
-# https://miguelvivar.vercel.app/robots.txt
+# https://www.miguelvivar.engineer/robots.txt
 
 User-agent: *
 Allow: /
@@ -36,10 +36,10 @@ User-agent: LinkedInBot
 Allow: /
 
 # Sitemap
-Sitemap: https://miguelvivar.vercel.app/sitemap.xml
+Sitemap: https://www.miguelvivar.engineer/sitemap.xml
 
 # Host
-Host: https://miguelvivar.vercel.app
+Host: https://www.miguelvivar.engineer
 
 # Crawl-delay para bots agresivos
 User-agent: AhrefsBot

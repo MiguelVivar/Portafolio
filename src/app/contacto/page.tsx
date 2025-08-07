@@ -1,10 +1,13 @@
 import { Metadata } from 'next';
 import Contacto from '@/ui/contacto/Contacto';
+import { generatePageMetadata } from '@/config/seo';
 
 export const metadata: Metadata = {
-  title: 'Contacto | Miguel Vivar - Desarrollador Full Stack',
-  description: 'Contáctame para trabajar en tu proyecto o si tienes alguna consulta.'
-};
+  ...generatePageMetadata('contact'),
+  alternates: {
+    canonical: '/contacto',
+  },
+} as unknown as Metadata;
 
 export default function ContactoPage() {
   return <Contacto />;

@@ -26,7 +26,7 @@
 
 ## 🌐 Demostración
 
-Visita mi portfolio en vivo: [miguelvivar.vercel.app](https://miguelvivar.vercel.app/)
+Visita mi portfolio en vivo: [miguelvivar.engineer](https://www.miguelvivar.engineer/)
 
 ## ✨ Características Técnicas Avanzadas
 
@@ -163,7 +163,7 @@ Este portafolio incluye **10 proyectos reales** que demuestran mis habilidades e
 1. **🎯 Portafolio Personal** - *Este proyecto*
    - **Stack**: Next.js 15.2.4, React 19, TypeScript, Tailwind CSS, Framer Motion
    - **Características**: Sistema de terminal interactivo, animaciones, analytics
-   - **Demo**: [miguelvivar.vercel.app](https://miguelvivar.vercel.app/)
+   - **Demo**: [miguelvivar.engineer](https://www.miguelvivar.engineer/)
    - **Repo**: [GitHub](https://github.com/MiguelVivar/Portafolio)
 
 2. **🧮 Calculadora de Consumo y Propinas**
@@ -477,12 +477,12 @@ Diseño completamente adaptativo para todos los dispositivos:
 - **LinkedIn**: [Miguel Vivar Farfan](https://www.linkedin.com/in/miguel-vivar-farfan/)
 - **GitHub**: [@MiguelVivar](https://github.com/MiguelVivar)
 - **Instagram**: [@mvivarf](https://www.instagram.com/mvivarf/)
-- **Portfolio**: [miguelvivar.vercel.app](https://miguelvivar.vercel.app/)
+- **Portfolio**: [miguelvivar.engineer](https://www.miguelvivar.engineer/)
 
 ## 🔗 Enlaces del Proyecto
 
 - **Repositorio**: [https://github.com/MiguelVivar/Portafolio](https://github.com/MiguelVivar/Portafolio)
-- **Demo en Vivo**: [https://miguelvivar.vercel.app/](https://miguelvivar.vercel.app/)
+- **Demo en Vivo**: [https://www.miguelvivar.engineer/](https://www.miguelvivar.engineer/)
 - **Documentación**: Disponible en el repositorio y en el sitio web
 
 ---

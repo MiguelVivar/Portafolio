@@ -37,7 +37,7 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: 'https://miguelvivar.vercel.app/sitemap.xml',
-    host: 'https://miguelvivar.vercel.app',
+    sitemap: 'https://www.miguelvivar.engineer/sitemap.xml',
+    host: 'https://www.miguelvivar.engineer',
   }
 }

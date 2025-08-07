@@ -55,7 +55,7 @@ export const proyectos = [
     ],
     enlaces: [
       { tipo: "github", url: "https://github.com/MiguelVivar/Portafolio" },
-      { tipo: "demo", url: "https://miguelvivar.vercel.app/" },
+      { tipo: "demo", url: "https://www.miguelvivar.engineer/" },
     ],
     destacado: true,
     estado: "en-desarrollo",

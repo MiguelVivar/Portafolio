@@ -8,7 +8,7 @@ import SocialLinks from './SocialLinks';
 import FooterDivider from './FooterDivider';
 import FooterCopyright from './FooterCopyright';
 import SpotifyNowPlaying from '../SpotifyNowPlaying';
-import { FaHome, FaUser, FaCode, FaProjectDiagram, FaEnvelope, FaServer } from 'react-icons/fa';
+import { FaHome, FaUser, FaCode, FaProjectDiagram, FaBriefcase, FaEnvelope, FaServer } from 'react-icons/fa';
 
 interface FooterProps {
   frases: string[];
@@ -20,6 +20,7 @@ const Footer: React.FC<FooterProps> = ({ frases }) => {
     { href: '/sobremi', label: 'Sobre Mí', icon: FaUser },
     { href: '/habilidades', label: 'Habilidades', icon: FaCode },
     { href: '/proyectos', label: 'Proyectos', icon: FaProjectDiagram },
+    { href: '/servicios', label: 'Servicios', icon: FaBriefcase },
     { href: '/api', label: 'APIs', icon: FaServer },
     { href: '/contacto', label: 'Contacto', icon: FaEnvelope },
   ], []);

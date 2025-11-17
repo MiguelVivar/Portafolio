@@ -26,7 +26,7 @@ const achievementsData: Achievement[] = [
     id: 2,
     iconType: 'code',
     title: "Líneas de Código",
-    value: "5K+",
+    value: "50K+",
     description: "Código limpio, eficiente y bien documentado"
   },
   {

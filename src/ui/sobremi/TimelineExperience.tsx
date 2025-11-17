@@ -45,23 +45,44 @@ const TimelineExperience: React.FC = () => {
           transition={{ duration: 3, repeat: Infinity, delay: 1 }}
         />
         
-        {/* Desarrollador Full Stack */}
+        {/* Asumarket */}
         <TimelineItem 
           icon={<FaBuilding className="text-emerald-300" />}
-          title="Desarrollador Full Stack"
-          subtitle="Freelancer"
-          description="Desarrollo de aplicaciones web utilizando React, Node.js, TypeScript y bases de datos SQL/NoSQL. Implementación de interfaces de usuario modernas y sistemas backend escalables."
-          date="2024 - Presente"
+          title="Asumarket"
+          subtitle="Desarrollador de Software"
+          description={
+            <>
+              - Desarrollo agentes de automatización con n8n para la extracción, transformación y procesamiento de datos provenientes de múltiples fuentes.
+              <br /><br />
+              - Implemento procesos de scraping masivo, aplicando filtros de metadatos y controles de error para mejorar la precisión y confiabilidad de la información recolectada.
+              <br /><br />
+              - Construyo pipelines de procesamiento y almacenamiento en buckets, asegurando escalabilidad y disponibilidad de los datos.
+              <br /><br />
+              - Optimizo flujos repetitivos mediante agentes de IA y automatizaciones, reduciendo significativamente la carga manual y aumentando la eficiencia operativa.
+            </>
+          }
+          date="Agosto 2025 - Presente"
         />
         
-        {/* Proyectos Personales */}
+        {/* DeployGuru */}
         <TimelineItem 
-          icon={<FaFolderOpen className="h-5 w-5 text-emerald-300" />}
-          title="Proyectos Personales"
-          subtitle="Desarrollo de portafolio y aplicaciones web"
-          description="Creación de proyectos personales para mejorar habilidades y explorar nuevas tecnologías como Astro, Next.js y frameworks modernos."
-          date="2024 - Presente"
-          link="/proyectos"
+          icon={<FaBuilding className="text-emerald-300" />}
+          title="DeployGuru"
+          subtitle="Desarrollador Full Stack Node.js"
+          description={
+            <>
+              - Desarrollé scripts en Node.js para la extracción automatizada de correos y su integración al sistema.
+              <br /><br />
+              - Implementé procesos de scraping y parsing de correos, con validación de datos y control de errores para garantizar consistencia en la información transferida.
+              <br /><br />
+              - Diseñé pipelines de procesamiento y almacenamiento en MySQL, asegurando integridad y disponibilidad de la información.
+              <br /><br />
+              - Desarrollé en Node.js y Express, con autenticación segura mediante JWT y arquitectura modular para facilitar escalabilidad.
+              <br /><br />
+              - Optimicé procesos repetitivos mediante automatización, reduciendo la carga manual en la gestión de correos y mejorando la eficiencia operativa.
+            </>
+          }
+          date="Agosto 2025 - Octubre 2025"
         />
       </div>
     </motion.div>

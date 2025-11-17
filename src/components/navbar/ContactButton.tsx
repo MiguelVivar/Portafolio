@@ -118,7 +118,7 @@ const ContactButton: React.FC<ContactButtonProps> = memo(({ isActive }) => {
 
   // Memoized computed styles based on isActive state
   const buttonStyles = useMemo(() => ({
-    className: `relative px-4 py-2 text-xl font-bold rounded-lg transition-colors duration-300 flex items-center overflow-hidden group ${
+    className: `relative px-4 py-2 text-base lg:text-lg xl:text-xl font-bold rounded-lg transition-colors duration-300 flex items-center overflow-hidden group whitespace-nowrap ${
       isActive
         ? 'bg-gradient-to-r from-emerald-400 to-emerald-300 text-neutral-800 shadow-lg shadow-emerald-500/30'
         : 'border-2 border-emerald-300/90 text-emerald-300 hover:border-emerald-300'

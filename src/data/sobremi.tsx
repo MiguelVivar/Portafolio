@@ -190,9 +190,9 @@ export const valores: ValorData[] = [
 export const carrera: CarreraData = {
   carrera: "Ingeniería de Sistemas",
   universidad: "Universidad Nacional de Ingeniería",
-  cicloActual: 4,
+  cicloActual: 5,
   ciclosTotales: 10,
-  porcentajeCompletado: 40,
+  porcentajeCompletado: 50,
   fechaInicio: "2023",
   fechaEstimadaFinalizacion: "2027",
   estadoActual: "En curso",

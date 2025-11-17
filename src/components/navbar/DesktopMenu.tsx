@@ -98,7 +98,7 @@ const DesktopMenu: React.FC<DesktopMenuProps> = memo(({ links, currentPath }) =>
   );
 
   return (
-    <div className="hidden lg:flex items-center space-x-4">
+    <div className="hidden lg:flex items-center gap-3 xl:gap-6">
       {menuItems}
       
       <ContactButtonWrapper 

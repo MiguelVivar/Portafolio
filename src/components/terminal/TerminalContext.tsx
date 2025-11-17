@@ -162,7 +162,7 @@ export const TerminalProvider: React.FC<{ children: ReactNode }> = ({
           output: (
             <div className="space-y-2">
               <p className="text-emerald-300 font-bold text-lg">
-                🚀 ¡Bienvenido a la Terminal Interactiva de Miguel Vivar!
+                🚀 ¡Bienvenido a mi Terminal Interactiva!
               </p>
               <p className="text-gray-300">
                 Esta es una terminal completamente funcional con sistema de

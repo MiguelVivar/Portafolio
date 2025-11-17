@@ -10,7 +10,7 @@ import DesktopMenu from './DesktopMenu';
 import MobileToggle from './MobileToggle';
 import MobileMenu from './MobileMenu';
 import GlobalSearch from '@/components/search/GlobalSearch';
-import { FaHome, FaUser, FaProjectDiagram, FaCode } from 'react-icons/fa';
+import { FaHome, FaUser, FaProjectDiagram, FaCode, FaBriefcase } from 'react-icons/fa';
 
 const Navbar: React.FC = () => {
   // Usar los estados globales
@@ -28,7 +28,8 @@ const Navbar: React.FC = () => {
     { href: '/', label: 'Inicio', icon: FaHome },
     { href: '/sobremi', label: 'Sobre Mí', icon: FaUser },
     { href: '/habilidades', label: 'Habilidades', icon: FaCode },
-    { href: '/proyectos', label: 'Proyectos', icon: FaProjectDiagram }
+    { href: '/proyectos', label: 'Proyectos', icon: FaProjectDiagram },
+    { href: '/servicios', label: 'Servicios', icon: FaBriefcase }
   ], []);
 
   // Memoizar la ruta normalizada
@@ -118,7 +119,7 @@ const Navbar: React.FC = () => {
   }, [menuOpen]);
 
   const navContent = useMemo(() => (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-360 mx-auto px-4 lg:px-6">
       <div className="flex items-center justify-between h-16">
         <Logo />
         <DesktopMenu links={links} currentPath={normalizedPath} />

@@ -8,7 +8,7 @@ interface TimelineItemProps {
   icon: React.ReactNode;
   title: string;
   subtitle: string;
-  description?: string;
+  description?: string | React.ReactNode;
   date: string;
   link?: string;
 }

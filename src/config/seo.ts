@@ -177,6 +177,12 @@ export const pageMetadata = {
     keywords: [...siteConfig.keywords, "proyectos", "projects", "portfolio", "aplicaciones", "desarrollo"] as string[],
   },
   
+  services: {
+    title: "Servicios",
+    description: "Servicios profesionales de desarrollo web, aplicaciones móviles, automatización con IA, cloud computing y consultoría tecnológica.",
+    keywords: [...siteConfig.keywords, "servicios", "services", "desarrollo web", "aplicaciones móviles", "automatización", "IA", "cloud", "consultoría"] as string[],
+  },
+  
   contact: {
     title: "Contacto", 
     description: "¿Tienes un proyecto en mente? Contacta con Miguel Vivar para consultoría tecnológica y desarrollo web profesional.",

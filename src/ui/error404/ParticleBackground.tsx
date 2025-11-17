@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useCallback, useEffect, useState } from 'react';
-import type { Engine } from "tsparticles-engine";
 
 // Import the correct types from react-tsparticles
 import type { IParticlesProps } from "react-tsparticles";
@@ -9,14 +8,15 @@ import type { IParticlesProps } from "react-tsparticles";
 const ParticleBackground: React.FC = () => {
   // State for dynamic components
   const [Particles, setParticles] = useState<React.ComponentType<IParticlesProps> | null>(null);
-  const [particlesInitializer, setParticlesInitializer] = useState<((engine: Engine) => Promise<void>) | null>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
   
   // Define particlesInit at the top level
-  const particlesInit = useCallback(async (engine: Engine) => {
-    if (particlesInitializer) {
-      return await particlesInitializer(engine);
-    }
-  }, [particlesInitializer]);
+  const particlesInit = useCallback(async (engine: unknown) => {
+    // Dynamically load tsparticles-slim when init is called
+    const { loadSlim } = await import('tsparticles-slim');
+    // @ts-expect-error - Engine type from tsparticles-slim is not exported
+    await loadSlim(engine);
+  }, []);
 
   // Load particles dynamically
   useEffect(() => {
@@ -24,10 +24,9 @@ const ParticleBackground: React.FC = () => {
       try {
         // Import dynamically to fix compatibility issues
         const { default: ReactParticles } = await import('react-tsparticles');
-        const { loadSlim } = await import('tsparticles-slim');
         
         setParticles(() => ReactParticles);
-        setParticlesInitializer(async (engine: Engine) => await loadSlim(engine));
+        setIsLoaded(true);
       } catch (error) {
         console.error("Failed to load particles:", error);
       }
@@ -36,7 +35,7 @@ const ParticleBackground: React.FC = () => {
     loadParticles();
   }, []);
 
-  if (!Particles) {
+  if (!Particles || !isLoaded) {
     // Return a simple placeholder until particles load
     return <div className="absolute inset-0 z-0 bg-transparent"></div>;
   }

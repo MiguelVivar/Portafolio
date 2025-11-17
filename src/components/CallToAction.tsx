@@ -46,11 +46,11 @@ const animationVariants = {
   },
   buttonHover: {
     scale: 1.05,
-    transition: { type: "spring", stiffness: 400, damping: 17 }
+    transition: { type: "spring" as const, stiffness: 400, damping: 17 }
   },
   buttonTap: {
     scale: 0.98,
-    transition: { type: "spring", stiffness: 400, damping: 17 }
+    transition: { type: "spring" as const, stiffness: 400, damping: 17 }
   }
 };
 

@@ -22,7 +22,7 @@ const badgeVariants = {
     scale: 1,
     transition: { 
       duration: 0.5,
-      type: "spring",
+      type: "spring" as const,
       stiffness: 300
     }
   }
@@ -71,7 +71,7 @@ const underlineVariants = {
     transition: { 
       duration: 0.8, 
       delay: 0.8,
-      ease: "easeOut"
+      ease: [0, 0, 0.58, 1] as [number, number, number, number]
     }
   }
 };
@@ -127,7 +127,7 @@ const PageHeader: React.FC = memo(() => {
             transition={{
               duration: 3,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: [0.42, 0, 0.58, 1] as [number, number, number, number]
             }}
           />
         </span>
@@ -165,7 +165,7 @@ const PageHeader: React.FC = memo(() => {
         <motion.div 
           className="flex items-center gap-3 bg-neutral-800/30 backdrop-blur-sm px-4 py-2 rounded-full border border-emerald-500/20"
           whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          transition={{ type: "spring" as const, stiffness: 400, damping: 17 }}
         >
           <FaCode className="text-emerald-400 w-4 h-4" />
           <FaRocket className="text-emerald-300 w-4 h-4" />
@@ -218,3 +218,6 @@ const PageHeader: React.FC = memo(() => {
 PageHeader.displayName = 'PageHeader';
 
 export default PageHeader;
+
+
+

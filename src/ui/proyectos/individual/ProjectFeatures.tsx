@@ -29,7 +29,7 @@ const itemVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       duration: 0.6,
     },
   },
@@ -123,7 +123,7 @@ const ProjectFeatures: React.FC<ProjectFeaturesProps> = ({ proyecto }) => {
             key={index}
             className="bg-neutral-800 border border-emerald-400/10 rounded-lg p-6 hover:bg-neutral-700 hover:border-emerald-400/20 transition-all duration-300"
             whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 300 }}
+            transition={{ type: "spring" as const, stiffness: 300 }}
           >
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 text-2xl">{feature.icon}</div>
@@ -217,3 +217,4 @@ function getComplexity(categoria: string): number {
 }
 
 export default ProjectFeatures;
+

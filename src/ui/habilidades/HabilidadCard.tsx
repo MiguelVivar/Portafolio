@@ -58,7 +58,7 @@ const HabilidadCard: React.FC<HabilidadCardProps> = ({ habilidad, index }) => {
           opacity: 1, 
           y: 0,
           transition: {
-            type: "spring",
+            type: "spring" as const,
             duration: 0.5,
           }
         }
@@ -81,7 +81,7 @@ const HabilidadCard: React.FC<HabilidadCardProps> = ({ habilidad, index }) => {
         transition={{
           duration: 2.5,
           repeat: Infinity,
-          ease: "linear",
+          ease: [0, 0, 1, 1] as [number, number, number, number],
         }}
       />
       
@@ -100,7 +100,7 @@ const HabilidadCard: React.FC<HabilidadCardProps> = ({ habilidad, index }) => {
         transition={{ 
           duration: 0.3,
           delay: index * 0.1,
-          ease: "easeOut"
+          ease: [0, 0, 0.58, 1] as [number, number, number, number]
         }}
       >
         <motion.div 
@@ -116,7 +116,7 @@ const HabilidadCard: React.FC<HabilidadCardProps> = ({ habilidad, index }) => {
               animate={{ scale: 1, rotate: 0 }}
               transition={{ 
                 delay: 0.2 + (index * 0.1),
-                type: "spring",
+                type: "spring" as const,
                 stiffness: 260,
                 damping: 20
               }}
@@ -235,3 +235,4 @@ const HabilidadCard: React.FC<HabilidadCardProps> = ({ habilidad, index }) => {
 };
 
 export default HabilidadCard;
+

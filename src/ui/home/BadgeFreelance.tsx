@@ -8,11 +8,11 @@ const badgeVariants = {
   animate: { 
     opacity: 1, 
     scale: 1,
-    transition: { duration: 0.5, ease: "easeOut" }
+    transition: { duration: 0.5, ease: [0, 0, 0.58, 1] as [number, number, number, number] }
   },
   hover: {
     scale: 1.02,
-    transition: { duration: 0.2, ease: "easeInOut" }
+    transition: { duration: 0.2, ease: [0.42, 0, 0.58, 1] as [number, number, number, number] }
   }
 };
 
@@ -23,7 +23,7 @@ const iconVariants = {
       duration: 2,
       repeat: Infinity,
       repeatType: "reverse" as const,
-      ease: "easeInOut"
+      ease: [0.42, 0, 0.58, 1] as [number, number, number, number]
     }
   }
 };
@@ -32,7 +32,7 @@ const underlineVariants = {
   initial: { width: 0 },
   animate: { 
     width: "100%",
-    transition: { delay: 1, duration: 0.8, ease: "easeOut" }
+    transition: { delay: 1, duration: 0.8, ease: [0, 0, 0.58, 1] as [number, number, number, number] }
   }
 };
 

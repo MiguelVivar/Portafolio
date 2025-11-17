@@ -10,7 +10,7 @@ const heroTextVariants = {
   animate: { 
     opacity: 1, 
     x: 0,
-    transition: { duration: 0.8, ease: "easeOut" }
+    transition: { duration: 0.8, ease: [0, 0, 0.58, 1] as [number, number, number, number] }
   }
 };
 
@@ -19,7 +19,7 @@ const profileImageVariants = {
   animate: { 
     opacity: 1, 
     x: 0,
-    transition: { duration: 0.8, ease: "easeOut" }
+    transition: { duration: 0.8, ease: [0, 0, 0.58, 1] as [number, number, number, number] }
   }
 };
 
@@ -27,7 +27,7 @@ const decorativeAccentVariants = {
   initial: { width: 0 },
   animate: { 
     width: "40%",
-    transition: { delay: 1, duration: 1, ease: "easeOut" }
+    transition: { delay: 1, duration: 1, ease: [0, 0, 0.58, 1] as [number, number, number, number] }
   }
 };
 
@@ -38,7 +38,7 @@ const glowVariants = {
     transition: { 
       duration: 5,
       repeat: Infinity,
-      ease: "easeInOut"
+      ease: [0.42, 0, 0.58, 1] as [number, number, number, number]
     }
   }
 };
@@ -50,7 +50,7 @@ const borderGlowVariants = {
       "0 0 20px 10px rgba(52, 211, 153, 0.15)",
       "0 0 10px 5px rgba(52, 211, 153, 0.1)"
     ],
-    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+    transition: { duration: 2, repeat: Infinity, ease: [0.42, 0, 0.58, 1] as [number, number, number, number] }
   }
 };
 
@@ -59,14 +59,14 @@ const techStackVariants = {
   animate: { 
     opacity: 1, 
     y: 0,
-    transition: { delay: 0.9, duration: 0.8, ease: "easeOut" }
+    transition: { delay: 0.9, duration: 0.8, ease: [0, 0, 0.58, 1] as [number, number, number, number] }
   }
 };
 
 const techCardVariants = {
   whileHover: { 
     scale: 1.01,
-    transition: { duration: 0.2, ease: "easeInOut" }
+    transition: { duration: 0.2, ease: [0.42, 0, 0.58, 1] as [number, number, number, number] }
   }
 };
 

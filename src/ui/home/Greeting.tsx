@@ -7,7 +7,7 @@ const containerVariants = {
   animate: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.5, delay: 0.3, ease: "easeOut" }
+    transition: { duration: 0.5, delay: 0.3, ease: [0, 0, 0.58, 1] as [number, number, number, number] }
   }
 };
 
@@ -15,7 +15,7 @@ const underlineVariants = {
   initial: { width: 0 },
   animate: { 
     width: "100%",
-    transition: { delay: 0.5, duration: 0.4, ease: "easeOut" }
+    transition: { delay: 0.5, duration: 0.4, ease: [0, 0, 0.58, 1] as [number, number, number, number] }
   }
 };
 
@@ -25,7 +25,7 @@ const waveVariants = {
     scale: [1, 1.2, 1, 1.2, 1],
     transition: {
       duration: 2,
-      ease: "easeInOut",
+      ease: [0.42, 0, 0.58, 1] as [number, number, number, number],
       repeat: Infinity,
       repeatDelay: 1.5
     }
@@ -37,7 +37,7 @@ const textVariants = {
   animate: { 
     opacity: 1, 
     x: 0,
-    transition: { delay: 0.6, duration: 0.3, ease: "easeOut" }
+    transition: { delay: 0.6, duration: 0.3, ease: [0, 0, 0.58, 1] as [number, number, number, number] }
   }
 };
 

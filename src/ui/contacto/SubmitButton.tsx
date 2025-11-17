@@ -41,7 +41,7 @@ const SubmitButton: React.FC<SubmitButtonProps> = ({ enviando }) => {
               repeat: Infinity, 
               repeatType: "mirror", 
               duration: 1.5,
-              ease: "easeInOut",
+              ease: [0.42, 0, 0.58, 1] as [number, number, number, number],
               repeatDelay: 1
             }}
           >

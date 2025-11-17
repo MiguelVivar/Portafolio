@@ -8,7 +8,7 @@ const containerVariants = {
   animate: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.5, delay: 0.6, ease: "easeOut" }
+    transition: { duration: 0.5, delay: 0.6, ease: [0, 0, 0.58, 1] as [number, number, number, number] }
   }
 };
 
@@ -18,7 +18,7 @@ const primaryGlowVariants = {
     transition: { 
       duration: 3,
       repeat: Infinity,
-      ease: "easeInOut"
+      ease: [0.42, 0, 0.58, 1] as [number, number, number, number]
     }
   }
 };
@@ -29,7 +29,7 @@ const downloadIconVariants = {
     transition: { 
       duration: 1.5, 
       repeat: Infinity,
-      ease: "easeInOut"
+      ease: [0.42, 0, 0.58, 1] as [number, number, number, number]
     }
   }
 };
@@ -40,7 +40,7 @@ const contactGlowVariants = {
     transition: { 
       duration: 2,
       repeat: Infinity,
-      ease: "easeInOut"
+      ease: [0.42, 0, 0.58, 1] as [number, number, number, number]
     }
   }
 };

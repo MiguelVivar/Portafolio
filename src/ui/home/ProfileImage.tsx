@@ -14,7 +14,7 @@ const glowVariants = {
     transition: {
       duration: 8,
       repeat: Infinity,
-      ease: "easeInOut"
+      ease: [0.42, 0, 0.58, 1] as [number, number, number, number]
     }
   },
   hovered: {
@@ -23,7 +23,7 @@ const glowVariants = {
     transition: {
       duration: 6,
       repeat: Infinity,
-      ease: "easeInOut"
+      ease: [0.42, 0, 0.58, 1] as [number, number, number, number]
     }
   }
 };
@@ -34,7 +34,7 @@ const borderVariants = {
     transition: {
       duration: 20,
       repeat: Infinity,
-      ease: "linear"
+      ease: [0, 0, 1, 1] as [number, number, number, number]
     }
   },
   hovered: {
@@ -42,7 +42,7 @@ const borderVariants = {
     transition: {
       duration: 15,
       repeat: Infinity,
-      ease: "linear"
+      ease: [0, 0, 1, 1] as [number, number, number, number]
     }
   }
 };
@@ -53,7 +53,7 @@ const secondaryBorderVariants = {
     transition: {
       duration: 30,
       repeat: Infinity,
-      ease: "linear"
+      ease: [0, 0, 1, 1] as [number, number, number, number]
     }
   },
   hovered: {
@@ -61,7 +61,7 @@ const secondaryBorderVariants = {
     transition: {
       duration: 25,
       repeat: Infinity,
-      ease: "linear"
+      ease: [0, 0, 1, 1] as [number, number, number, number]
     }
   }
 };
@@ -73,7 +73,7 @@ const floatingVariants = {
     transition: {
       duration: 6,
       repeat: Infinity,
-      ease: "easeInOut"
+      ease: [0.42, 0, 0.58, 1] as [number, number, number, number]
     }
   }
 };
@@ -84,7 +84,7 @@ const imageScaleVariants = {
     transition: {
       duration: 6,
       repeat: Infinity,
-      ease: "easeInOut"
+      ease: [0.42, 0, 0.58, 1] as [number, number, number, number]
     }
   },
   hovered: {
@@ -92,7 +92,7 @@ const imageScaleVariants = {
     transition: {
       duration: 4,
       repeat: Infinity,
-      ease: "easeInOut"
+      ease: [0.42, 0, 0.58, 1] as [number, number, number, number]
     }
   }
 };
@@ -104,7 +104,7 @@ const accentVariants = {
     transition: {
       duration: 3,
       repeat: Infinity,
-      ease: "easeInOut"
+      ease: [0.42, 0, 0.58, 1] as [number, number, number, number]
     }
   },
   hovered: {
@@ -113,7 +113,7 @@ const accentVariants = {
     transition: {
       duration: 3,
       repeat: Infinity,
-      ease: "easeInOut"
+      ease: [0.42, 0, 0.58, 1] as [number, number, number, number]
     }
   }
 };
@@ -126,7 +126,7 @@ const badgeVariants = {
     transition: { 
       delay: 0.8, 
       duration: 0.5, 
-      type: "spring" 
+      type: "spring" as const 
     }
   }
 };
@@ -388,7 +388,7 @@ const ProfileImage = memo(() => {
             duration: dot.duration,
             repeat: Infinity,
             delay: dot.delay,
-            ease: "easeInOut"
+            ease: [0.42, 0, 0.58, 1] as [number, number, number, number]
           }}
         />
       ))}    </div>
@@ -398,3 +398,4 @@ const ProfileImage = memo(() => {
 ProfileImage.displayName = 'ProfileImage';
 
 export default ProfileImage;
+

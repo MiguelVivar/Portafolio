@@ -268,7 +268,7 @@ const CTAButton = memo(() => {
         transition={{ 
           duration: 2, 
           repeat: Infinity,
-          ease: "easeInOut" 
+          ease: [0.42, 0, 0.58, 1] as [number, number, number, number] 
         }}
         className="absolute h-10 w-40 bg-emerald-500/20 rounded-full blur-xl -z-10"
       />
@@ -293,7 +293,7 @@ const CTAButton = memo(() => {
           }}
           transition={{ 
             duration: 1.5, 
-            ease: "easeInOut", 
+            ease: [0.42, 0, 0.58, 1] as [number, number, number, number], 
             repeat: Infinity, 
             repeatDelay: 0.5 
           }}
@@ -330,7 +330,7 @@ const CTAButton = memo(() => {
           animate={{ x: [0, 3, 0] }}
           transition={{ 
             duration: 1.5, 
-            ease: "easeInOut", 
+            ease: [0.42, 0, 0.58, 1] as [number, number, number, number], 
             repeat: Infinity 
           }}
         >
@@ -441,7 +441,7 @@ const TechStack: React.FC = () => {
           transition={{
             duration: 1.5,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: [0.42, 0, 0.58, 1] as [number, number, number, number]
           }}
         >
           ↑
@@ -455,3 +455,4 @@ const TechStack: React.FC = () => {
 };
 
 export default memo(TechStack);
+

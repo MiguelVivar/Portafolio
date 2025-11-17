@@ -14,7 +14,7 @@ const animationVariants = {
     initial: { opacity: 0, scale: 0.9 },
     animate: { opacity: 1, scale: 1 },
     transition: { 
-      type: "spring", 
+      type: "spring" as const, 
       stiffness: 400, 
       damping: 17 
     }
@@ -36,7 +36,7 @@ const animationVariants = {
     transition: {
       duration: 2.5,
       repeat: Infinity,
-      ease: "linear",
+      ease: [0, 0, 1, 1] as [number, number, number, number],
     }
   },
   iconAnimation: {
@@ -174,3 +174,4 @@ const ContactButton: React.FC<ContactButtonProps> = memo(({ isActive }) => {
 ContactButton.displayName = 'ContactButton';
 
 export default ContactButton;
+

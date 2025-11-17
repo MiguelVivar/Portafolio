@@ -24,7 +24,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, links, currentPath }) =
       transition: {
         delay: 0.05 * i,
         duration: 0.4,
-        type: "spring",
+        type: "spring" as const,
         stiffness: 300,
         damping: 24
       }
@@ -68,12 +68,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, links, currentPath }) =
   // Memoizar animaciones de brillo para evitar recreación
   const shineAnimation = useMemo(() => ({
     animate: { x: ['200%', '-200%'] },
-    transition: { duration: 2.5, repeat: Infinity, ease: "linear" }
+    transition: { duration: 2.5, repeat: Infinity, ease: [0, 0, 1, 1] as [number, number, number, number] }
   }), []);
 
   const contactShineAnimation = useMemo(() => ({
     animate: { x: ['200%', '-200%'] },
-    transition: { duration: 2, repeat: Infinity, ease: "linear" }
+    transition: { duration: 2, repeat: Infinity, ease: [0, 0, 1, 1] as [number, number, number, number] }
   }), []);
 
   // Memoizar animación de icono activo
@@ -251,3 +251,4 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, links, currentPath }) =
 };
 
 export default React.memo(MobileMenu);
+

@@ -11,7 +11,7 @@ const titleVariants = {
   animate: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.5, delay: 0.3, ease: "easeOut" }
+    transition: { duration: 0.5, delay: 0.3, ease: [0, 0, 0.58, 1] as [number, number, number, number] }
   }
 };
 
@@ -19,7 +19,7 @@ const underlineVariants = {
   initial: { width: 0 },
   animate: { 
     width: "100%",
-    transition: { duration: 0.8, delay: 0.8, ease: "easeOut" }
+    transition: { duration: 0.8, delay: 0.8, ease: [0, 0, 0.58, 1] as [number, number, number, number] }
   }
 };
 
@@ -28,7 +28,7 @@ const descriptionVariants = {
   animate: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.5, delay: 0.5, ease: "easeOut" }
+    transition: { duration: 0.5, delay: 0.5, ease: [0, 0, 0.58, 1] as [number, number, number, number] }
   }
 };
 

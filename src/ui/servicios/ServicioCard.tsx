@@ -21,7 +21,7 @@ const ServicioCard: React.FC<ServicioCardProps> = ({ servicio, index }) => {
         transition={{ 
           duration: 0.5, 
           delay: index * 0.05,
-          type: "spring",
+          type: "spring" as const,
           stiffness: 100
         }}
         whileHover={{ 
@@ -96,7 +96,7 @@ const ServicioCard: React.FC<ServicioCardProps> = ({ servicio, index }) => {
           transition={{
             duration: 1.5,
             repeat: Infinity,
-            ease: "linear",
+            ease: [0, 0, 1, 1] as [number, number, number, number],
           }}
         />
       </motion.article>
@@ -115,7 +115,7 @@ const ServicioCard: React.FC<ServicioCardProps> = ({ servicio, index }) => {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: "spring", duration: 0.5 }}
+              transition={{ type: "spring" as const, duration: 0.5 }}
               className="bg-neutral-900 rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto border border-neutral-700 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
@@ -258,3 +258,4 @@ const ServicioCard: React.FC<ServicioCardProps> = ({ servicio, index }) => {
 };
 
 export default ServicioCard;
+

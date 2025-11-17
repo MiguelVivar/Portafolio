@@ -52,7 +52,7 @@ const glowVariants = {
     transition: {
       duration: 5,
       repeat: Infinity,
-      ease: "easeInOut",
+      ease: [0.42, 0, 0.58, 1] as [number, number, number, number],
     },
   },
 };
@@ -326,3 +326,4 @@ const Home = memo<HomeProps>(({ roles }) => {
 });
 
 export default Home;
+

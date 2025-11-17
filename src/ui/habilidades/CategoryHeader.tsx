@@ -55,7 +55,7 @@ const CategoryHeader: React.FC<CategoryHeaderProps> = ({ categoria }) => {
                 <motion.span 
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.3, type: "spring", stiffness: 500 }}
+                  transition={{ delay: 0.3, type: "spring" as const, stiffness: 500 }}
                   className="ml-3 bg-emerald-500 text-xs rounded-full px-2 py-1 text-black font-bold"
                 >
                   {getTotalHabilidades()}

@@ -57,11 +57,11 @@ const Navbar: React.FC = () => {
   const scrollAnimationConfig = useMemo(() => ({
     scrolled: {
       scale: 0.99,
-      transition: { duration: 0.4, type: "spring", stiffness: 300, damping: 25 }
+      transition: { duration: 0.4, type: "spring" as const, stiffness: 300, damping: 25 }
     },
     notScrolled: {
       scale: 1,
-      transition: { duration: 0.4, type: "spring", stiffness: 300, damping: 25 }
+      transition: { duration: 0.4, type: "spring" as const, stiffness: 300, damping: 25 }
     }
   }), []);
 
@@ -171,3 +171,4 @@ const Navbar: React.FC = () => {
 };
 
 export default React.memo(Navbar);
+

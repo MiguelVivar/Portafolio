@@ -37,7 +37,7 @@ const HabilidadProgressBar: React.FC<ProgressBarProps> = ({ nivel, index }) => {
         className={`h-1.5 rounded-full ${getProgressColor(nivel)}`}
         initial={{ width: 0 }}
         animate={{ width: getProgressWidth(nivel) }}
-        transition={{ delay: 0.6 + (index * 0.1), duration: 0.8, ease: "easeOut" }}
+        transition={{ delay: 0.6 + (index * 0.1), duration: 0.8, ease: [0, 0, 0.58, 1] as [number, number, number, number] }}
       />
     </motion.div>
   );

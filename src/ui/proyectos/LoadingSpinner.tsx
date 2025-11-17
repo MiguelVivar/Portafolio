@@ -12,7 +12,7 @@ const LoadingSpinner: React.FC = () => {
       <motion.div
         className="w-12 h-12 border-4 border-emerald-300/30 border-t-emerald-300 rounded-full"
         animate={{ rotate: 360 }}
-        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 1, repeat: Infinity, ease: [0, 0, 1, 1] as [number, number, number, number] }}
         aria-hidden="true"
       />
       <span className="sr-only">Cargando proyectos, por favor espera...</span>

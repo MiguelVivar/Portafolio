@@ -16,7 +16,7 @@ const FooterLogo: React.FC = () => {
   const logoAnimation = useMemo(() => ({
     rotate: [0, 360],
     scale: [1, 1.1],
-    transition: { duration: 0.6, ease: "easeInOut" }
+    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] as [number, number, number, number] }
   }), []);
 
   const textAnimation = useMemo(() => ({

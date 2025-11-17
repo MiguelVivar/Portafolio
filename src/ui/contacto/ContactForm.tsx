@@ -169,7 +169,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ setFormStep }) => {
       opacity: 1, 
       x: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         duration: 0.5
       }
     },

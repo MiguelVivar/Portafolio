@@ -40,7 +40,7 @@ const elementoVariantes = {
     opacity: 1,
     y: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       duration: 0.5,
     },
   },
@@ -253,3 +253,4 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 };
 
 export default ProjectCard;
+

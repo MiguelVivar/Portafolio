@@ -64,7 +64,7 @@ const createFloatingVariants = (id: number, duration: number) => ({
     transition: { 
       repeat: Infinity, 
       duration, 
-      ease: "easeInOut" 
+      ease: [0.42, 0, 0.58, 1] as [number, number, number, number] 
     }
   }
 });

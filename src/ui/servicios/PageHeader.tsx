@@ -22,7 +22,7 @@ const PageHeader: React.FC = () => {
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
-        transition={{ type: "spring", stiffness: 260, damping: 20 }}
+        transition={{ type: "spring" as const, stiffness: 260, damping: 20 }}
         className="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-emerald-500/20 text-emerald-400"
       >
         <FiBriefcase className="w-8 h-8" aria-hidden="true" />
@@ -75,3 +75,4 @@ const PageHeader: React.FC = () => {
 };
 
 export default PageHeader;
+

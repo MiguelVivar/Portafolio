@@ -38,10 +38,10 @@ const animationVariants = {
     transition: { duration: 0.5, delay: 0.3 }
   },
   titleSpan: {
-    transition: { 
+    transition: {
       duration: 5,
       repeat: Infinity,
-      ease: "linear" 
+      ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number]
     }
   },
   buttonHover: {
@@ -285,3 +285,4 @@ const CallToAction: React.FC<CallToActionProps> = memo(({
 CallToAction.displayName = 'CallToAction';
 
 export default CallToAction;
+

@@ -19,7 +19,7 @@ const ErrorAnimation: React.FC = () => {
           transition={{ 
             repeat: Infinity, 
             duration: 3,
-            ease: "easeInOut" 
+            ease: [0.42, 0, 0.58, 1] as [number, number, number, number] 
           }}
         >
           <div className="relative h-full w-full">
@@ -29,7 +29,7 @@ const ErrorAnimation: React.FC = () => {
               animate={{ 
                 rotateZ: [-3, 3, -3], 
               }}
-              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+              transition={{ repeat: Infinity, duration: 3, ease: [0.42, 0, 0.58, 1] as [number, number, number, number] }}
             >
               {/* Ojos */}
               <div className="absolute flex justify-center space-x-5 w-full top-5">
@@ -126,7 +126,7 @@ const ErrorAnimation: React.FC = () => {
             width: ["8rem", "7rem", "8rem"],
             opacity: [0.3, 0.5, 0.3]
           }}
-          transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+          transition={{ repeat: Infinity, duration: 3, ease: [0.42, 0, 0.58, 1] as [number, number, number, number] }}
         ></motion.div>
       </div>
     </motion.div>

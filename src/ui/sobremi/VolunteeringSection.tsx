@@ -94,7 +94,7 @@ const VolunteeringSection: React.FC<VolunteeringSectionProps> = ({
       scale: 1,
       rotateX: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100,
         damping: 15,
         duration: 0.8,
@@ -108,7 +108,7 @@ const VolunteeringSection: React.FC<VolunteeringSectionProps> = ({
       scale: 1,
       opacity: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 200,
         damping: 20,
       },
@@ -240,7 +240,7 @@ const VolunteeringSection: React.FC<VolunteeringSectionProps> = ({
                   animate={
                     hoveredCard === index ? { x: "200%" } : { x: "-100%" }
                   }
-                  transition={{ duration: 1.5, ease: "easeInOut" }}
+                  transition={{ duration: 1.5, ease: [0.42, 0, 0.58, 1] as [number, number, number, number] }}
                 />
 
                 {/* Header de la tarjeta mejorado */}
@@ -261,7 +261,7 @@ const VolunteeringSection: React.FC<VolunteeringSectionProps> = ({
                         duration: 2,
                         repeat: Infinity,
                         repeatDelay: 3,
-                        ease: "easeInOut",
+                        ease: [0.42, 0, 0.58, 1] as [number, number, number, number],
                       }}
                     />
                     <div className="text-emerald-200 relative z-10">
@@ -339,7 +339,7 @@ const VolunteeringSection: React.FC<VolunteeringSectionProps> = ({
                           className="w-2 h-2 rounded-full bg-gradient-to-r from-emerald-400 to-teal-400 mt-2 flex-shrink-0"
                           whileHover={{ scale: 1.5, rotate: 180 }}
                           transition={{
-                            type: "spring",
+                            type: "spring" as const,
                             stiffness: 400,
                             damping: 17,
                           }}
@@ -384,7 +384,7 @@ const VolunteeringSection: React.FC<VolunteeringSectionProps> = ({
                 duration: 3,
                 repeat: Infinity,
                 repeatDelay: 2,
-                ease: "easeInOut",
+                ease: [0.42, 0, 0.58, 1] as [number, number, number, number],
               }}
             />
 
@@ -396,7 +396,7 @@ const VolunteeringSection: React.FC<VolunteeringSectionProps> = ({
               transition={{
                 duration: 2,
                 repeat: Infinity,
-                ease: "easeInOut",
+                ease: [0.42, 0, 0.58, 1] as [number, number, number, number],
               }}
             >
               <FaHeart className="text-emerald-400 group-hover:text-emerald-300 transition-colors duration-300 text-xl" />
@@ -430,3 +430,5 @@ const VolunteeringSection: React.FC<VolunteeringSectionProps> = ({
 };
 
 export default VolunteeringSection;
+
+

@@ -39,7 +39,7 @@ const itemVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       duration: 0.6,
     },
   },
@@ -106,7 +106,7 @@ const RelatedProjects: React.FC<RelatedProjectsProps> = ({
             key={proyecto.id}
             variants={itemVariants}
             whileHover={{ y: -5 }}
-            transition={{ type: "spring", stiffness: 300 }}
+            transition={{ type: "spring" as const, stiffness: 300 }}
           >
             <ProjectCard proyecto={proyecto} index={index} />
           </motion.div>
@@ -143,3 +143,4 @@ const RelatedProjects: React.FC<RelatedProjectsProps> = ({
 };
 
 export default RelatedProjects;
+

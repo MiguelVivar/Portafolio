@@ -17,7 +17,7 @@ const NavLink: React.FC<NavLinkProps> = ({ href, label, icon: Icon, isActive }) 
   // Memoizar configuraciones de animación para evitar recreación
   const containerAnimation = useMemo(() => ({
     whileHover: { y: -2 },
-    transition: { type: "spring", stiffness: 400, damping: 17 }
+    transition: { type: "spring" as const, stiffness: 400, damping: 17 }
   }), []);
 
   const backgroundAnimation = useMemo(() => ({
@@ -151,3 +151,4 @@ const NavLink: React.FC<NavLinkProps> = ({ href, label, icon: Icon, isActive }) 
 };
 
 export default React.memo(NavLink);
+

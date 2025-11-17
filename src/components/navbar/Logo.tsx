@@ -24,7 +24,7 @@ const Logo: React.FC = () => {
 
   const rotationAnimation = useMemo(() => ({
     rotate: hoverLogo ? 360 : 0,
-    transition: { duration: 1, ease: "easeInOut" }
+    transition: { duration: 1, ease: [0.42, 0, 0.58, 1] as [number, number, number, number] }
   }), [hoverLogo]);
 
   const subtleRotationAnimation = useMemo(() => ({
@@ -32,7 +32,7 @@ const Logo: React.FC = () => {
     transition: { 
       duration: 6, 
       repeat: Infinity,
-      ease: "easeInOut" 
+      ease: [0.42, 0, 0.58, 1] as [number, number, number, number] 
     }
   }), []);
 

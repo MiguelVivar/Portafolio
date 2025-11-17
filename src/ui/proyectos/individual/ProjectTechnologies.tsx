@@ -24,7 +24,7 @@ const itemVariants = {
     opacity: 1,
     scale: 1,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       duration: 0.5,
     },
   },
@@ -51,7 +51,7 @@ const ProjectTechnologies: React.FC<ProjectTechnologiesProps> = ({
               key={index}
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
+              transition={{ type: "spring" as const, stiffness: 300 }}
             >
               <TechnologyBadge tech={tech} large />
             </motion.div>
@@ -124,3 +124,4 @@ function getStackInfo(
 }
 
 export default ProjectTechnologies;
+

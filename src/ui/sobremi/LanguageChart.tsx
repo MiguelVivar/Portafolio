@@ -125,7 +125,7 @@ const LanguageChart: React.FC<LanguageChartProps> = ({
                       boxShadow: `0 0 10px ${language.color}50`
                     }}
                     whileHover={{ scale: 1.2 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    transition={{ type: "spring" as const, stiffness: 400, damping: 10 }}
                   >
                     <AnimatePresence>
                       {hoveredLanguage === language.name && (
@@ -149,7 +149,7 @@ const LanguageChart: React.FC<LanguageChartProps> = ({
                 <motion.span 
                   className="text-base font-bold text-white bg-neutral-700/30 px-3 py-1 rounded-full"
                   whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  transition={{ type: "spring" as const, stiffness: 400, damping: 10 }}
                 >
                   {language.percentage}%
                 </motion.span>
@@ -164,7 +164,7 @@ const LanguageChart: React.FC<LanguageChartProps> = ({
                   transition={{ 
                     duration: 1.5, 
                     delay: 0.3 + index * 0.1,
-                    ease: "easeOut" 
+                    ease: [0, 0, 0.58, 1] as [number, number, number, number] 
                   }}
                   className="h-full rounded-full transition-all duration-300 relative"
                   style={{ 
@@ -196,7 +196,7 @@ const LanguageChart: React.FC<LanguageChartProps> = ({
               <motion.span 
                 className="text-base font-bold text-emerald-400 bg-emerald-500/10 px-4 py-1.5 rounded-full"
                 whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                transition={{ type: "spring" as const, stiffness: 400, damping: 10 }}
               >
                 {totalPercentage}%
               </motion.span>
@@ -259,7 +259,7 @@ const LanguageChart: React.FC<LanguageChartProps> = ({
                         transition={{ 
                           duration: 2, 
                           delay: 0.5 + index * 0.2,
-                          ease: "easeOut" 
+                          ease: [0, 0, 0.58, 1] as [number, number, number, number] 
                         }}
                       />
 
@@ -291,7 +291,7 @@ const LanguageChart: React.FC<LanguageChartProps> = ({
                 <motion.div 
                   className="text-center"
                   whileHover={{ scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  transition={{ type: "spring" as const, stiffness: 400, damping: 10 }}
                 >
                   <div className="text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
                     {totalPercentage}%
@@ -335,3 +335,4 @@ const LanguageChart: React.FC<LanguageChartProps> = ({
 };
 
 export default LanguageChart;
+

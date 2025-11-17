@@ -94,7 +94,7 @@ const AcademicProgress: React.FC<AcademicProgressProps> = ({ carrera }) => {
                   initial={{ width: 0 }}
                   whileInView={{ width: `${carrera.porcentajeCompletado}%` }}
                   viewport={{ once: true }}
-                  transition={{ duration: 2, delay: 0.8, ease: "easeOut" }}
+                  transition={{ duration: 2, delay: 0.8, ease: [0, 0, 0.58, 1] as [number, number, number, number] }}
                   className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full relative overflow-hidden"
                 >
                   {/* Efecto de brillo animado */}
@@ -171,7 +171,7 @@ const AcademicProgress: React.FC<AcademicProgressProps> = ({ carrera }) => {
                   transition={{ 
                     duration: 0.3, 
                     delay: 1.5 + (ciclo * 0.1),
-                    type: "spring",
+                    type: "spring" as const,
                     stiffness: 100
                   }}
                   className={`
@@ -212,3 +212,4 @@ const AcademicProgress: React.FC<AcademicProgressProps> = ({ carrera }) => {
 };
 
 export default AcademicProgress;
+

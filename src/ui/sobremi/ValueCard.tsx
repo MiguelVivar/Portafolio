@@ -46,7 +46,7 @@ const ValueCard: React.FC<ValueCardProps> = ({ valor, index }) => {
         transition={{
           duration: 3,
           repeat: Infinity,
-          ease: "easeInOut"
+          ease: [0.42, 0, 0.58, 1] as [number, number, number, number]
         }}
       />
     </motion.div>

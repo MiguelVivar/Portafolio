@@ -30,7 +30,7 @@ const GitHubStatsCard: React.FC<GitHubStatsCardProps> = ({
       transition={{ 
         duration: 0.6, 
         delay,
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100 
       }}
       whileHover={{ 
@@ -70,7 +70,7 @@ const GitHubStatsCard: React.FC<GitHubStatsCardProps> = ({
               transition={{ 
                 duration: 0.8, 
                 delay: delay + 0.3,
-                type: "spring",
+                type: "spring" as const,
                 stiffness: 200 
               }}
               className="text-2xl sm:text-3xl font-bold text-white"
@@ -99,7 +99,7 @@ const GitHubStatsCard: React.FC<GitHubStatsCardProps> = ({
                 transition={{ 
                   duration: 1.5, 
                   delay: delay + 0.6,
-                  ease: "easeOut" 
+                  ease: [0, 0, 0.58, 1] as [number, number, number, number] 
                 }}
                 className={`h-full bg-gradient-to-r ${color} rounded-full`}
               />
@@ -118,3 +118,4 @@ const GitHubStatsCard: React.FC<GitHubStatsCardProps> = ({
 };
 
 export default GitHubStatsCard;
+

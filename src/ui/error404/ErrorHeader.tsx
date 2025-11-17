@@ -10,7 +10,7 @@ const ErrorHeader: React.FC = () => {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ 
           duration: 0.7,
-          type: "spring",
+          type: "spring" as const,
           bounce: 0.4
         }}
       >
@@ -26,7 +26,7 @@ const ErrorHeader: React.FC = () => {
               duration: 2, 
               repeat: Infinity, 
               repeatType: "reverse",
-              ease: "easeInOut", 
+              ease: [0.42, 0, 0.58, 1] as [number, number, number, number], 
               delay: 1
             }}
           >
@@ -49,3 +49,4 @@ const ErrorHeader: React.FC = () => {
 };
 
 export default ErrorHeader;
+

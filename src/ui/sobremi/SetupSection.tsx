@@ -28,7 +28,7 @@ const SetupSection: React.FC<SetupSectionProps> = ({ setupData }) => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
+        ease: [0, 0, 0.58, 1] as [number, number, number, number]
       }
     }
   };
@@ -41,7 +41,7 @@ const SetupSection: React.FC<SetupSectionProps> = ({ setupData }) => {
       scale: 1,
       transition: {
         duration: 0.5,
-        ease: "easeOut"
+        ease: [0, 0, 0.58, 1] as [number, number, number, number]
       }
     }
   };

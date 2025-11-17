@@ -54,19 +54,19 @@ const cardVariants = {
     transition: { 
       delay: 0.2 + index * 0.2, 
       duration: 0.8,
-      ease: "easeOut"
+      ease: [0, 0, 0.58, 1] as [number, number, number, number]
     }
   }),
   hover: { 
     y: -5,
-    transition: { duration: 0.2, ease: "easeInOut" }
+    transition: { duration: 0.2, ease: [0.42, 0, 0.58, 1] as [number, number, number, number] }
   }
 };
 
 const iconVariants = {
   hover: { 
     scale: 1.1,
-    transition: { type: "spring", stiffness: 400, damping: 10 }
+    transition: { type: "spring" as const, stiffness: 400, damping: 10 }
   }
 };
 
@@ -77,7 +77,7 @@ const valueVariants = {
       delay: 1 + index * 0.2, 
       duration: 1, 
       repeat: 2,
-      ease: "easeInOut"
+      ease: [0.42, 0, 0.58, 1] as [number, number, number, number]
     }
   })
 };
@@ -177,7 +177,7 @@ const AchievementCard: React.FC<AchievementCardProps> = memo(({ achievement, ind
 
   const iconAnimationProps = useMemo(() => ({
     whileHover: iconVariants.hover,
-    transition: { type: "spring", stiffness: 400, damping: 10 }
+    transition: { type: "spring" as const, stiffness: 400, damping: 10 }
   }), []);
 
   const valueAnimationProps = useMemo(() => ({

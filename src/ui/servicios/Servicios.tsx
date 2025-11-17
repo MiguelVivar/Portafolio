@@ -6,7 +6,7 @@ import { servicios, categorias, procesoTrabajo, garantias, faqServicios } from '
 import PageHeader from './PageHeader';
 import ServicioCard from './ServicioCard';
 import CallToAction from '@/components/CallToAction';
-import { FiMail, FiSearch, FiX, FiChevronDown, FiChevronUp, FiCheckCircle } from 'react-icons/fi';
+import { FiMail, FiSearch, FiX, FiChevronDown, FiChevronUp } from 'react-icons/fi';
 // import PlanesComparacion from './PlanesComparacion';
 // import TestimoniosServicios from './TestimoniosServicios';
 

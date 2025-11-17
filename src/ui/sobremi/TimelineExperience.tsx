@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaBriefcase, FaBuilding } from 'react-icons/fa';
-import { FaFolderOpen } from 'react-icons/fa6';
 import TimelineItem from './TimelineItem';
 
 const TimelineExperience: React.FC = () => {

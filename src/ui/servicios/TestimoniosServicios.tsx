@@ -101,7 +101,7 @@ const TestimoniosServicios: React.FC = () => {
 
               {/* Testimonio */}
               <blockquote className="text-gray-300 text-lg leading-relaxed mb-8 flex-1">
-                "{testimonios[testimonioActual].testimonio}"
+                &ldquo;{testimonios[testimonioActual].testimonio}&rdquo;
               </blockquote>
 
               {/* Info del cliente */}
